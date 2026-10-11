@@ -1,0 +1,95 @@
+{% comment %}
+  The Online Store channel exists only to host Shopify checkout and the
+  ParcelPanel order-tracking app proxy on checkout.vesperacollectives.com.
+  Every page this theme renders is a stale copy of a storefront that now
+  lives on Hydrogen at vesperacollectives.com, so anyone who lands here --
+  returning from the checkout sign-in, clicking the checkout header, or
+  following an old backlink -- gets sent to the real storefront instead.
+
+  Never redirects:
+    /apps/*        the ParcelPanel proxy must render on this domain
+    design mode    so the theme stays editable in the theme editor
+    password / challenge / gift card templates, which have no Hydrogen route
+
+  Checkout itself (/checkouts/*, /customer_authentication/*) is not rendered
+  by the theme, so nothing here can touch it.
+{% endcomment %}
+{%- liquid
+  assign storefront = 'https://vesperacollectives.com'
+
+  assign stay_here = false
+  if request.design_mode
+    assign stay_here = true
+  endif
+  if request.path contains '/apps/'
+    assign stay_here = true
+  endif
+
+  assign protected_templates = 'password,challenge,gift_card,captcha'
+  assign template_names = protected_templates | split: ','
+  for name in template_names
+    if template.name == name
+      assign stay_here = true
+    endif
+  endfor
+
+  comment
+    Paths Hydrogen mirrors one-for-one, so the visitor keeps their place.
+    Anything else (404s, old theme-only routes) goes to the home page.
+  endcomment
+  assign mirrored = 'index,product,collection,list-collections,page,policy,blog,article,cart,search'
+  assign mirrored_names = mirrored | split: ','
+  assign keep_path = false
+  for name in mirrored_names
+    if template.name == name
+      assign keep_path = true
+    endif
+  endfor
+
+  comment
+    Shop policy pages do not report template.name == 'policy', so the list
+    above never matches them and the visitor was dropped on the home page.
+    Match on the request path instead. Shopify checkout's footer links to
+    these URLs, so losing the path here means a customer in checkout cannot
+    read the refund or privacy policy at all.
+  endcomment
+  if request.path contains '/policies/'
+    assign keep_path = true
+  endif
+-%}
+{%- comment -%}
+  28 Sep 2026 — made crawler-proof for Google Merchant Center.
+  Google Shopping links point at THIS domain (the Online Store channel), so
+  the redirect must work without JavaScript and must name the exact Hydrogen
+  URL, not the home page:
+    - `target` is built in Liquid (path preserved on mirrored pages), so the
+      meta refresh and the canonical carry the same URL as the JS redirect.
+    - The meta refresh is no longer inside <noscript>: a 0-second meta refresh
+      is treated by Google as a permanent redirect.
+    - The canonical is NOT output here (that made two canonical tags): it is
+      rewritten in snippets/meta-tags.liquid to name the Hydrogen page.
+{%- endcomment -%}
+{%- liquid
+  assign target = storefront
+  if keep_path
+    assign target = storefront | append: request.path
+  endif
+-%}
+{%- unless stay_here -%}
+  <meta http-equiv="refresh" content="0; url={{ target }}">
+  <script>
+    (function redirectToStorefront() {
+      var STOREFRONT = {{ storefront | json }};
+      var KEEP_PATH = {{ keep_path | json }};
+      var target = STOREFRONT;
+      try {
+        if (KEEP_PATH) {
+          target += window.location.pathname + window.location.search + window.location.hash;
+        }
+        window.location.replace(target);
+      } catch (error) {
+        window.location.href = STOREFRONT;
+      }
+    })();
+  </script>
+{%- endunless -%}

@@ -1,0 +1,62 @@
+node_modules
+/.cache
+/build
+/dist
+/public/build
+/.mf
+.env
+.shopify
+.react-router
+
+# Output from the catalogue scripts in scripts/. These are regenerated every
+# run and are not source. They were listed one filename at a time, which meant
+# every new script's output showed up as untracked and blocked
+# `shopify hydrogen deploy` ("Uncommitted changes detected"). Globs instead, so
+# a new script needs no gitignore edit.
+*-report.csv
+*-preview.csv
+*-skipped.txt
+*-failures.txt
+*-collisions.txt
+*-unclassified.txt
+*.progress.log
+import-progress.log
+
+# NOTE: *-rollback-*.csv is deliberately NOT ignored. Those files are the only
+# way to undo a bulk mutation — Shopify keeps no history of product
+# descriptions, options or metafields — so they belong in git, where they are
+# backed up. Commit them.
+
+# TypeScript incremental build cache. Was listed here but also tracked, which
+# makes the ignore rule a no-op: git keeps reporting it as modified on every
+# typecheck and the deploy refuses to run. Untracked in the same commit that
+# added this comment.
+tsconfig.tsbuildinfo
+
+# Catalog dumps from the migration scripts. products.json alone is >100MB —
+# past GitHub's hard file limit — and both are regenerated output, not
+# source. The files stay on disk; git just stops tracking them.
+shopify-catalog-migration/export/
+
+# Local editor/agent settings — machine-specific, not shared.
+.claude/settings.local.json
+
+# Scratch checks written by Claude sessions — never part of the app.
+.tmp-verify/
+
+# Preview files Claude saves into the connected folder — not source, and an
+# untracked file blocks `shopify hydrogen deploy`.
+Claude outputs/
+
+# Price-script output (28 Sep 2026): per-run plans and reports, several MB each
+# and regenerated every run. The matching *-rollback-*.json files are NOT
+# ignored — like the rollback CSVs above, they are the only way to undo a run.
+pricing-plan-*.csv
+hype-items-*.csv
+sneakerask-prices-*.csv
+
+# SneakerAsk lookup cache for sync-availability.mjs (regenerated, can be large).
+sneakerask-cache.json
+sale-plan-*.csv
+round-prices-*.csv
+round-prices-rollback-*.json
