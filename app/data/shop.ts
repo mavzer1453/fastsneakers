@@ -94,7 +94,7 @@ export const SHOP: ShopConfig = {
   tagline: 'Curated streetwear, sneakers & essentials.',
   defaultDescription:
     'Curated streetwear, sneakers and accessories from the brands that matter — limited drops and everyday staples, with tracked worldwide shipping and 14-day returns.',
-  email: 'support@fastsneakers.com', // PLACEHOLDER — set to the support inbox on the real domain once it is bought
+  email: 'support@fastsneaker.com', // PLACEHOLDER — set to the support inbox on the real domain once it is bought
   phone: null, // Removed on owner's request 2026-10-05 — contact is by email only.
   whatsapp: null, // PLACEHOLDER — {display: 'Chat on WhatsApp', href: 'https://wa.me/32471234567'}
   address: ['Brugsesteenweg 56', '8531 Harelbeke', 'Belgium'],

@@ -18,7 +18,7 @@ for Fast Sneakers (same company, Bozkurt Enterprise). Before going live:
    **Hydrogen** sales channel, create a storefront, and connect this GitHub
    repo (`mavzer1453/fastsneakers`). Every push to `main` then deploys to Oxygen.
 2. **Domain.** Buy the domain, connect it in Shopify (Settings → Domains), and
-   if it is not `fastsneakers.com`, search-and-replace `fastsneakers.com` in
+   if it is not `fastsneaker.com`, search-and-replace `fastsneaker.com` in
    the code (shop.ts, policies, emails, checkout theme).
 3. **Support email.** Set `email` in `app/data/shop.ts` to a real inbox.
 4. **Products & collections.** The menus, brand links and homepage tiles use

@@ -229,7 +229,7 @@ marked `PLACEHOLDER` render **nothing** until filled — the site never shows
 fake data. Fill in:
 
 - [ ] `email` — the support inbox on your real domain (currently
-      `support@fastsneakers.com` as a placeholder)
+      `support@fastsneaker.com` as a placeholder)
 - [ ] `legalName` — your registered company name
 - [ ] `phone` — `{display, href}` to show phone support everywhere
 - [ ] `whatsapp` — `{display, href}` to show WhatsApp support everywhere

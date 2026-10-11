@@ -498,7 +498,7 @@ export function Footer({selectedLocale}: FooterProps) {
               <li>
                 {/* The address is too long for a narrow phone column, so
                     offer a break opportunity right after the "@" — it wraps
-                    to "support@ / fastsneakers.com" instead of
+                    to "support@ / fastsneaker.com" instead of
                     splitting mid-word or running off the edge. */}
                 <a href={`mailto:${SHOP.email}`}>
                   {SHOP.email.split('@')[0]}@<wbr />

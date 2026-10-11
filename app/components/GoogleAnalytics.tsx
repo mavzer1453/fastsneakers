@@ -16,7 +16,7 @@ import {
  * does not run on a headless storefront, so the Google & YouTube channel's
  * GA4 connection only instruments Shopify-hosted surfaces. On this store that
  * means the checkout — and, until the redirect theme is replaced, a domain no
- * one browses. Everything that happens on fastsneakers.com has to be
+ * one browses. Everything that happens on fastsneaker.com has to be
  * sent from here.
  *
  * Deliberately NOT fired here: `begin_checkout` and `purchase`. The Google &
@@ -88,7 +88,7 @@ function loadGtag(measurementId: string, adsId?: string) {
   gtag('config', measurementId, {send_page_view: true});
   // Google Ads tag (AW-…). Same gtag.js instance, second destination. This is
   // what Google Ads looks for when it checks "is the Google tag installed on
-  // fastsneakers.com" — the GA4 ID alone does not satisfy that check.
+  // fastsneaker.com" — the GA4 ID alone does not satisfy that check.
   // It also feeds remarketing audiences. Purchases are still NOT sent from
   // here: the Google & YouTube app's checkout tag already reports them to
   // this same AW account, so sending them again would double-count.
