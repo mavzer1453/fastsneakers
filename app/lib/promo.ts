@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react';
  * The live campaign, in one place.
  *
  * These timestamps MUST match the Shopify discount `BTS10` exactly
- * (gid://shopify/DiscountCodeNode/2412428099971). If they drift, the
+ * (gid://shopify/DiscountCodeNode/2287616885068). If they drift, the
  * storefront advertises a code that checkout rejects — the worst version of
  * this feature, because the shopper only finds out after filling a basket.
  *
