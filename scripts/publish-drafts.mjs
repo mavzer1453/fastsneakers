@@ -5,7 +5,7 @@
  * Two things have to happen, and the Shopify admin's bulk "Set as active" only
  * does the first:
  *   1. status DRAFT -> ACTIVE
- *   2. publish to the sales channels — including "Vespera Collectives Live",
+ *   2. publish to the sales channels — including "Fast Sneakers Live",
  *      which is the one the Hydrogen storefront actually reads
  *
  * Products created through the Admin API start with NO publications at all, so
@@ -110,7 +110,7 @@ const API_VERSION = '2025-07';
 
 /**
  * Every channel our existing live products sit on, so the catalogue stays
- * consistent. "Vespera Collectives Live" is the Hydrogen channel the storefront
+ * consistent. "Fast Sneakers Live" is the Hydrogen channel the storefront
  * reads — the one that decides whether a product is visible at all.
  *
  * Narrow it per-run with --channels="..." when you want a curated subset in the
@@ -118,7 +118,7 @@ const API_VERSION = '2025-07';
  */
 const DEFAULT_CHANNELS = [
   'Online Store',
-  'Vespera Collectives Live',
+  'Fast Sneakers Live',
   'Shop',
   'Facebook & Instagram',
   'TikTok',

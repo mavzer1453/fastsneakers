@@ -24,7 +24,7 @@
  *      Admin API scopes `read_products` and `write_products` -> Release.
  *   2. Install the app on the store.
  *   3. App -> Settings -> copy the Client ID and Client secret into .env:
- *        SHOPIFY_SHOP=vespera-collective
+ *        SHOPIFY_SHOP=fastsneakers
  *        SHOPIFY_CLIENT_ID=...
  *        SHOPIFY_CLIENT_SECRET=...
  *      (.env is gitignored. The script exchanges these for a 24h access token

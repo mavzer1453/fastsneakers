@@ -27,7 +27,7 @@ export default function AboutPage() {
         <h1>{t('The pieces worth chasing, without the chase.')}</h1>
         <p>
           {t(
-            "Vespera is the evening star — the first one you spot when the day winds down. That's the standard for everything we stock: pieces that stand out the moment you see them, from limited sneakers to heavyweight everyday staples.",
+            "Fast Sneakers is built around one simple idea: finding the pair you want shouldn't be a chore. Everything we stock has to earn its place, from limited sneakers to heavyweight everyday staples.",
           )}
         </p>
       </div>

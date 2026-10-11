@@ -73,12 +73,12 @@ export function links() {
      * Favicons are declared as real raster files, not a single SVG. iOS
      * Safari ignores SVG favicons entirely, and with nothing else on offer
      * it falls back to a generic icon — which is why the tab switcher was
-     * showing a Shopify bag instead of the Vespera mark. The .ico carries
+     * showing a Shopify bag instead of the Fast Sneakers mark. The .ico carries
      * 16/32/48 renderings, and apple-touch-icon covers iOS home screens.
      * All of these live in public/ and are served from the site root.
      *
-     * Every file is the Vespera mark in cream on the brand navy — the owner
-     * wants the dark tile, not the mark on white. The 48 and 96px files are
+     * Every file is the Fast Sneakers mark (white bolt, orange speed lines)
+     * on a charcoal tile. The 48 and 96px files are
      * there for Google specifically: it wants a favicon that is a multiple
      * of 48px and picks it up on its own schedule, days to a few weeks
      * after a change. favicon-96x96 is icon-512 scaled down.
@@ -97,7 +97,7 @@ export const meta: Route.MetaFunction = () => {
   return [
     {title: `${SHOP.name} — Streetwear, Sneakers & Essentials`},
     {name: 'description', content: SHOP.defaultDescription},
-    {name: 'theme-color', content: '#1c2233'},
+    {name: 'theme-color', content: '#111111'},
     {property: 'og:site_name', content: SHOP.name},
     {property: 'og:type', content: 'website'},
     {name: 'twitter:card', content: 'summary'},
@@ -136,9 +136,10 @@ export async function loader(args: Route.LoaderArgs) {
     tiktokPixelId: env.PUBLIC_TIKTOK_PIXEL_ID,
     metaPixelId: env.PUBLIC_META_PIXEL_ID,
     ga4MeasurementId: env.PUBLIC_GA4_MEASUREMENT_ID,
-    // Public tag ID, safe to ship. Falls back to the live account so the tag
-    // works without a new Oxygen variable; set the env var to override.
-    googleAdsId: env.PUBLIC_GOOGLE_ADS_ID ?? 'AW-18395277924',
+    // Google Ads tag for this store's own Ads account. No fallback: an ID
+    // here would send this shop's conversions to another account. Set
+    // PUBLIC_GOOGLE_ADS_ID in Oxygen once the account exists.
+    googleAdsId: env.PUBLIC_GOOGLE_ADS_ID,
     selectedLocale: storefront.i18n,
     shop: getShopAnalytics({
       storefront,
@@ -288,11 +289,8 @@ export function Layout({children}: {children?: React.ReactNode}) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        {/* Meta (Facebook) domain verification for vesperacollectives.com */}
-        <meta
-          name="facebook-domain-verification"
-          content="gx0jbdyjrols0469wpuf9x2yf3n0kk"
-        />
+        {/* Add this store's own Meta domain-verification <meta> here once
+            the domain is verified in Meta Business Manager. */}
         {/*
           * Zalando Sans (Zalando's open-sourced brand face) and the hero's
           * Playfair Display italic, both self-hosted — see ~/styles/fonts.css

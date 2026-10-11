@@ -166,7 +166,7 @@ function isDutch(text) {
 
 /**
  * The English import boilerplate — "... is exclusive and no longer available
- * anywhere. At Vespera Collectives it is! 100% authentic & unworn." — is long
+ * anywhere. At Fast Sneakers it is! 100% authentic & unworn." — is long
  * enough to pass the thin test and is in the right language, but it is
  * IDENTICAL on thousands of products bar the title. That is duplicate content
  * at scale and a plausible contributor to "Discovered - currently not
@@ -182,7 +182,7 @@ function isDutch(text) {
  *
  * The first three were the obvious template. The rest come from a second
  * shape that slipped through the 2026-09-19 run — "<title> is now available
- * at Vespera Collectives. The shoes fit true to size…" followed by a
+ * at Fast Sneakers. The shoes fit true to size…" followed by a
  * "Size not in stock?" pitch. It is not thin, not Dutch and not generated,
  * so every other classifier called it fine and left it live.
  *
@@ -224,7 +224,7 @@ const flatten = (html) =>
  *
  * Needed because the generator improves. The 8,403-product run on
  * 2026-09-19 went out with a version that, among other things, described
- * unbranded products as "a Vespera Collectives sneaker" — and once written,
+ * unbranded products as "a Fast Sneakers sneaker" — and once written,
  * those descriptions are no longer `boilerplate`, no longer `thin` and no
  * longer Dutch, so every classifier called them "already fine" and there was
  * no way to reach them again short of restoring the rollback CSV.
@@ -607,7 +607,7 @@ const SOFT_CLOSERS = [
  */
 function openingSentence({title, collab, brand, category, colour, model}, seed) {
   // When the brand is unknown, say nothing about it. The fallback used to be
-  // 'Vespera Collectives', which turned "Dunk Low Phantom" into "a Vespera
+  // 'Fast Sneakers', which turned "Dunk Low Phantom" into "a Vespera
   // Collectives sneaker" on 86 products — describing Nike's shoe as our own.
   // Article 15 of the terms says the opposite in as many words: "Vespera
   // Collectives is an independent reseller and is not affiliated with any
@@ -652,8 +652,8 @@ function openingSentence({title, collab, brand, category, colour, model}, seed) 
 function describe(product) {
   const tags = product.tags ?? [];
   // The shop's own name in the vendor field is a placeholder, not a maker.
-  // It reached the page twice on unbranded products — "a Vespera Collectives
-  // accessory" in the sentence and "Brand: Vespera Collectives" in the specs —
+  // It reached the page twice on unbranded products — "a Fast Sneakers
+  // accessory" in the sentence and "Brand: Fast Sneakers" in the specs —
   // on goods the terms say we only resell.
   const vendor = /^(vespera[- ]?collectives?|easyhairkit|sneakerask)$/i.test(
     (product.vendor ?? '').trim(),

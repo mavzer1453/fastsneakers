@@ -75,7 +75,7 @@ export async function loader({params, context}: Route.LoaderArgs) {
 
 /** Branded tracking page, served by the tracking app on the Shopify domain. */
 const TRACKING_ENDPOINT =
-  'https://checkout.vesperacollectives.com/apps/parcelpanel';
+  'https://checkout.fastsneakers.com/apps/parcelpanel';
 
 /**
  * "Track order" goes somewhere useful in both states.

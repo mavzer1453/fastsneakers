@@ -20,7 +20,7 @@ import {useTranslate} from '~/lib/useTranslate';
  * provider through both to share one string is more moving parts than the
  * feature is worth.
  */
-const STORAGE_KEY = 'vespera:size-unit';
+const STORAGE_KEY = 'fastsneakers:size-unit';
 
 /** Every stored scale. The switcher shows them as EU | US | UK + Men | Women. */
 export const SIZE_UNITS: SizeUnit[] = ['EU', 'US_M', 'US_W', 'UK_M', 'UK_W'];

@@ -13,7 +13,7 @@
  *      → Create app → give it the `read_products` + `write_products` Admin
  *      API scopes → install → copy the Admin API access token.
  *   2. Run a dry run (nothing is written, prints what would change):
- *        SHOPIFY_SHOP=vespera-collective.myshopify.com \
+ *        SHOPIFY_SHOP=fastsneakers.myshopify.com \
  *        SHOPIFY_ADMIN_TOKEN=shpat_xxx \
  *        node scripts/fix-brands.mjs
  *   3. Apply for real:
@@ -27,7 +27,7 @@ const API_VERSION = '2025-07';
 
 if (!SHOP || !TOKEN) {
   console.error(
-    'Set SHOPIFY_SHOP (e.g. vespera-collective.myshopify.com) and SHOPIFY_ADMIN_TOKEN.',
+    'Set SHOPIFY_SHOP (e.g. fastsneakers.myshopify.com) and SHOPIFY_ADMIN_TOKEN.',
   );
   process.exit(1);
 }
@@ -68,7 +68,7 @@ const BRAND_RULES = [
   [/carhartt/i, 'Carhartt'],
 ];
 
-const HOUSE_BRAND = 'Vespera Collectives';
+const HOUSE_BRAND = 'Fast Sneakers';
 const LEGACY_VENDORS = new Set(['easyhairkit', 'vitalex', '']);
 
 function brandFor(title) {

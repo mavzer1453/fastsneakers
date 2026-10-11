@@ -1,17 +1,17 @@
 # checkout-domain-theme
 
 Reference copy of the changes made to the Online Store theme that serves
-`checkout.vesperacollectives.com`. The theme lives in Shopify admin, not in this
+`checkout.fastsneakers.com`. The theme lives in Shopify admin, not in this
 repo — this folder exists so the change is reviewable and re-appliable.
 
 ## Why
 
-`checkout.vesperacollectives.com` is the Online Store channel. It exists only to
+`checkout.fastsneakers.com` is the Online Store channel. It exists only to
 host Shopify checkout and the ParcelPanel order-tracking app proxy. Until now it
 also served a full, stale copy of the Horizon theme, so anyone who escaped
 checkout — returning from the sign-in flow, clicking the checkout header, or
 following an old backlink — landed on an outdated storefront with outdated
-prices instead of the Hydrogen site at `vesperacollectives.com`.
+prices instead of the Hydrogen site at `fastsneakers.com`.
 
 ## What changed
 
@@ -37,11 +37,11 @@ Theme: **"Checkout domain — redirects to Hydrogen storefront"**
 
 Live on the published theme, 2026-09-16:
 
-- `checkout.vesperacollectives.com/collections/all?verify=1`
-  -> `vesperacollectives.com/collections/all?verify=1` (path and query string
+- `checkout.fastsneakers.com/collections/all?verify=1`
+  -> `fastsneakers.com/collections/all?verify=1` (path and query string
   both preserved)
-- `checkout.vesperacollectives.com/` -> `vesperacollectives.com/`
-- `checkout.vesperacollectives.com/apps/parcelpanel` stays put and renders the
+- `checkout.fastsneakers.com/` -> `fastsneakers.com/`
+- `checkout.fastsneakers.com/apps/parcelpanel` stays put and renders the
   order-tracking form
 - Favicon on the app-proxy page resolves to
   `/cdn/shop/files/icon-512.png?...width=32` — the setting survived the theme
@@ -78,8 +78,8 @@ publishing that.
 Verified after the fix: `KEEP_PATH = true` on refund, privacy, terms-of-service
 and shipping policy pages, with `/collections/all`, `/cart`, `/pages/contact`
 and `/` unchanged. End to end,
-`checkout.vesperacollectives.com/policies/refund-policy` now lands on
-`vesperacollectives.com/policies/refund-policy` rendering "Refund & Return
+`checkout.fastsneakers.com/policies/refund-policy` now lands on
+`fastsneakers.com/policies/refund-policy` rendering "Refund & Return
 Policy".
 
 **Lesson for future edits to this snippet:** don't trust `template.name` for
@@ -93,9 +93,9 @@ you have not confirmed by reading `KEEP_PATH` out of the served HTML.
 
     "favicon": "shopify://shop_images/icon-512.png"
 
-That image is the Vespera mark on the brand navy, uploaded to Shopify Files on
+That image is the Fast Sneakers mark on the brand charcoal, uploaded to Shopify Files on
 2026-09-16. It is set on **both** this theme and Horizon, so whichever one is
-published, checkout and the app-proxy pages show the Vespera icon instead of
+published, checkout and the app-proxy pages show the Fast Sneakers icon instead of
 Shopify's default bag. Keep it set on this theme — publishing a theme swaps in
 that theme's own `settings_data.json`, so a theme without the key silently
 reverts the favicon.
@@ -108,7 +108,7 @@ Store channel; Horizon has moved to Draft. The live theme is frozen at Horizon
 before ever reverting to a browsable Liquid storefront.
 
 To undo: publish Horizon again from Online Store -> Themes. That restores the
-old storefront on `checkout.vesperacollectives.com`, stale prices included.
+old storefront on `checkout.fastsneakers.com`, stale prices included.
 
 Notes for whoever maintains this next:
 
@@ -153,4 +153,4 @@ writes to the live theme): in `layout/theme.liquid`,
        {%- endunless -%}
 
 Verify with a non-JS fetch (e.g. `curl -s <url> | grep -E 'refresh|canonical'`):
-exactly one canonical, pointing at `https://vesperacollectives.com/products/...`.
+exactly one canonical, pointing at `https://fastsneakers.com/products/...`.

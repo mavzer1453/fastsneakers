@@ -1435,7 +1435,7 @@ function HelpAndPromise() {
             <Link to={localize('/pages/size-guide')}>{t('Size guide')}</Link>
             <a
               href={`mailto:${SHOP.email}?subject=${encodeURIComponent(
-                'Question for Vespera Collectives',
+                'Question for Fast Sneakers',
               )}`}
             >
               {t('Email us')}

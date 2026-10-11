@@ -79,7 +79,7 @@ const TITLE_BRANDS: Array<{
   {pattern: /hellstar/i, label: 'Hellstar'},
   // Brands that arrived with the SneakerAsk import. Without an entry here the
   // product page falls back to the vendor field, which is our own shop name on
-  // every product — so the brand line would read "Vespera Collectives".
+  // every product — so the brand line would read "Fast Sneakers".
   {pattern: /vale forever/i, label: 'Vale Forever', handle: 'vale-forever'},
   {pattern: /\bsalomon\b/i, label: 'Salomon', handle: 'salomon'},
   {pattern: /\bpuma\b/i, label: 'Puma', handle: 'puma'},

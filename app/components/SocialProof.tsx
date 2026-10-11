@@ -170,8 +170,14 @@ export function CustomerLove() {
 }
 
 /** Instagram feed carousel — the shop's own posts, linking to the profile. */
-const INSTAGRAM_URL = 'https://www.instagram.com/vespera.collectives/';
-const INSTAGRAM_HANDLE = '@vespera.collectives';
+const INSTAGRAM_URL = 'https://www.instagram.com/fastsneakers/';
+const INSTAGRAM_HANDLE = '@fastsneakers';
+/**
+ * Off until Fast Sneakers has its own Instagram account: the photos in
+ * public/ig/ are posts from the original store. Set the handle/URL above,
+ * replace the tiles with this shop's own posts, then flip this to true.
+ */
+const INSTAGRAM_ENABLED = false;
 
 /** Source pixel sizes are kept so the browser can reserve the box early. */
 const INSTA_TILES: Array<{src: string; width: number; height: number}> = [
@@ -211,6 +217,10 @@ function InstaArrow({direction}: {direction: 'left' | 'right'}) {
  * script; the buttons only page it by one tile and hide at either end.
  */
 export function InstaStrip() {
+  return INSTAGRAM_ENABLED ? <InstaStripFeed /> : null;
+}
+
+function InstaStripFeed() {
   const t = useTranslate();
   const trackRef = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);

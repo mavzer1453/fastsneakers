@@ -29,7 +29,7 @@ export const meta: Route.MetaFunction = ({matches, location}) => {
     {
       title: 'FAQ',
       description:
-        'Answers about authenticity, sizing, shipping, returns and payments at Vespera Collectives.',
+        'Answers about authenticity, sizing, shipping, returns and payments at Fast Sneakers.',
       jsonLd: jsonLd as never,
     },
   );

@@ -222,7 +222,7 @@ function CartAside({cart}: {cart: PageLayoutProps['cart']}) {
 function MobileMenuBrand() {
   return (
     <span className="mobile-menu-brand">
-      <img src="/vespera-logo.png" alt="" />
+      <img src="/fastsneakers-logo.png" alt="" />
       <span className="header-brand-name">
         <span className="header-brand-top">{BRAND_LOCKUP.top}</span>
         <span className="header-brand-sub">{BRAND_LOCKUP.sub}</span>

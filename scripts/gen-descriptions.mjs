@@ -40,7 +40,7 @@ function describe(product, brand) {
   const sizeNote = isShoe
     ? 'Listed in EU sizing — see the size guide for conversions.'
     : 'Relaxed streetwear cut, true to size — size down for a slimmer fit.';
-  const intro = `${esc(product.title)}${brand ? ` by ${esc(brand)}` : ''} — an authentic ${category} from the Vespera Collectives selection, sourced through trusted partners and verified before it ships.`;
+  const intro = `${esc(product.title)}${brand ? ` by ${esc(brand)}` : ''} — an authentic ${category} from the Fast Sneakers selection, sourced through trusted partners and verified before it ships.`;
   return [
     `<p>${intro}</p>`,
     '<ul>',

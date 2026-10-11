@@ -243,7 +243,7 @@ export function ProductItem({
             </>
           ) : (
             <div className="product-item-media-fallback" aria-hidden="true">
-              <img src="/vespera-logo.png" alt="" loading="lazy" />
+              <img src="/fastsneakers-logo.png" alt="" loading="lazy" />
               <span>Image coming soon</span>
             </div>
           )}

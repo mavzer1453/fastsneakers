@@ -46,10 +46,10 @@ function cleanPolicyBody(html: string): string {
     .replace(/^\s*<hr\s*\/?>/i, '')
     .replace(/^\s*<h2[^>]*>\s*\d+\.\s[^<]*<\/h2>/i, '')
     .replace(
-      /https?:\/\/checkout\.vesperacollectives\.com\/pages\/data-sharing-opt-out/gi,
+      /https?:\/\/checkout\.fastsneakers\.com\/pages\/data-sharing-opt-out/gi,
       '/pages/data-sharing-opt-out',
     )
-    .replace(/https?:\/\/checkout\.vesperacollectives\.com/gi, '')
+    .replace(/https?:\/\/checkout\.fastsneakers\.com/gi, '')
     .trim();
 }
 

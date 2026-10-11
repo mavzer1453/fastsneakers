@@ -19,29 +19,26 @@
   --grid-item-width: 355px;
   --header-height: 72px;
 
-  /* Vespera Collectives palette, cooled down: white canvas, neutral grey
-     surfaces and near-black ink — the clean big-retailer look. The navy
-     stays for primary actions; the old brass accent is retired to a
-     neutral so nothing reads yellow/beige anymore. */
-  --color-dark: #12141d;
+  /* Fast Sneakers palette: white canvas, neutral grey surfaces, charcoal
+     ink and primary actions, with a blaze-orange accent for buttons,
+     labels and highlights. The orange (#d03c0a) is dark enough to carry
+     white text at WCAG AA contrast. */
+  --color-dark: #111111;
   --color-light: #ffffff;
   --color-bg: #ffffff;
-  /* True neutral greys — the old values carried a blue tint (b > r), which
-     read as a different white next to the pure-white canvas. #f1f1f1 is the
-     exact chip grey the big retailers use. */
   --color-cream: #f5f5f5; /* light band (announcement, highlights) */
   --color-surface: #f6f6f6; /* neutral grey for bands & hovers */
   --color-surface-2: #f1f1f1;
   --color-ink: #000000;
   --color-muted: #6b7280;
   --color-border: #e3e3e3;
-  --color-primary: #1c2233; /* dusk navy — matches the logo mark */
-  --color-primary-dark: #10141f;
-  --color-accent: #66707d; /* retired brass → neutral slate */
+  --color-primary: #111111; /* charcoal — matches the logo bolt */
+  --color-primary-dark: #000000;
+  --color-accent: #66707d;
   --color-accent-deep: #4c5560;
-  --color-pop: #7c3aed; /* purple — button & label fills */
-  --color-pop-deep: #5b21b6; /* deeper tone for link text on light bg */
-  --color-pop-ink: #fff; /* text that sits ON the purple fill */
+  --color-pop: #d03c0a; /* blaze orange — button & label fills */
+  --color-pop-deep: #a83208; /* deeper tone for link text on light bg */
+  --color-pop-ink: #fff; /* text that sits ON the orange fill */
 
   /* Horizontal page gutter. Full-bleed scrollers pull back by exactly this
      much, so a chip row always reaches the screen edge — hard-coding a
@@ -251,7 +248,7 @@ img {
 }
 
 .section-head-link:hover {
-  color: #4c1d95;
+  color: #7a2406;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -1251,7 +1248,7 @@ button.reset:hover:not(:has(> *)) {
 */
 /* Rotating announcement bar — electric blue, single message, arrows */
 .announcement-bar {
-  background: linear-gradient(90deg, #5b21b6, var(--color-pop) 52%, #a367f5);
+  background: linear-gradient(90deg, #a83208, var(--color-pop) 52%, #a367f5);
   color: #fff;
   font-size: 0.8rem;
   font-weight: 600;
@@ -1665,7 +1662,7 @@ button.reset:hover:not(:has(> *)) {
   height: 46px;
 }
 
-/* Two-line wordmark: "Vespera" large, "Collectives" small underneath */
+/* Two-line wordmark: "Fast" large, "Sneakers" small underneath */
 .header-brand-name {
   font-family: var(--font-brand);
   display: flex;
@@ -4170,7 +4167,7 @@ html.has-open-overlay .mini-cart {
 .spotlight-cta:hover {
   color: var(--color-pop-ink);
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px -10px rgba(124, 58, 237, 0.65);
+  box-shadow: 0 12px 26px -10px rgba(208, 60, 10, 0.65);
 }
 
 .spotlight-products {
@@ -9539,7 +9536,7 @@ shopify-account > [slot='signed-out-avatar'] {
   background: var(--color-primary);
   border-color: var(--color-primary);
   color: #fff;
-  box-shadow: 0 4px 12px rgba(28, 34, 51, 0.22);
+  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.22);
 }
 
 .quick-add-value.is-unavailable {
@@ -11953,7 +11950,7 @@ button.brand-bar {
 
 button.brand-bar:hover {
   background: var(--color-pop-deep);
-  box-shadow: 0 12px 26px -12px rgba(124, 58, 237, 0.65);
+  box-shadow: 0 12px 26px -12px rgba(208, 60, 10, 0.65);
 }
 
 button.brand-bar:active {
@@ -13509,9 +13506,9 @@ body {
     100deg,
     var(--color-pop-deep) 0%,
     var(--color-pop) 55%,
-    #8b5cf6 100%
+    #f0642a 100%
   );
-  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.28);
+  box-shadow: 0 8px 20px rgba(208, 60, 10, 0.28);
   transition:
     transform 140ms ease,
     box-shadow 140ms ease,
@@ -13521,13 +13518,13 @@ body {
 .cart-checkout-btn:hover {
   transform: translateY(-1px);
   filter: saturate(1.06);
-  box-shadow: 0 12px 26px rgba(124, 58, 237, 0.34);
+  box-shadow: 0 12px 26px rgba(208, 60, 10, 0.34);
   color: var(--color-pop-ink);
 }
 
 .cart-checkout-btn:active {
   transform: translateY(0);
-  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.26);
+  box-shadow: 0 6px 16px rgba(208, 60, 10, 0.26);
 }
 
 .cart-checkout-lock {
@@ -14339,10 +14336,10 @@ button.mobile-menu-crumb-btn:focus-visible {
 }
 
 /* Text slide (Returns): no photo — headline and points on the brand navy,
-   with a faint Vespera mark in the corner. */
+   with a faint Fast Sneakers mark in the corner. */
 .sv-frame.is-text {
   background:
-    radial-gradient(120% 70% at 100% 0%, rgba(124, 58, 237, 0.32), transparent 62%),
+    radial-gradient(120% 70% at 100% 0%, rgba(208, 60, 10, 0.32), transparent 62%),
     linear-gradient(165deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
 }
 .sv-frame.is-text::before {
@@ -14356,7 +14353,7 @@ button.mobile-menu-crumb-btn:focus-visible {
   width: 62%;
   height: auto;
   aspect-ratio: 280 / 219;
-  background: url('/vespera-logo.png') center / contain no-repeat;
+  background: url('/fastsneakers-logo.png') center / contain no-repeat;
   filter: brightness(0) invert(1);
   opacity: 0.06;
 }

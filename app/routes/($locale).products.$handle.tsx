@@ -70,7 +70,7 @@ export const meta: Route.MetaFunction = ({data, matches, location}) => {
           image: image ?? undefined,
           // The PRODUCT's brand — UGG, Nike, Denim Tears — never the store.
           // `product.vendor` is our own shop name on every imported product,
-          // so `displayVendor()` was telling Google that Vespera Collectives
+          // so `displayVendor()` was telling Google that Fast Sneakers
           // manufactures 9,600 different sneakers. Same resolution the
           // visible Brand spec uses: a real third-party vendor first, else
           // derived from the title.

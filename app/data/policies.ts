@@ -450,7 +450,7 @@ export const POLICIES: PolicyEntry[] = [
     handle: 'legal-notice',
     title: 'Legal Notice',
     updated: 'Last updated: September 2026',
-    intro: 'The company behind Vespera Collectives.',
+    intro: 'The company behind Fast Sneakers.',
     body: `
       <p>${SHOP.name} is an online store operated by ${SHOP.legalName}.</p>
       <ul>
@@ -462,7 +462,7 @@ export const POLICIES: PolicyEntry[] = [
         ${SHOP.phone ? `<li><strong>Phone:</strong> <a href="${SHOP.phone.href}">${SHOP.phone.display}</a></li>` : ''}
         ${SHOP.registrationId ? `<li><strong>Company registration:</strong> ${SHOP.registrationId}</li>` : ''}
         ${SHOP.vatId ? `<li><strong>VAT number:</strong> ${SHOP.vatId}</li>` : ''}
-        <li><strong>Website:</strong> vesperacollectives.com</li>
+        <li><strong>Website:</strong> fastsneakers.com</li>
       </ul>
       <p>${SHOP.name} is an independent retailer and is not affiliated with or endorsed by the brands it sells. Brand names and trademarks belong to their respective owners.</p>
       <p>Complaints can be sent to ${mail()}. Consumers in Belgium can also contact the Consumer Mediation Service (<a href="https://mediationconsommateur.be" rel="noopener">mediationconsommateur.be</a>).</p>

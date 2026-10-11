@@ -5,7 +5,7 @@
  * heart and the header badge update together via `useSyncExternalStore`.
  */
 
-const STORAGE_KEY = 'vespera:favorites';
+const STORAGE_KEY = 'fastsneakers:favorites';
 const EMPTY: string[] = [];
 
 let snapshot: string[] = EMPTY;

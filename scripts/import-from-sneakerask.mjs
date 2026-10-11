@@ -139,7 +139,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
  * The lead sentence must never say the product is gone.
  *
  * This used to read "The <title> is exclusive and no longer available
- * anywhere else. But at Vespera Collectives, yes!" — written on 8,394
+ * anywhere else. But at Fast Sneakers, yes!" — written on 8,394
  * products. "No longer available" in the opening sentence of a 200 page is
  * precisely what Google's soft-404 classifier looks for: the 2026-09-20
  * Search Console export listed 29 live, in-stock URLs as "Soft 404", and 22
@@ -153,8 +153,8 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 function describe(title, {sku, colorway}) {
   const lead =
     LANG === 'nl'
-      ? `De ${esc(title)} — nieuw, ongedragen en in de originele verpakking. Op voorraad bij Vespera Collectives, gecontroleerd voor verzending.`
-      : `The ${esc(title)} — brand new, unworn and in its original packaging. In stock at Vespera Collectives and checked before it ships.`;
+      ? `De ${esc(title)} — nieuw, ongedragen en in de originele verpakking. Op voorraad bij Fast Sneakers, gecontroleerd voor verzending.`
+      : `The ${esc(title)} — brand new, unworn and in its original packaging. In stock at Fast Sneakers and checked before it ships.`;
 
   const details = [
     sku ? `<strong>SKU</strong>: ${esc(sku)}` : null,
@@ -335,7 +335,7 @@ function buildPlan(source, ownHandles, alreadyDone) {
       handle: p.handle,
       title: p.title,
       productType,
-      vendor: p.vendor || 'Vespera Collectives',
+      vendor: p.vendor || 'Fast Sneakers',
       price,
       tags,
       colorway: meta.colorway,

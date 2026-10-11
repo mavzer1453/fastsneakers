@@ -245,7 +245,7 @@ export function Header({
             end
           >
             <img
-              src="/vespera-logo.png"
+              src="/fastsneakers-logo.png"
               alt=""
               className="header-brand-logo"
               width="280"

@@ -20,7 +20,7 @@ import {useTranslate} from '~/lib/useTranslate';
  */
 
 const TRACKING_ENDPOINT =
-  'https://checkout.vesperacollectives.com/apps/parcelpanel';
+  'https://checkout.fastsneakers.com/apps/parcelpanel';
 
 export const meta: Route.MetaFunction = ({matches, location}) => {
   return buildMeta(

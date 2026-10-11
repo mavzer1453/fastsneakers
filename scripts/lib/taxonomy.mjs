@@ -199,7 +199,7 @@ const LABELS = [
 /** Collaborators — a name on the shoe, not the maker of it. */
 const COLLABS = [[/travis scott|cactus jack/, 'travis-scott']];
 
-const PLACEHOLDER = /^(easyhairkit|sneakerask|vespera[- ]?collectives?)?$/i;
+const PLACEHOLDER = /^(easyhairkit|sneakerask|vespera[- ]?collectives?|fast[- ]?sneakers)?$/i;
 
 /**
  * Brand slug for the `brand:` tag. Collaborators win here, because that's how
@@ -281,7 +281,7 @@ const BRAND_LABELS = {
   'denim-tears': 'Denim Tears',
   'gallery-dept': 'Gallery Dept.',
   'syna-world': 'Syna World',
-  vespera: 'Vespera Collectives',
+  vespera: 'Fast Sneakers',
 };
 
 export function brandLabel(brandSlug) {

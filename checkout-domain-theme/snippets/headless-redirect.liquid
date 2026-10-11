@@ -1,8 +1,8 @@
 {% comment %}
   The Online Store channel exists only to host Shopify checkout and the
-  ParcelPanel order-tracking app proxy on checkout.vesperacollectives.com.
+  ParcelPanel order-tracking app proxy on checkout.fastsneakers.com.
   Every page this theme renders is a stale copy of a storefront that now
-  lives on Hydrogen at vesperacollectives.com, so anyone who lands here --
+  lives on Hydrogen at fastsneakers.com, so anyone who lands here --
   returning from the checkout sign-in, clicking the checkout header, or
   following an old backlink -- gets sent to the real storefront instead.
 
@@ -15,7 +15,7 @@
   by the theme, so nothing here can touch it.
 {% endcomment %}
 {%- liquid
-  assign storefront = 'https://vesperacollectives.com'
+  assign storefront = 'https://fastsneakers.com'
 
   assign stay_here = false
   if request.design_mode

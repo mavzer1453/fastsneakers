@@ -276,8 +276,8 @@ export function compose(collection, products, titles) {
 
   const howMany = roundedCount(count);
   const openers = [
-    `${esc(title)}: ${howMany} ${things} in stock at Vespera Collectives.`,
-    `Shop ${howMany} ${esc(title)} ${things === 'styles' ? 'styles' : `styles — ${things}`} at Vespera Collectives.`,
+    `${esc(title)}: ${howMany} ${things} in stock at Fast Sneakers.`,
+    `Shop ${howMany} ${esc(title)} ${things === 'styles' ? 'styles' : `styles — ${things}`} at Fast Sneakers.`,
     `${howMany[0].toUpperCase() + howMany.slice(1)} ${things} make up our ${esc(title)} selection.`,
   ];
   // A hand-written line, where there is one, is a better opener than ours.

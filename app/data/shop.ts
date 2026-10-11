@@ -81,20 +81,20 @@ interface ShopConfig {
 }
 
 /**
- * Two-line brand lockup: "Vespera" large with "Collectives" smaller
+ * Two-line brand lockup: "Fast" large with "Sneakers" smaller
  * underneath (header, footer, mobile menu).
  */
-export const BRAND_LOCKUP = {top: 'Vespera', sub: 'Collectives'};
+export const BRAND_LOCKUP = {top: 'Fast', sub: 'Sneakers'};
 
 export const SHOP: ShopConfig = {
-  name: 'Vespera Collectives',
+  name: 'Fast Sneakers',
   // Must read exactly as in Shopify admin → Policies and Merchant Center.
   legalName: 'Bozkurt Enterprise',
   owner: 'Ulku Mavzer',
   tagline: 'Curated streetwear, sneakers & essentials.',
   defaultDescription:
     'Curated streetwear, sneakers and accessories from the brands that matter — limited drops and everyday staples, with tracked worldwide shipping and 14-day returns.',
-  email: 'support@vesperacollectives.com', // PLACEHOLDER — set to the support inbox on your real domain
+  email: 'support@fastsneakers.com', // PLACEHOLDER — set to the support inbox on the real domain once it is bought
   phone: null, // Removed on owner's request 2026-10-05 — contact is by email only.
   whatsapp: null, // PLACEHOLDER — {display: 'Chat on WhatsApp', href: 'https://wa.me/32471234567'}
   address: ['Brugsesteenweg 56', '8531 Harelbeke', 'Belgium'],
@@ -102,7 +102,7 @@ export const SHOP: ShopConfig = {
   // so the footer labels this one value "Company registration / VAT".
   vatId: 'BE 1012.722.956',
   registrationId: 'KBO 1012.722.956',
-  socials: [], // PLACEHOLDER — [{label: 'Instagram', href: 'https://instagram.com/vesperacollectives'}]
+  socials: [], // PLACEHOLDER — [{label: 'Instagram', href: 'https://instagram.com/fastsneakers'}]
   supportHours: 'Mon–Fri, 09:00–17:00 (CET)',
   responseTime: 'We reply within 1–2 business days',
   // Shipping is free on EVERY order, worldwide — amount 0 means no
@@ -130,11 +130,14 @@ export const SHOP: ShopConfig = {
   // Merchant Center review, switched back on 2026-10-08: the owner confirmed
   // these are real figures (reviews from Instagram customers) he can back up.
   // Still no AggregateRating JSON-LD — see ReviewBadge.tsx.
+  // Fast Sneakers is a new store: it has no reviews of its own yet, and the
+  // 4.8 / 187 / 1000+ figures belonged to the original store. Both switches
+  // stay off until this store has real, verifiable reviews of its own.
   reviews: {
-    score: '4.8',
-    count: 187,
-    customers: '1000+',
-    show: true,
-    showTestimonials: true,
+    score: '0',
+    count: 0,
+    customers: '0',
+    show: false,
+    showTestimonials: false,
   },
 };

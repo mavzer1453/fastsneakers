@@ -1,4 +1,4 @@
-# Vespera Collectives — Shopify setup & launch checklist
+# Fast Sneakers — Shopify setup & launch checklist
 
 The storefront code is complete. This checklist covers everything you do in
 **Shopify admin** (and one config file) so every feature lights up. Work top
@@ -216,7 +216,7 @@ the Journal link re-added to the header/footer).
 
 ## 11. Rename the store in Shopify admin (required)
 
-The storefront brand is **Vespera Collectives**, but your Shopify store is
+The storefront brand is **Fast Sneakers**, but your Shopify store is
 still named "EasyHairKit" in admin — that name appears on the **checkout page, order
 confirmation emails and invoices**. Change it under
 **Settings → Store details → Store name** (and update the sender email there
@@ -229,7 +229,7 @@ marked `PLACEHOLDER` render **nothing** until filled — the site never shows
 fake data. Fill in:
 
 - [ ] `email` — the support inbox on your real domain (currently
-      `support@vesperacollectives.com` as a placeholder)
+      `support@fastsneakers.com` as a placeholder)
 - [ ] `legalName` — your registered company name
 - [ ] `phone` — `{display, href}` to show phone support everywhere
 - [ ] `whatsapp` — `{display, href}` to show WhatsApp support everywhere

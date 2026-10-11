@@ -12,7 +12,7 @@
  * copy was. 8,394 imported products opened with:
  *
  *   "The <name> is exclusive and no longer available anywhere else. But at
- *    Vespera Collectives, yes!"
+ *    Fast Sneakers, yes!"
  *
  * "No longer available" in the first sentence of a product page is exactly
  * what Google's soft-404 classifier is trained to find: a 200 page that SAYS

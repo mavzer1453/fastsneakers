@@ -60,8 +60,8 @@ export function readCookie(name: string): string | undefined {
 
 /**
  * Derive the registrable root domain so cookies are shared with the Shopify
- * checkout subdomain. `vesperacollectives.com` and
- * `checkout.vesperacollectives.com` must see the same value, otherwise click
+ * checkout subdomain. `fastsneakers.com` and
+ * `checkout.fastsneakers.com` must see the same value, otherwise click
  * ids are lost at the checkout handoff and purchases go unattributed.
  */
 const MULTI_LABEL_SUFFIXES = [

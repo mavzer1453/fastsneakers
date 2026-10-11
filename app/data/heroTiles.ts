@@ -26,7 +26,7 @@ export type HeroTile = {
    * `.webp`.
    *
    * They live under app/assets, NOT public/, on purpose. Anything in public/
-   * is served from vesperacollectives.com, and Shopify's image service on
+   * is served from fastsneakers.com, and Shopify's image service on
    * that hostname re-encodes AVIF and WebP into JPEG — a 104 KB AVIF went out
    * as a 241 KB JPEG. Files imported through Vite are served from
    * cdn.shopify.com instead, where they arrive byte-for-byte.

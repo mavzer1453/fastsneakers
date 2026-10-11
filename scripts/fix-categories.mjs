@@ -25,7 +25,7 @@
  * Vendor:
  *   --vendors                       set the real manufacturer where the legacy
  *                                   "EasyHairKit" placeholder is still in place
- *   --vendor="Vespera Collectives"  set every product to one house value
+ *   --vendor="Fast Sneakers"  set every product to one house value
  */
 
 import {existsSync, readFileSync, writeFileSync} from 'node:fs';
