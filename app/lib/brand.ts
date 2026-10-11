@@ -9,7 +9,13 @@ import {SHOP} from '~/data/shop';
  * To permanently fix the data itself, bulk-update `vendor` on the products
  * in Shopify admin — this mapping keeps the storefront correct either way.
  */
-const LEGACY_VENDORS = new Set(['easyhairkit', 'vitalex']);
+const LEGACY_VENDORS = new Set([
+  'easyhairkit',
+  'vitalex',
+  'fastsneaker',
+  'merafashion',
+  'my store 2',
+]);
 
 /** Map legacy placeholder vendors to the current brand name. */
 export function displayVendor(
