@@ -239,6 +239,15 @@ function loadDeferredData({context}: Route.LoaderArgs) {
   ])
     .then(async ([arrivalsData, bestsellersLight, extrasData, heroData]) => {
       const used = new Set<string>();
+      // Collection products, or the fallback search when the collection
+      // does not exist (yet) or is empty.
+      const pick = <T,>(
+        collection: {products: {nodes: T[]}} | null | undefined,
+        fallback: {nodes: T[]} | null | undefined,
+      ): T[] =>
+        collection?.products.nodes.length
+          ? collection.products.nodes
+          : (fallback?.nodes ?? []);
       const take = (
         items: HomePickFragment[],
         count: number,
@@ -301,7 +310,7 @@ function loadDeferredData({context}: Route.LoaderArgs) {
           ...essentialsSet.slice(0, 1),
           ...airmax1BW.slice(0, 1),
           ...multicolorPool.slice(0, 2),
-          ...(extrasData?.sale?.products.nodes ?? []),
+          ...(pick(extrasData?.sale, extrasData?.fbSale)),
         ],
         12,
       );
@@ -324,10 +333,14 @@ function loadDeferredData({context}: Route.LoaderArgs) {
       const best = [
         ...searchedStaff,
         ...take(
-          seededShuffle(
-            rankedBestsellers,
-            Math.floor(Date.now() / 3_600_000),
-          ).slice(0, 24),
+          rankedBestsellers.length
+            ? seededShuffle(
+                rankedBestsellers,
+                Math.floor(Date.now() / 3_600_000),
+              ).slice(0, 24)
+            : // No `bestseller`-tagged products yet: fall back to the
+              // store's own best-selling order.
+              (extrasData?.fbTop?.nodes ?? []),
           12 - searchedStaff.length,
         ),
       ];
@@ -402,10 +415,10 @@ function loadDeferredData({context}: Route.LoaderArgs) {
           // ASICS leads the alternation so the brands stay 3 + 3 after the pin.
           alternate(
             variety(
-              rankBy(extrasData?.asics?.products.nodes ?? [], HOT_NB_ASICS),
+              rankBy(pick(extrasData?.asics, extrasData?.fbAsics), HOT_NB_ASICS),
             ),
             variety(
-              rankBy(extrasData?.newbalance?.products.nodes ?? [], HOT_NB_ASICS),
+              rankBy(pick(extrasData?.newbalance, extrasData?.fbNewBalance), HOT_NB_ASICS),
             ),
           ),
           6 - pinnedTrending.length,
@@ -413,12 +426,12 @@ function loadDeferredData({context}: Route.LoaderArgs) {
       ];
       // Three guaranteed Travis Scott pairs (collection best-selling order).
       const travis = take(
-        variety(extrasData?.travisscott?.products.nodes ?? []),
+        variety(pick(extrasData?.travisscott, extrasData?.fbTravis)),
         3,
       );
       const others = take(
         variety(
-          rankBy(extrasData?.trending?.products.nodes ?? [], HOT_SNEAKERS),
+          rankBy(pick(extrasData?.trending, extrasData?.fbSneakers), HOT_SNEAKERS),
         ),
         Math.max(0, 12 - nbAsics.length - travis.length - searchedTrending.length),
       );
@@ -428,7 +441,7 @@ function loadDeferredData({context}: Route.LoaderArgs) {
         ...alternate(alternate(travis, others), nbAsics),
       ];
       const apparel = take(
-        variety(rankBy(extrasData?.apparel?.products.nodes ?? [], HOT_APPAREL)),
+        variety(rankBy(pick(extrasData?.apparel, extrasData?.fbApparel), HOT_APPAREL)),
         12,
       );
 
@@ -461,8 +474,8 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 
       // Her side / his side: the bestselling pieces from the Women and Men
       // collections that aren't already starring in a rail above.
-      const her = take(extrasData?.forher?.products.nodes ?? [], 2);
-      const him = take(extrasData?.forhim?.products.nodes ?? [], 2);
+      const her = take(pick(extrasData?.forher, extrasData?.fbWomen), 2);
+      const him = take(pick(extrasData?.forhim, extrasData?.fbMen), 2);
 
       const arrivals = take(
         interleaveBuckets(
@@ -1585,6 +1598,36 @@ const HOME_EXTRAS_QUERY = `#graphql
       products(first: 30, sortKey: BEST_SELLING) {
         nodes { ...HomePick }
       }
+    }
+    # Fallbacks for a catalogue that has no curated collections or ranking
+    # tags yet: the rails above read these whenever their collection is
+    # missing or empty, so the home page never renders a blank section.
+    fbSneakers: products(first: 100, sortKey: BEST_SELLING, query: "product_type:sneakers") {
+      nodes { ...HomePick }
+    }
+    fbTravis: products(first: 30, sortKey: BEST_SELLING, query: "tag:'brand:travis-scott' AND product_type:sneakers") {
+      nodes { ...HomePick }
+    }
+    fbNewBalance: products(first: 40, sortKey: BEST_SELLING, query: "tag:'brand:new-balance'") {
+      nodes { ...HomePick }
+    }
+    fbAsics: products(first: 40, sortKey: BEST_SELLING, query: "tag:'brand:asics'") {
+      nodes { ...HomePick }
+    }
+    fbApparel: products(first: 100, sortKey: BEST_SELLING, query: "-product_type:sneakers -product_type:Boots -product_type:Slippers -product_type:bags") {
+      nodes { ...HomePick }
+    }
+    fbSale: products(first: 16, sortKey: BEST_SELLING, query: "tag:Sale") {
+      nodes { ...HomePick }
+    }
+    fbWomen: products(first: 30, sortKey: BEST_SELLING, query: "tag:wmns") {
+      nodes { ...HomePick }
+    }
+    fbMen: products(first: 30, sortKey: BEST_SELLING, query: "tag:men") {
+      nodes { ...HomePick }
+    }
+    fbTop: products(first: 60, sortKey: BEST_SELLING) {
+      nodes { ...HomePick }
     }
   }
   ${HOME_PICK_FRAGMENT}

@@ -648,6 +648,69 @@ export type HomeExtrasQuery = {
       >;
     };
   }>;
+  fbSneakers: {
+    nodes: Array<
+      Pick<StorefrontAPI.Product, 'id' | 'handle' | 'title'> & {
+        priceRange: {minVariantPrice: Pick<StorefrontAPI.MoneyV2, 'amount'>};
+      }
+    >;
+  };
+  fbTravis: {
+    nodes: Array<
+      Pick<StorefrontAPI.Product, 'id' | 'handle' | 'title'> & {
+        priceRange: {minVariantPrice: Pick<StorefrontAPI.MoneyV2, 'amount'>};
+      }
+    >;
+  };
+  fbNewBalance: {
+    nodes: Array<
+      Pick<StorefrontAPI.Product, 'id' | 'handle' | 'title'> & {
+        priceRange: {minVariantPrice: Pick<StorefrontAPI.MoneyV2, 'amount'>};
+      }
+    >;
+  };
+  fbAsics: {
+    nodes: Array<
+      Pick<StorefrontAPI.Product, 'id' | 'handle' | 'title'> & {
+        priceRange: {minVariantPrice: Pick<StorefrontAPI.MoneyV2, 'amount'>};
+      }
+    >;
+  };
+  fbApparel: {
+    nodes: Array<
+      Pick<StorefrontAPI.Product, 'id' | 'handle' | 'title'> & {
+        priceRange: {minVariantPrice: Pick<StorefrontAPI.MoneyV2, 'amount'>};
+      }
+    >;
+  };
+  fbSale: {
+    nodes: Array<
+      Pick<StorefrontAPI.Product, 'id' | 'handle' | 'title'> & {
+        priceRange: {minVariantPrice: Pick<StorefrontAPI.MoneyV2, 'amount'>};
+      }
+    >;
+  };
+  fbWomen: {
+    nodes: Array<
+      Pick<StorefrontAPI.Product, 'id' | 'handle' | 'title'> & {
+        priceRange: {minVariantPrice: Pick<StorefrontAPI.MoneyV2, 'amount'>};
+      }
+    >;
+  };
+  fbMen: {
+    nodes: Array<
+      Pick<StorefrontAPI.Product, 'id' | 'handle' | 'title'> & {
+        priceRange: {minVariantPrice: Pick<StorefrontAPI.MoneyV2, 'amount'>};
+      }
+    >;
+  };
+  fbTop: {
+    nodes: Array<
+      Pick<StorefrontAPI.Product, 'id' | 'handle' | 'title'> & {
+        priceRange: {minVariantPrice: Pick<StorefrontAPI.MoneyV2, 'amount'>};
+      }
+    >;
+  };
 };
 
 export type HeroFloorFragment = Pick<StorefrontAPI.Product, 'handle'> & {
@@ -2309,7 +2372,7 @@ interface GeneratedQueryTypes {
     return: NewArrivalsQuery;
     variables: NewArrivalsQueryVariables;
   };
-  '#graphql\n  query HomeExtras($country: CountryCode, $language: LanguageCode)\n    @inContext(country: $country, language: $language) {\n    sale: collection(handle: "sale") {\n      products(first: 16, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    under: products(first: 24, sortKey: BEST_SELLING, query: "variants.price:<100") {\n      nodes { ...HomePick }\n    }\n    essentials: products(first: 24, sortKey: BEST_SELLING, query: "tag:\'brand:essentials\'") {\n      nodes { ...HomePick }\n    }\n    airmax: products(first: 40, sortKey: BEST_SELLING, query: "tag:\'model:nike-air-max\'") {\n      nodes { ...HomePick }\n    }\n    multicolor: products(first: 24, sortKey: BEST_SELLING, query: "tag:\'color:multicolor\'") {\n      nodes { ...HomePick }\n    }\n    trending: collection(handle: "sneakers") {\n      products(first: 100, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    searched: products(first: 20, query: "tag:searched") {\n      nodes { ...HomePick }\n    }\n    sandstone: product(handle: "new-balance-2002r-sandstone") {\n      ...HomePick\n    }\n    travisscott: collection(handle: "travis-scott-sneakers") {\n      products(first: 30, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    newbalance: collection(handle: "new-balance") {\n      products(first: 40, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    asics: collection(handle: "asics") {\n      products(first: 40, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    apparel: collection(handle: "clothing") {\n      products(first: 100, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    forher: collection(handle: "women") {\n      products(first: 30, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    forhim: collection(handle: "men") {\n      products(first: 30, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n  }\n  #graphql\n  fragment HomePick on Product {\n    id\n    handle\n    title\n    priceRange {\n      minVariantPrice {\n        amount\n      }\n    }\n  }\n\n': {
+  '#graphql\n  query HomeExtras($country: CountryCode, $language: LanguageCode)\n    @inContext(country: $country, language: $language) {\n    sale: collection(handle: "sale") {\n      products(first: 16, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    under: products(first: 24, sortKey: BEST_SELLING, query: "variants.price:<100") {\n      nodes { ...HomePick }\n    }\n    essentials: products(first: 24, sortKey: BEST_SELLING, query: "tag:\'brand:essentials\'") {\n      nodes { ...HomePick }\n    }\n    airmax: products(first: 40, sortKey: BEST_SELLING, query: "tag:\'model:nike-air-max\'") {\n      nodes { ...HomePick }\n    }\n    multicolor: products(first: 24, sortKey: BEST_SELLING, query: "tag:\'color:multicolor\'") {\n      nodes { ...HomePick }\n    }\n    trending: collection(handle: "sneakers") {\n      products(first: 100, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    searched: products(first: 20, query: "tag:searched") {\n      nodes { ...HomePick }\n    }\n    sandstone: product(handle: "new-balance-2002r-sandstone") {\n      ...HomePick\n    }\n    travisscott: collection(handle: "travis-scott-sneakers") {\n      products(first: 30, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    newbalance: collection(handle: "new-balance") {\n      products(first: 40, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    asics: collection(handle: "asics") {\n      products(first: 40, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    apparel: collection(handle: "clothing") {\n      products(first: 100, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    forher: collection(handle: "women") {\n      products(first: 30, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    forhim: collection(handle: "men") {\n      products(first: 30, sortKey: BEST_SELLING) {\n        nodes { ...HomePick }\n      }\n    }\n    # Fallbacks for a catalogue that has no curated collections or ranking\n    # tags yet: the rails above read these whenever their collection is\n    # missing or empty, so the home page never renders a blank section.\n    fbSneakers: products(first: 100, sortKey: BEST_SELLING, query: "product_type:sneakers") {\n      nodes { ...HomePick }\n    }\n    fbTravis: products(first: 30, sortKey: BEST_SELLING, query: "tag:\'brand:travis-scott\' AND product_type:sneakers") {\n      nodes { ...HomePick }\n    }\n    fbNewBalance: products(first: 40, sortKey: BEST_SELLING, query: "tag:\'brand:new-balance\'") {\n      nodes { ...HomePick }\n    }\n    fbAsics: products(first: 40, sortKey: BEST_SELLING, query: "tag:\'brand:asics\'") {\n      nodes { ...HomePick }\n    }\n    fbApparel: products(first: 100, sortKey: BEST_SELLING, query: "-product_type:sneakers -product_type:Boots -product_type:Slippers -product_type:bags") {\n      nodes { ...HomePick }\n    }\n    fbSale: products(first: 16, sortKey: BEST_SELLING, query: "tag:Sale") {\n      nodes { ...HomePick }\n    }\n    fbWomen: products(first: 30, sortKey: BEST_SELLING, query: "tag:wmns") {\n      nodes { ...HomePick }\n    }\n    fbMen: products(first: 30, sortKey: BEST_SELLING, query: "tag:men") {\n      nodes { ...HomePick }\n    }\n    fbTop: products(first: 60, sortKey: BEST_SELLING) {\n      nodes { ...HomePick }\n    }\n  }\n  #graphql\n  fragment HomePick on Product {\n    id\n    handle\n    title\n    priceRange {\n      minVariantPrice {\n        amount\n      }\n    }\n  }\n\n': {
     return: HomeExtrasQuery;
     variables: HomeExtrasQueryVariables;
   };
