@@ -104,7 +104,7 @@ export const SHOP: ShopConfig = {
   registrationId: 'KBO 1012.722.956',
   socials: [], // PLACEHOLDER — [{label: 'Instagram', href: 'https://instagram.com/fastsneakers'}]
   supportHours: 'Mon–Fri, 09:00–17:00 (CET)',
-  responseTime: 'We reply within 1–2 business days',
+  responseTime: 'We reply within 1–5 business days',
   // Shipping is free on EVERY order, worldwide — amount 0 means no
   // threshold (matches the Shopify delivery profile + app/lib/shipping.ts).
   freeShipping: {amount: 0, currency: 'EUR', symbol: '€', display: '€0'},

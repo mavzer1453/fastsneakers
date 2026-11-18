@@ -257,7 +257,7 @@ export const POLICIES: PolicyEntry[] = [
       <p>To request a refund or return, please email us at ${mail()} and we will send you the correct return address. Return addresses are issued per order, so please always request one from us before sending anything back.</p>
 
       <h2>8. Contact us</h2>
-      <p>For any questions regarding this policy, please contact us at ${mail()}. We aim to respond within 1 to 2 business days.</p>
+      <p>For any questions regarding this policy, please contact us at ${mail()}. We aim to respond within 1 to 5 business days.</p>
       <p>By placing an order with us, you agree to this Refund &amp; Return Policy.</p>
 
       <h2>Returns &amp; refunds — United States and Canada</h2>
@@ -437,7 +437,7 @@ export const POLICIES: PolicyEntry[] = [
       </ul>
 
       <h2>Response times</h2>
-      <p>We reply to all messages within 1–2 business days.</p>
+      <p>We reply to all messages within 1–5 business days.</p>
 
       <h2>Order support</h2>
       <p>For the fastest help, include your order number in your email. You can track your order at any time on our <a href="/pages/track-order">Track your order</a> page — no account or password needed.</p>

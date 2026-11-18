@@ -1,8 +1,9 @@
 import {useEffect, useRef, useState} from 'react';
 import {Link, useNavigate} from 'react-router';
-import {type MappedProductOptions} from '@shopify/hydrogen';
+import {Money, type MappedProductOptions} from '@shopify/hydrogen';
 import type {
   Maybe,
+  MoneyV2,
   ProductOptionValueSwatch,
 } from '@shopify/hydrogen/storefront-api-types';
 import {AddToCartButton} from './AddToCartButton';
@@ -200,6 +201,30 @@ export function ProductForm({
 type SizeOptionValue = MappedProductOptions['optionValues'][number];
 
 /**
+ * Price of the variant behind a size value. Sizes are priced individually
+ * (prices follow the market per size), so every row shows its own price.
+ * `variant` is the exact combination with the other options currently
+ * selected; `firstSelectableVariant` covers values with no such combination.
+ */
+function sizePrice(value: SizeOptionValue): MoneyV2 | null {
+  const exact = (value as {variant?: {price?: MoneyV2 | null} | null}).variant
+    ?.price;
+  return exact ?? value.firstSelectableVariant?.price ?? null;
+}
+
+function SizePrice({
+  value,
+  className,
+}: {
+  value: SizeOptionValue;
+  className?: string;
+}) {
+  const price = sizePrice(value);
+  if (!price) return null;
+  return <Money as="span" className={className} data={price} />;
+}
+
+/**
  * Custom size dropdown: the trigger looks like the Zalando "Choose size"
  * box, and the open panel is a site-styled card (rounded, shadowed, hover
  * rows) instead of the browser's native select popup. Sold-out sizes stay
@@ -275,6 +300,12 @@ function SizeDropdown({
             {selected && altFor(selected.name) ? (
               <em className="size-dd-alt"> · {altFor(selected.name)}</em>
             ) : null}
+            {selected && selected.available && sizePrice(selected) ? (
+              <em className="size-dd-alt">
+                {' · '}
+                <SizePrice value={selected} />
+              </em>
+            ) : null}
             {selected && !selected.available ? (
               <em className="size-dd-soldout"> — sold out</em>
             ) : null}
@@ -322,7 +353,9 @@ function SizeDropdown({
                 ) : null}
                 {!value.available ? (
                   <span className="size-dd-note">{t('Sold out')}</span>
-                ) : null}
+                ) : (
+                  <SizePrice value={value} className="size-dd-price" />
+                )}
               </button>
             ))}
           </div>

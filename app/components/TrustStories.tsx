@@ -94,7 +94,7 @@ const SLIDES: Record<StoryId, SlideSource[]> = {
     {
       image: '/stories/about-worn.jpg',
       tag: 'Talk to us',
-      text: 'Got a question about a size or an order? Just email {email} — a real person gets back to you within 1–2 business days.',
+      text: 'Got a question about a size or an order? Just email {email} — a real person gets back to you within 1–5 business days.',
       cta: {label: 'More about us', to: '/pages/about'},
     },
   ],
@@ -104,9 +104,9 @@ const SLIDES: Record<StoryId, SlideSource[]> = {
       title: 'Changed your mind? No problem.',
       list: 'check',
       points: [
-        'Return any item within {days} days of delivery, no reason needed.',
+        'EU, EEA and UK: return any item within {days} days of delivery, no reason needed.',
         'Items must be unworn, with their tags and original box. Trying them on is fine.',
-        'Not shipped yet? Cancel for free and get a full refund.',
+        'Cancel within 5 hours of ordering — free of charge in the EU, EEA and UK.',
       ],
     },
     {
@@ -115,7 +115,7 @@ const SLIDES: Record<StoryId, SlideSource[]> = {
       list: 'steps',
       points: [
         'Email {email} with your order number and the items you want to return.',
-        'We confirm your return within 1–2 business days.',
+        'We confirm your return within 1–5 business days.',
         'Send the items back within 14 days of your request. You choose the carrier and pay the return postage.',
       ],
     },
@@ -125,7 +125,7 @@ const SLIDES: Record<StoryId, SlideSource[]> = {
       list: 'check',
       points: [
         'We refund your original payment method within 14 days, once we have the items or your proof of sending.',
-        'No restocking or admin fees.',
+        'Outside the EU, EEA and UK all sales are final.',
         'Faulty, damaged or not what you ordered? Email us photos within 14 days of delivery: we send a replacement or a full refund and cover the return shipping.',
       ],
       cta: {label: 'Read the full return policy', to: '/policies/refund-policy'},

@@ -12,7 +12,7 @@ export const meta: Route.MetaFunction = ({matches, location}) => {
     {
       title: 'Shipping & delivery',
       description:
-        'Free shipping on every order, worldwide — no minimum, import duties included. Dispatched within 1–3 business days, delivered in 5–15 business days, always tracked.',
+        'Free shipping on every order, worldwide — no minimum. Dispatched within 1–3 business days, delivered in 5–15 business days, always tracked.',
     },
   );
 };
@@ -126,7 +126,7 @@ export default function ShippingPage() {
             <h3>{t('Customs outside the EU')}</h3>
             <p>
               {t(
-                'Within the European Union all prices include VAT. For destinations outside the EU — such as the United Kingdom, Switzerland, Norway, Türkiye, the United States and Canada — we pay any import duties and taxes ourselves. There is nothing extra to pay at checkout or on delivery.',
+                'Within the European Union all prices include VAT. For deliveries outside the EU — such as the United Kingdom, Switzerland, Norway, Türkiye, the United States and Canada — import duties, taxes and customs clearance fees may be charged on arrival by your local authorities. These charges are the responsibility of the customer.',
               )}
             </p>
           </div>

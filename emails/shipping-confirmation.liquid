@@ -31,15 +31,20 @@
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;"><tr><td class="node" align="center" valign="middle" width="32" height="32" style="width:32px;height:32px;border-radius:999px;background:#ffffff;border:2px solid #16181d;color:#d03c0a;font-size:18px;font-weight:800;line-height:28px;">&#8226;</td></tr></table>
 <div class="step-label" style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:.02em;color:#16181d;padding-top:7px;">Delivered</div>
 </td></tr></table>
-</td></tr></table>{% for fulfillment in fulfillments %}{% if fulfillment.tracking_number %}
+</td></tr></table>{% comment %}
+  "Track your order" goes to our own tracking page (fastsneaker.com/pages/track-order),
+  which never shows carrier names or tracking numbers. ?order= pre-fills the form; the
+  customer confirms with their email. For a one-click link without the email step, add
+  TRACK_LINK_SECRET in Oxygen and use instead:
+  https://fastsneaker.com/pages/track-order?o={{ order.name | remove: '#' }}&t={{ order.name | remove: '#' | hmac_sha256: 'YOUR_TRACK_LINK_SECRET' }}
+{% endcomment %}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:16px;border:1px solid #e3e3e6;border-radius:12px;background:#fafafa;">
-  <tr><td style="padding:14px 16px;">
-    <div style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6b6b70;">Track &amp; trace</div>
-    <div style="font-size:14px;font-weight:700;padding-top:4px;color:#16181d;">{% if fulfillment.tracking_company %}{{ fulfillment.tracking_company }} &middot; {% endif %}{{ fulfillment.tracking_number }}</div>
-    {% if fulfillment.tracking_url %}<div style="padding-top:4px;"><a href="{{ fulfillment.tracking_url }}" style="font-size:13px;color:#16181d;font-weight:700;">Follow your parcel &rarr;</a></div>{% endif %}
+  <tr><td align="center" style="padding:18px 16px;">
+    <div style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6b6b70;padding-bottom:10px;">Track &amp; trace</div>
+    <a href="https://fastsneaker.com/pages/track-order?order={{ order.name | remove: '#' | url_encode }}" style="display:inline-block;padding:13px 28px;border-radius:999px;background:#d03c0a;color:#ffffff;font-size:14px;font-weight:800;text-decoration:none;">Track your order &rarr;</a>
+    <div style="font-size:12px;color:#6b6b70;padding-top:10px;">Live status and estimated arrival &mdash; no account needed.</div>
   </td></tr>
-</table>
-{% endif %}{% endfor %}<div style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6b6b70;padding:26px 0 6px;">Your items</div>
+</table><div style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6b6b70;padding:26px 0 6px;">Your items</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 {% for line in subtotal_line_items %}
   <tr>

@@ -288,9 +288,21 @@ function QuickAddSheet({
         return !chosen || chosen === selected.value;
       }),
     );
+    // Each size carries its own price; show the cheapest in-stock match
+    // (or the cheapest match at all when the size is sold out).
+    const priced = candidates.filter((variant) => variant.availableForSale);
+    const pool = priced.length > 0 ? priced : candidates;
+    const price = pool.reduce<QuickAddMoney | null>(
+      (best, variant) =>
+        !best || parseFloat(variant.price.amount) < parseFloat(best.amount)
+          ? variant.price
+          : best,
+      null,
+    );
     return {
       exists: candidates.length > 0,
       available: candidates.some((variant) => variant.availableForSale),
+      price,
     };
   }
 
@@ -400,6 +412,8 @@ function QuickAddSheet({
                     const alt = convertible
                       ? convertedSize(value.name, sizeUnit, sizeChart)
                       : null;
+                    const showPrice =
+                      isSizeOption(option.name) && state.exists && state.price;
                     return (
                       <button
                         key={value.name}
@@ -407,7 +421,7 @@ function QuickAddSheet({
                         className={`quick-add-value${
                           selected ? ' is-selected' : ''
                         }${state.available ? '' : ' is-unavailable'}${
-                          alt ? ' has-alt' : ''
+                          alt || showPrice ? ' has-alt' : ''
                         }`}
                         disabled={!state.exists}
                         aria-pressed={selected}
@@ -422,6 +436,11 @@ function QuickAddSheet({
                         <span className="size-value-main">{value.name}</span>
                         {alt ? (
                           <span className="size-value-alt">{alt}</span>
+                        ) : null}
+                        {showPrice && state.price ? (
+                          <span className="size-value-price">
+                            <Money as="span" data={state.price as never} />
+                          </span>
                         ) : null}
                       </button>
                     );

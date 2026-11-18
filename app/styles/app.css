@@ -14648,3 +14648,36 @@ button.mobile-menu-crumb-btn:focus-visible {
     margin-top: 1.5rem;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Price per size — sizes are priced individually, so the product-page size
+   list and the quick-add size tiles show each size's own price.
+   --------------------------------------------------------------------------- */
+.size-dd-price {
+  margin-left: auto;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.size-dd-row.is-selected .size-dd-price {
+  color: var(--color-pop-deep);
+}
+
+.quick-add-value .size-value-price {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.quick-add-value.is-selected .size-value-price {
+  color: inherit;
+}
+
+.quick-add-value.is-unavailable .size-value-price {
+  color: var(--color-muted);
+}

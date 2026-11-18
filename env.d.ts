@@ -43,5 +43,21 @@ declare global {
      */
     SHOPIFY_CLIENT_ID?: string;
     SHOPIFY_CLIENT_SECRET?: string;
+    /**
+     * Order tracking (/pages/track-order + /api/track) and the two automatic
+     * "on schedule" / "running late" emails (/api/chargeback-mail).
+     * The Admin API app above also needs `read_all_orders`,
+     * `read_fulfillments`, `read_customers` and `write_orders` for this.
+     */
+    /** Optional HMAC secret for one-click tracking links in emails. Server-only. */
+    TRACK_LINK_SECRET?: string;
+    /** Key the daily GitHub Action sends to /api/chargeback-mail. Server-only. */
+    TRACK_ADMIN_KEY?: string;
+    /** Resend API key for the two tracking emails. Server-only. */
+    RESEND_KEY?: string;
+    /** Sender, e.g. `Fast Sneakers <noreply@fastsneaker.com>` (domain verified in Resend). */
+    NOREPLY_FROM?: string;
+    /** `1` = report only, `0` = really send the tracking emails. */
+    MAIL_DRY_RUN?: string;
   }
 }

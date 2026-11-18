@@ -68,7 +68,7 @@ export function TrustTicker() {
     t('Free tracked worldwide shipping'),
     t('{days}-day returns').replace('{days}', String(SHOP.returnDays)),
     t('Pay safely with secure checkout'),
-    t('We reply within 1–2 business days'),
+    t('We reply within 1–5 business days'),
     t('100% authentic, checked before shipping'),
     ...(SHOP.reviews.show
       ? [

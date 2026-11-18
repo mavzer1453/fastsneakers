@@ -60,3 +60,7 @@ sneakerask-cache.json
 sale-plan-*.csv
 round-prices-*.csv
 round-prices-rollback-*.json
+
+# bundle-essentials-sets.mjs dry-run plan (regenerated every run). The
+# bundle-essentials-rollback-*.json files are NOT ignored: they undo a run.
+bundle-essentials-plan.csv

@@ -44,12 +44,12 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     question: 'Will I pay customs or import duties?',
     answer:
-      'No. Within the EU all prices include VAT. For orders outside the EU — for example the United Kingdom, Switzerland, the United States and Canada — we pay any import duties and taxes ourselves, so there is nothing extra to pay at checkout or on delivery. See our Shipping Policy for details.',
+      'No customs charges within the EU: all prices include VAT. For orders delivered outside the EU — for example the United Kingdom, Switzerland, the United States and Canada — import duties, taxes and customs clearance fees may be charged on arrival by your local authorities. These charges are paid by the customer. See our Shipping Policy for details.',
   },
   {
     question: 'What is your return policy?',
     answer:
-      'You can return any item within {days} days of delivery, without giving a reason — unworn, with tags attached and in the original box. Email {email} first with your order number so we can match your parcel. For a change-of-mind return you pay only the return shipping; we charge no fees and deduct nothing. Faulty or incorrect items: we cover everything. Full details are in our refund policy.',
+      'If your order is delivered in the EU, the EEA or the United Kingdom, you can return items within {days} days of delivery, without giving a reason — unworn, with tags attached and in the original box. Email {email} first with your order number; you pay the return shipping. For orders delivered to all other countries, all sales are final. Orders can be cancelled within 5 hours of ordering. Faulty or incorrect items are always covered. Full details are in our refund policy.',
   },
   {
     question: 'An item sold out in my size — will it restock?',
