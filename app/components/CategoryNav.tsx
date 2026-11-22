@@ -299,16 +299,6 @@ const ACCESSORIES: CategoryGroup = {
   ],
 };
 
-const DENIM_TEARS: CategoryGroup = {
-  heading: 'Denim Tears',
-  links: [
-    {label: 'All Denim Tears', handle: 'denim-tears'},
-    {label: 'Pants', handle: 'denim-tears-pants'},
-    {label: 'Hoodies', handle: 'denim-tears-hoodies'},
-    {label: 'Shorts', handle: 'denim-tears-shorts'},
-  ],
-};
-
 /** Streetwear labels — from one brand page you hop to the next. */
 const BRANDS: CategoryGroup = {
   heading: 'Brands',
@@ -318,7 +308,6 @@ const BRANDS: CategoryGroup = {
     {label: 'Corteiz', handle: 'corteiz'},
     {label: 'Syna World', handle: 'syna-world'},
     {label: 'Travis Scott', handle: 'travis-scott'},
-    {label: 'Denim Tears', handle: 'denim-tears'},
     {label: 'Gallery Dept', handle: 'gallery-dept'},
     {label: 'Represent', handle: 'represent'},
     {label: 'NOCTA', handle: 'nocta'},
@@ -397,7 +386,6 @@ const GROUP_ORDER: CategoryGroup[] = [
   SUPREME,
   STUSSY,
   SP5DER,
-  DENIM_TEARS,
   JACQUEMUS,
   ACCESSORIES,
   NIKE,

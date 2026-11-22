@@ -74,7 +74,6 @@ const TITLE_BRANDS: Array<{
   {pattern: /syna/i, label: 'Syna World', handle: 'syna-world'},
   {pattern: /represent/i, label: 'Represent', handle: 'represent'},
   {pattern: /\bami\b|ami de c(?:oe|œ)ur/i, label: 'AMI Paris', handle: 'ami-paris'},
-  {pattern: /denim tears|denim trs/i, label: 'Denim Tears', handle: 'denim-tears'},
   {pattern: /sp5der|spyder/i, label: 'Sp5der', handle: 'sp5der'},
   {pattern: /gallery/i, label: 'Gallery Dept', handle: 'gallery-dept'},
   {pattern: /supreme/i, label: 'Supreme', handle: 'supreme'},
@@ -148,7 +147,6 @@ const TAG_BRANDS: Array<[RegExp, string]> = [
   [/represent/i, 'represent'],
   // "Ami White Zipper". \bami\b: New Balance "Aminé" and "Miami" never match.
   [/\bami\b|ami de c(?:oe|œ)ur/i, 'ami-paris'],
-  [/denim tears|denim trs/i, 'denim-tears'],
   [/sp5der|spyder/i, 'sp5der'],
   [/gallery/i, 'gallery-dept'],
   [/supreme/i, 'supreme'],
@@ -369,7 +367,6 @@ export const BRAND_LINKS: Array<{label: string; handle: string}> = [
   {label: 'Salomon', handle: 'salomon'},
   {label: 'Stussy', handle: 'stussy'},
   {label: 'Sp5der', handle: 'sp5der'},
-  {label: 'Denim Tears', handle: 'denim-tears'},
   {label: 'Puma', handle: 'puma'},
   {label: 'Vans', handle: 'vans'},
   {label: 'Jacquemus', handle: 'jacquemus'},

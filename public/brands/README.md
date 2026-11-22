@@ -32,10 +32,10 @@ Match the six already here:
 
 adidas · asics · jordan · new-balance · nike · ugg-boots-slippers
 
-## Still needed (31)
+## Still needed (30)
 
 bape · birkenstock · comme-des-garcons · converse · corteiz · crocs ·
-denim-tears · essentials · gallery-dept · godspeed · hellstar · hoka ·
+essentials · gallery-dept · godspeed · hellstar · hoka ·
 jacquemus · maison-mihara-yasuhiro · on-running · onitsuka-tiger · puma ·
 represent · salomon · saucony · sp5der · stussy · supreme · syna-world ·
 timberland · travis-scott · under-armour · vale-forever · vans · vlone · yeezy

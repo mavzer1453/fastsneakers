@@ -68,7 +68,7 @@ export const meta: Route.MetaFunction = ({data, matches, location}) => {
           name: product.title,
           description: description ?? undefined,
           image: image ?? undefined,
-          // The PRODUCT's brand — UGG, Nike, Denim Tears — never the store.
+          // The PRODUCT's brand — UGG, Nike, Supreme — never the store.
           // `product.vendor` is our own shop name on every imported product,
           // so `displayVendor()` was telling Google that Fast Sneakers
           // manufactures 9,600 different sneakers. Same resolution the

@@ -101,7 +101,6 @@ export const MENU_IMAGES: Record<string, string> = {
   corteiz: `${CDN}/191A3AD7-FB4A-453A-81EE-05BE989074B2_160x160.webp?v=1786149360`,
   'syna-world': `${CDN}/syna-grey-hoodie-8423793_160x160.png?v=1786149318`,
   'gallery-dept': `${CDN}/gallery-dark-grey-t-shirt-2850490_160x160.webp?v=1786149371`,
-  'denim-tears': `${CDN}/5C7A5145-2B76-4CDE-95E4-37DDB1440B86_160x160.png?v=1786149313`,
   supreme: `${CDN}/SupremeUmbroCottonRipstopTrackPant_SS26_Stone_160x160.png?v=1786123847`,
   'on-running': `${CDN}/onrunningPearlIce_1_160x160.png?v=1786123481`,
   jacquemus: `${CDN}/JacquemusLeGrandBambinoNavy_160x160.png?v=1786123460`,
@@ -239,9 +238,6 @@ export const MENU_IMAGES: Record<string, string> = {
   'sp5der-hoodies': `${CDN}/Sp5der_SP5_Mint_Hoodie_Mint.png?v=1788262563&width=160`,
   'sp5der-t-shirts': `${CDN}/Sp5derOGWebV2TeeBlackMulticolor.png?v=1788262372&width=160`,
   'sp5der-pants': `${CDN}/Sp5derArachNYPhobiaSweatpantsAshGrey_6ed2980d-b209-4183-94f0-05d5a6dd2011.png?v=1788262562&width=160`,
-  'denim-tears-pants': `${CDN}/Denimtears_2_00bbfef9-7898-454e-92df-7f24ad32266a.png?v=1788262691&width=160`,
-  'denim-tears-hoodies': `${CDN}/Denimtears_02bf7338-3b92-4781-b110-ff0087bedd8d.png?v=1788250239&width=160`,
-  'denim-tears-shorts': `${CDN}/Adsvierkantformaat_2.png?v=1788250250&width=160`,
   'travis-scott-t-shirts': `${CDN}/image_-_2026-03-09T232050.055-removebg-preview.png?v=1786131596&width=160`,
   'travis-scott-hoodies': `${CDN}/Travis_Scott_x_McDonald_s_Apple_Pie_Hoodie_1.png?v=1786123399&width=160`,
   'vale-forever-hoodies': `${CDN}/11451-10004VFTZUG-GREE-main.png?v=1788250454&width=160`,
@@ -356,9 +352,6 @@ const BRANDS_WITH_LOGOS = [
   // Arrived as a sticker on a grey card; the ground and the white die-cut
   // halo were lifted out along with it.
   'hoka',
-  // Cropped from a banner to the wordmark alone — the scattered cotton
-  // wreaths around it would have been unreadable at tile size.
-  'denim-tears',
   // Clothing brands added 24 Sep 2026 from owner-supplied artwork.
   'nocta',
   'ami-paris',

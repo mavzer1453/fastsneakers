@@ -249,7 +249,6 @@ const BRAND_LABELS: Record<string, string> = {
   'represent': 'Represent',
   'ami-paris': 'AMI Paris',
   'nocta': 'NOCTA',
-  'denim-tears': 'Denim Tears',
   'sp5der': 'Sp5der',
   'gallery-dept': 'Gallery Dept',
   'supreme': 'Supreme',
@@ -563,14 +562,6 @@ export const BRAND_GROUPS: BrandGroup[] = [
       garment('hoodies', 'sp5der-hoodies'),
       garment('t-shirts', 'sp5der-t-shirts'),
       garment('pants', 'sp5der-pants'),
-    ],
-  },
-  {
-    parent: {value: 'denim-tears', label: 'Denim Tears'},
-    children: [
-      garment('pants', 'denim-tears-pants'),
-      garment('hoodies', 'denim-tears-hoodies'),
-      garment('shorts', 'denim-tears-shorts'),
     ],
   },
   {

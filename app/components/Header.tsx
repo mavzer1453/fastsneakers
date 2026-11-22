@@ -1909,7 +1909,6 @@ const BRAND_COLLECTIONS: Record<string, string> = {
   'Syna World': 'syna-world',
   'Represent': 'represent',
   'AMI Paris': 'ami-paris',
-  'Denim Tears': 'denim-tears',
   'Sp5der': 'sp5der',
   'Gallery Dept': 'gallery-dept',
   'Supreme': 'supreme',
@@ -2007,11 +2006,6 @@ const CLOTHING_MENU_ITEM = fallbackItem('/collections/clothing', 'Clothing', [
     fallbackItem('/collections/sp5der-hoodies', 'Hoodies'),
     fallbackItem('/collections/sp5der-t-shirts', 'T-Shirts'),
     fallbackItem('/collections/sp5der-pants', 'Pants'),
-  ]),
-  fallbackItem('/collections/denim-tears', 'Denim Tears', [
-    fallbackItem('/collections/denim-tears-pants', 'Pants'),
-    fallbackItem('/collections/denim-tears-hoodies', 'Hoodies'),
-    fallbackItem('/collections/denim-tears-shorts', 'Shorts'),
   ]),
   fallbackItem('/collections/travis-scott', 'Travis Scott', [
     fallbackItem('/collections/travis-scott-t-shirts', 'T-Shirts'),
