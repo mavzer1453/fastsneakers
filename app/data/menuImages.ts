@@ -17,93 +17,97 @@
  * menu item can never break the layout.
  */
 const CDN = 'https://cdn.shopify.com/s/files/1/1024/9466/7139/files';
+/**
+ * This store's own Files CDN. Pictures the original store has since deleted
+ * are served from here instead; move the rest over as they break.
+ */
+const OWN_CDN = 'https://cdn.shopify.com/s/files/1/1081/4613/1276/files';
 
 export const MENU_IMAGES: Record<string, string> = {
   // Departments — apparel for Men/Women, footwear for the shoe categories.
   // Sale and Bestsellers deliberately have none: they use a glyph instead.
-  men: `${CDN}/FearofGodEssentials_25_160x160.webp?v=1786128604`,
-  women: `${CDN}/Nike_x_SKIMS_Women_s_Weightless_Layers_Mock_Neck_Long_Sleeve_Top_Lead_160x160.png?v=1786123810`,
-  kids: `${CDN}/ASICS_Gel-1130_White_Arctic_Sky_GS_160x160.png?v=1786126003`,
-  sneakers: `${CDN}/nike-zoom-vomero-5-cobblestone_160x160.png?v=1786160715`,
+  men: `${OWN_CDN}/FearofGodEssentials_25.webp?width=160`,
+  women: `${OWN_CDN}/Nike_x_SKIMS_Women_s_Weightless_Layers_Mock_Neck_Long_Sleeve_Top_Lead.png?width=160`,
+  kids: `${OWN_CDN}/ASICS_Gel-1130_White_Arctic_Sky_GS.png?width=160`,
+  sneakers: `${OWN_CDN}/nike-zoom-vomero-5-cobblestone.png?width=160`,
 
   // Men's categories
-  'men-t-shirts': `${CDN}/og-carni-t-shirt-9929440_160x160.webp?v=1786149374`,
-  'men-hoodies': `${CDN}/stussy-hoodie-vintage-4988009_160x160.png?v=1786149328`,
-  'men-jackets-outerwear': `${CDN}/EE54CB22-E2F6-49A1-995B-20511F16DE5C_160x160.png?v=1786149331`,
-  'men-pants-jeans': `${CDN}/308_06083c71-f46b-4747-80ce-e4ddd46405f6_160x160.jpg?v=1786144315`,
-  'men-shorts': `${CDN}/IMG-3391_160x160.png?v=1786148973`,
-  'men-tracksuits-sets': `${CDN}/11261E91-DA63-4357-B35B-1E2D21F4F5E1_160x160.png?v=1786148956`,
-  accessories: `${CDN}/JEANS_23_c8367462-12ff-4438-8f89-ca9685c54db6_160x160.png?v=1786133372`,
+  'men-t-shirts': `${OWN_CDN}/og-carni-t-shirt-9929440.webp?width=160`,
+  'men-hoodies': `${OWN_CDN}/stussy-hoodie-vintage-4988009.png?width=160`,
+  'men-jackets-outerwear': `${OWN_CDN}/EE54CB22-E2F6-49A1-995B-20511F16DE5C.png?width=160`,
+  'men-pants-jeans': `${OWN_CDN}/308_06083c71-f46b-4747-80ce-e4ddd46405f6.jpg?width=160`,
+  'men-shorts': `${OWN_CDN}/IMG-3391.png?width=160`,
+  'men-tracksuits-sets': `${OWN_CDN}/11261E91-DA63-4357-B35B-1E2D21F4F5E1.png?width=160`,
+  accessories: `${OWN_CDN}/JEANS_23_c8367462-12ff-4438-8f89-ca9685c54db6.png?width=160`,
 
   // Fear of God Essentials
   essentials: `${CDN}/3AE46D18-CF24-4F72-8981-9A6D413CAB7B_160x160.webp?v=1786148951`,
-  'essentials-sets': `${CDN}/essentials-hoodie-set-1346028_160x160.png?v=1786149330`,
-  'essentials-hoodies': `${CDN}/FearofGodEssentialsDarkOatmealHoodie_1_160x160.webp?v=1786128635`,
-  'essentials-t-shirts': `${CDN}/FearofGodEssentialsNBABlackWhiteT-shirt_400x_69e1b79e-5760-42e2-a86f-5a7befa1829d_160x160.webp?v=1786137003`,
-  'essentials-pants': `${CDN}/FearofGodEssentialsLightOatmealLangeBroek_160x160.webp?v=1786128605`,
-  'essentials-shorts': `${CDN}/FearofGodEssentials_32_160x160.png?v=1786137005`,
-  'essentials-jackets': `${CDN}/FearofGodEssentialsFW19PufferJacketBlack_160x160.png?v=1786128018`,
-  'essentials-summer': `${CDN}/FearofGodEssentialsNBABlackWhiteSummerSet_160x160.png?v=1786137006`,
-  'essentials-winter': `${CDN}/Fear_of_God_Essentials_FW24_Black_White_Full_set_3_160x160.png?v=1786128072`,
+  'essentials-sets': `${OWN_CDN}/essentials-hoodie-set-1346028.png?width=160`,
+  'essentials-hoodies': `${OWN_CDN}/FearofGodEssentialsDarkOatmealHoodie_1.webp?width=160`,
+  'essentials-t-shirts': `${OWN_CDN}/FearofGodEssentialsNBABlackWhiteT-shirt.png?width=160`,
+  'essentials-pants': `${OWN_CDN}/FearofGodEssentialsLightOatmealLangeBroek.webp?width=160`,
+  'essentials-shorts': `${OWN_CDN}/FearofGodEssentials_32.png?width=160`,
+  'essentials-jackets': `${OWN_CDN}/FearofGodEssentialsFW19PufferJacketBlack.png?width=160`,
+  'essentials-summer': `${OWN_CDN}/FearofGodEssentialsNBABlackWhiteSummerSet.png?width=160`,
+  'essentials-winter': `${OWN_CDN}/Fear_of_God_Essentials_FW24_Black_White_Full_set_3.png?width=160`,
 
   // Women's categories
-  'women-sneakers': `${CDN}/adidasSambaOGPrelovedRedLeopard_Women_s_160x160.png?v=1786160714`,
-  'women-boots': `${CDN}/1_14_160x160.png?v=1786149387`,
-  'women-tops': `${CDN}/Nike_x_SKIMS_Women_s_Weightless_Layers_Mock_Neck_Long_Sleeve_Top_Obsidian_160x160.png?v=1786123809`,
-  'women-pants': `${CDN}/Nike_x_SKIMS_Women_s_Weightless_Layers_V-Line_26_Legging_Obsidian_160x160.png?v=1786124074`,
-  'women-slippers': `${CDN}/UGG_Tazz_Slipper_Chestnut_160x160.png?v=1786149384`,
-  'women-bags': `${CDN}/JacquemusLeChiquitoMoyenBlack_160x160.png?v=1786123470`,
+  'women-sneakers': `${OWN_CDN}/adidasSambaOGPrelovedRedLeopard_Women_s.png?width=160`,
+  'women-boots': `${OWN_CDN}/1_14.png?width=160`,
+  'women-tops': `${OWN_CDN}/Nike_x_SKIMS_Women_s_Weightless_Layers_Mock_Neck_Long_Sleeve_Top_Obsidian.png?width=160`,
+  'women-slippers': `${OWN_CDN}/UGG_Tazz_Slipper_Chestnut.png?width=160`,
+  'women-bags': `${OWN_CDN}/JacquemusLeChiquitoMoyenBlack.png?width=160`,
   'flare-jeans': `${CDN}/soma7_160x160.png?v=1786144313`,
-  'sale-women': `${CDN}/Nike_Zoom_Vomero_5_Metallic_Gold_Women_s_160x160.png?v=1786160680`,
-  'ugg-boots-slippers': `${CDN}/ugg-classic-ultra-mini-antilope-w-1-1000_1_160x160.png?v=1786149385`,
+  'sale-women': `${OWN_CDN}/Nike_Zoom_Vomero_5_Metallic_Gold_Women_s.png?width=160`,
+  'ugg-boots-slippers': `${OWN_CDN}/ugg-classic-ultra-mini-antilope-w-1-1000_1.png?width=160`,
 
   // Kids sizing
-  'kids-gs': `${CDN}/ASICSGel-1130WhiteClayCanyon_GS_160x160.png?v=1786126378`,
-  'kids-ps': `${CDN}/NewBalance550TripleWhiteGS_160x160.png?v=1786125005`,
-  'kids-td': `${CDN}/550-bungee-lace-with-top-strap-white-1_160x160.png?v=1786124994`,
+  'kids-gs': `${OWN_CDN}/ASICSGel-1130WhiteClayCanyon_GS.png?width=160`,
+  'kids-ps': `${OWN_CDN}/NewBalance550TripleWhiteGS.png?width=160`,
+  'kids-td': `${OWN_CDN}/550-bungee-lace-with-top-strap-white-1.png?width=160`,
 
   // Sneaker model lines
-  nike: `${CDN}/nike-zoom-vomero-5-oatmeal-1_160x160.png?v=1786160717`,
-  'nike-dunk': `${CDN}/nike-dunk-low-remastered-mint-1_160x160.png?v=1786155980`,
-  'nike-air-force-1': `${CDN}/nike-air-force-1-low-07-triple-black-4_160x160.png?v=1786155321`,
-  'nike-air-max': `${CDN}/img01_2_160x160.png?v=1786155319`,
-  'nike-zoom-vomero': `${CDN}/Nike_Zoom_Vomero_5_Photon_Dust_Pink_Foam_160x160.png?v=1786155984`,
-  'nike-p-6000': `${CDN}/Nike_P-6000_Anthracite_Smoke_Grey_1_160x160.png?v=1786153383`,
-  'nike-shox': `${CDN}/NikeShoxTLPinkFoam_1_160x160.png?v=1786124896`,
-  'nike-nocta': `${CDN}/nocta-x-nike-air-force-1-low-certified-lover-boy-1-1000_160x160.png?v=1786124895`,
+  nike: `${OWN_CDN}/nike-zoom-vomero-5-oatmeal-1.png?width=160`,
+  'nike-dunk': `${OWN_CDN}/nike-dunk-low-remastered-mint-1.png?width=160`,
+  'nike-air-force-1': `${OWN_CDN}/nike-air-force-1-low-07-triple-black-4.png?width=160`,
+  'nike-air-max': `${OWN_CDN}/img01_2.png?width=160`,
+  'nike-zoom-vomero': `${OWN_CDN}/Nike_Zoom_Vomero_5_Photon_Dust_Pink_Foam.png?width=160`,
+  'nike-p-6000': `${OWN_CDN}/Nike_P-6000_Anthracite_Smoke_Grey_1.png?width=160`,
+  'nike-shox': `${OWN_CDN}/NikeShoxTLPinkFoam_1.png?width=160`,
+  'nike-nocta': `${OWN_CDN}/nocta-x-nike-air-force-1-low-certified-lover-boy-1-1000.png?width=160`,
 
-  jordan: `${CDN}/air-jordan-4-retro-military-black-1-1000_160x160.png?v=1786150381`,
-  'air-jordan-1': `${CDN}/TJpuWFjcEW3Ww3Dn7kXst3C8YoOTqaNa4AUmuEDE_160x160.png?v=1786155320`,
-  'air-jordan-4': `${CDN}/air-jordan-4-retro-white-midnight-navy-1-1000_160x160.png?v=1786153382`,
-  'jumpman-jack': `${CDN}/JordanJumpmanJackTRTravisScottxChaseBBlackNightSilver_b57631a3-df5c-468c-8c95-a0f1fa64c4a1_160x160.png?v=1786123425`,
-  'travis-scott': `${CDN}/image_-_2026-03-09T232050.055-removebg-preview_160x160.png?v=1786131596`,
-  'travis-scott-sneakers': `${CDN}/nike-air-max-1-travis-scott-cactus-jack-baroque-brown-DO9392-200-4_160x160.png?v=1786124930`,
+  jordan: `${OWN_CDN}/air-jordan-4-retro-military-black-1-1000.png?width=160`,
+  'air-jordan-1': `${OWN_CDN}/TJpuWFjcEW3Ww3Dn7kXst3C8YoOTqaNa4AUmuEDE.png?width=160`,
+  'air-jordan-4': `${OWN_CDN}/air-jordan-4-retro-white-midnight-navy-1-1000.png?width=160`,
+  'jumpman-jack': `${OWN_CDN}/JordanJumpmanJackTRTravisScottxChaseBBlackNightSilver_b57631a3-df5c-468c-8c95-a0f1fa64c4a1.png?width=160`,
+  'travis-scott': `${OWN_CDN}/image_-_2026-03-09T232050.055-removebg-preview.png?width=160`,
+  'travis-scott-sneakers': `${OWN_CDN}/nike-air-max-1-travis-scott-cactus-jack-baroque-brown-DO9392-200-4.png?width=160`,
 
-  'new-balance': `${CDN}/new-balance-new-balance-9060-vintage-indigo_160x160.png?v=1786160703`,
-  'new-balance-9060': `${CDN}/new-balance-new-balance-9060-natural-indigo_160x160.png?v=1786160713`,
-  'new-balance-1906': `${CDN}/new-balance-1906r-silver-classic-crimson2_160x160.png?v=1786160711`,
-  'new-balance-2002r': `${CDN}/file_160x160.png?v=1786125880`,
-  'new-balance-550': `${CDN}/new-balance-550-white-black-rain-cloud-1-1000_160x160.png?v=1786125828`,
-  'new-balance-530': `${CDN}/new-balance-530-grey-matter-silver-metallic1_160x160.webp?v=1786125866`,
+  'new-balance': `${OWN_CDN}/new-balance-new-balance-9060-vintage-indigo_1.png?width=160`,
+  'new-balance-9060': `${OWN_CDN}/new-balance-new-balance-9060-natural-indigo.png?width=160`,
+  'new-balance-1906': `${OWN_CDN}/new-balance-1906r-silver-classic-crimson2.png?width=160`,
+  'new-balance-2002r': `${OWN_CDN}/file.png?width=160`,
+  'new-balance-550': `${OWN_CDN}/new-balance-550-white-black-rain-cloud-1-1000.png?width=160`,
+  'new-balance-530': `${OWN_CDN}/new-balance-530-grey-matter-silver-metallic1.webp?width=160`,
 
-  'asics-gel-nyc': `${CDN}/ASICSGel-NYCMidnightMidnight_160x160.png?v=1786160711`,
-  'asics-gel-kayano': `${CDN}/ASICSGelKayano14ArcticSkyPureSilver_160x160.png?v=1786160709`,
-  'asics-gel-1130': `${CDN}/ASICSGel-1130WhitePureSilver_160x160.png?v=1786160721`,
-  'adidas-samba': `${CDN}/snakerstoreAdidas_Samba_OG_Night_Navy_Cream_White_Gum-ID2056-0_1024x1024_5b43b82d-e8c3-495d-b800-67805aa19694_160x160.png?v=1786160718`,
-  'adidas-spezial': `${CDN}/AdidasHandballSpezialGreyBlackGum1_160x160.png?v=1786160704`,
+  'asics-gel-nyc': `${OWN_CDN}/ASICSGel-NYCMidnightMidnight.png?width=160`,
+  'asics-gel-kayano': `${OWN_CDN}/ASICSGelKayano14ArcticSkyPureSilver.png?width=160`,
+  'asics-gel-1130': `${OWN_CDN}/ASICSGel-1130WhitePureSilver.png?width=160`,
+  'adidas-samba': `${OWN_CDN}/snakerstoreAdidas_Samba_OG_Night_Navy_Cream_White_Gum-ID2056-0_1024x1024_5b43b82d-e8c3-495d-b800-67805aa19694.png?width=160`,
+  'adidas-spezial': `${OWN_CDN}/AdidasHandballSpezialGreyBlackGum1.png?width=160`,
 
   // Brands
-  adidas: `${CDN}/adidas_Superstar_Hellstar_Hazy_Orange_160x160.png?v=1786124260`,
-  asics: `${CDN}/ASICSGel-NYCGraphiteGreyBlack_c35337f7-8eb9-41b1-9902-eb1abd4d6952_160x160.png?v=1786160699`,
-  sp5der: `${CDN}/file_19_160x160.png?v=1786133362`,
-  represent: `${CDN}/48F986EC-301B-45D2-A80E-54BA0F72BEAC_160x160.webp?v=1786149324`,
-  stussy: `${CDN}/stussy-t-shirt-iced-out-2271983_160x160.png?v=1786149373`,
-  corteiz: `${CDN}/191A3AD7-FB4A-453A-81EE-05BE989074B2_160x160.webp?v=1786149360`,
-  'syna-world': `${CDN}/syna-grey-hoodie-8423793_160x160.png?v=1786149318`,
-  'gallery-dept': `${CDN}/gallery-dark-grey-t-shirt-2850490_160x160.webp?v=1786149371`,
-  supreme: `${CDN}/SupremeUmbroCottonRipstopTrackPant_SS26_Stone_160x160.png?v=1786123847`,
-  'on-running': `${CDN}/onrunningPearlIce_1_160x160.png?v=1786123481`,
-  jacquemus: `${CDN}/JacquemusLeGrandBambinoNavy_160x160.png?v=1786123460`,
+  adidas: `${OWN_CDN}/adidas_Superstar_Hellstar_Hazy_Orange.png?width=160`,
+  asics: `${OWN_CDN}/ASICSGel-NYCGraphiteGreyBlack_c35337f7-8eb9-41b1-9902-eb1abd4d6952.png?width=160`,
+  'sp5der': `${OWN_CDN}/file_19.png?width=160`,
+  represent: `${OWN_CDN}/48F986EC-301B-45D2-A80E-54BA0F72BEAC.webp?width=160`,
+  stussy: `${OWN_CDN}/stussy-t-shirt-iced-out-2271983.png?width=160`,
+  corteiz: `${OWN_CDN}/191A3AD7-FB4A-453A-81EE-05BE989074B2.webp?width=160`,
+  'syna-world': `${OWN_CDN}/syna-grey-hoodie-8423793.png?width=160`,
+  'gallery-dept': `${OWN_CDN}/gallery-dark-grey-t-shirt-2850490.webp?width=160`,
+  supreme: `${OWN_CDN}/SupremeUmbroCottonRipstopTrackPant_SS26_Stone.png?width=160`,
+  'on-running': `${OWN_CDN}/onrunningPearlIce_1.png?width=160`,
+  jacquemus: `${OWN_CDN}/JacquemusLeGrandBambinoNavy.png?width=160`,
 
   // ---------------------------------------------------------------------
   // Added with the SneakerAsk import. Each is the top-selling product of
@@ -116,10 +120,9 @@ export const MENU_IMAGES: Record<string, string> = {
   // Footwear types
   boots: `${CDN}/Timberland6PremiumBootVenedaCarterSilver.png?v=1788262276&width=160`,
   slippers: `${CDN}/UGG_Lowmel_Hickory.png?v=1788262628&width=160`,
-  clothing: `${CDN}/Fear_of_God_Essentials_Light_Oatmeal_Relaxed_pak.png?v=1786137002&width=160`,
-  'men-sneakers': `${CDN}/Nike_Air_Jordan_1_Retro_Low_OG_SP_Travis_Scott_Sail_Tropical_Pink.png?v=1786123441&width=160`,
+  clothing: `${OWN_CDN}/Fear_of_God_Essentials_Light_Oatmeal_Relaxed_pak.png?width=160`,
+  'men-sneakers': `${OWN_CDN}/Nike_Air_Jordan_1_Retro_Low_OG_SP_Travis_Scott_Sail_Tropical_Pink.png?width=160`,
   'kids-sneakers': `${CDN}/Jordan4RetroThunder_2023_GS.png?v=1788262448&width=160`,
-  'women-clothing': `${CDN}/KD2526-main.webp?v=1788261982&width=160`,
 
   // Sneaker brands
   puma: `${CDN}/311401-01-main.png?v=1788259980&width=160`,
@@ -128,24 +131,21 @@ export const MENU_IMAGES: Record<string, string> = {
   crocs: `${CDN}/CrocsClassicClogStrangerThings.png?v=1788262349&width=160`,
   converse: `${CDN}/A14444C-main.webp?v=1788259753&width=160`,
   saucony: `${CDN}/SauconyProGridOmni9PinkPurple.png?v=1788262252&width=160`,
-  yeezy: `${CDN}/adidas-yeezy-boost-350-v2-ash-pearl-1-1000.png?v=1788262822&width=160`,
   hoka: `${CDN}/1168951-HWB-main.png?v=1788250986&width=160`,
   birkenstock: `${CDN}/151211-main.webp?v=1788258922&width=160`,
   timberland: `${CDN}/1183C102-200-main.png?v=1788251774&width=160`,
   'under-armour': `${CDN}/UnderArmourUASolaUltimateBlack.png?v=1788262186&width=160`,
   'comme-des-garcons': `${CDN}/CN5738-001-main.png?v=1788261007&width=160`,
-  'maison-mihara-yasuhiro': `${CDN}/1_15.png?v=1788262784&width=160`,
 
   // Streetwear brands
   bape: `${CDN}/adidasCampus80sBapeCollegiateNavy.png?v=1788262418&width=160`,
   hellstar: `${CDN}/Hellstar_Flame_Sweatpant_Black.png?v=1788262312&width=160`,
   vlone: `${CDN}/Juice_Wrld_x_Vlone_Butterfly_T-shirt_White.png?v=1788249967&width=160`,
   godspeed: `${CDN}/GodspeedMiamiSurfClubTeeBlack.png?v=1788249944&width=160`,
-  'vale-forever': `${CDN}/vale-forever-chopper-tee-black-main.webp?v=1788250441&width=160`,
 
   // Nike silhouettes
   'nike-dunk-low': `${CDN}/DO9844-100-main.png?v=1788261800&width=160`,
-  'nike-dunk-sb': `${CDN}/ld-waffle-sacai-fragment-blue-void-794190.png?v=1786124613&width=160`,
+  'nike-dunk-sb': `${OWN_CDN}/NikeSBDunkLowYutoHorigomeAsparagus.png?width=160`,
   'nike-air-max-1': `${CDN}/HQ8618-100-main.png?v=1788251335&width=160`,
   'nike-vomero-5': `${CDN}/IM9467-001-main.png?v=1788260194&width=160`,
   'nike-shox-tl': `${CDN}/IH5075-219-main.png?v=1788260003&width=160`,
@@ -164,7 +164,6 @@ export const MENU_IMAGES: Record<string, string> = {
   // Jordan, Yeezy
   'air-jordan-11': `${CDN}/Jordan11RetroBredVelvet.png?v=1788262619&width=160`,
   'air-jordan-6': `${CDN}/Jordan_6_Retro_A_Ma_Maniere_Smokey_Mauve.png?v=1788262347&width=160`,
-  'yeezy-350': `${CDN}/adidas-yeezy-700-v3-mono-safflower-1-1000.png?v=1788262806&width=160`,
   'yeezy-slide': `${CDN}/adidas_Yeezy_Slide_Ochre_Kids.png?v=1788262598&width=160`,
 
   // adidas, New Balance, ASICS
@@ -189,9 +188,8 @@ export const MENU_IMAGES: Record<string, string> = {
   'ugg-golden': `${CDN}/1152719-CERA-main.png?v=1788260007&width=160`,
   'ugg-goldenstar': `${CDN}/1138252-SAN-main.png?v=1788252020&width=160`,
   'ugg-bailey': `${CDN}/UGGMiniBaileyBowIIChestnut_Women_s.png?v=1788262357&width=160`,
-  'ugg-neumel': `${CDN}/ugg-neumel-platform-chelsea-boot-chestnut.png?v=1788262659&width=160`,
-  'ugg-classic-ultra-mini': `${CDN}/ugg-classic-ultra-mini-black-w-1-1000.png?v=1788262792&width=160`,
-  'ugg-classic-mini': `${CDN}/1016222-GREY.png?v=1788262657&width=160`,
+  'ugg-classic-ultra-mini': `${OWN_CDN}/ugg-classic-ultra-mini-chestnut-w-1-1000.png?width=160`,
+  'ugg-classic-mini': `${OWN_CDN}/UGG-Classic-Mini-II-Boot-Chestnut_1.png?width=160`,
   'ugg-classic-micro': `${CDN}/1173891-BTMG-main.png?v=1788259990&width=160`,
   'ugg-weather-hybrid': `${CDN}/1144096-CWTC-main.png?v=1788259591&width=160`,
 
@@ -207,17 +205,17 @@ export const MENU_IMAGES: Record<string, string> = {
   'hoka-one-one': `${CDN}/1110518-BKSTR-main.png?v=1788250984&width=160`,
 
   // Collabs
-  collabs: `${CDN}/Nike_Air_Jordan_1_Retro_Low_OG_SP_Travis_Scott_Sail_Tropical_Pink.png?v=1786123441&width=161`,
-  'nike-off-white': `${CDN}/nike-air-force-1-mid-sp-off-white-varsity-maize2.png?v=1786124865&width=160`,
+  collabs: `${OWN_CDN}/Nike_Air_Jordan_1_Retro_Low_OG_SP_Travis_Scott_Sail_Tropical_Pink.png?width=161`,
+  'nike-off-white': `${OWN_CDN}/nike-air-force-1-mid-sp-off-white-varsity-maize2.png?width=160`,
   'nike-sacai': `${CDN}/HQ8618-100-main.png?v=1788251335&width=161`,
   'nike-patta': `${CDN}/WITHOUT_BRACELET_II7055-100-main.webp?v=1788252353&width=160`,
   // A Box Logo hoodie was the honest top product of this collection while its
   // rule matched every Supreme item; now the rule is tag AND type:sneakers,
   // so the tile shows what it actually opens onto.
-  'nike-supreme': `${CDN}/Nike_SB_Dunk_Low_Supreme_Stars_Mean_Green_1.png?v=1786123724&width=160`,
+  'nike-supreme': `${OWN_CDN}/Nike_SB_Dunk_Low_Supreme_Stars_Mean_Green_1.png?width=160`,
   'collab-wales-bonner': `${CDN}/adidasSambaWalesBonnerBrownCroc.png?v=1788262611&width=160`,
   'collab-bad-bunny': `${CDN}/BadBunnyxadidasAdizeroSL72_Brown_Pink.png?v=1788212453&width=160`,
-  'collab-kith': `${CDN}/AsicsGel-Kayano14KithCreamAntler-2_f8bafd28-07b5-4e64-91fb-8b425da018b0.png?v=1788262724&width=160`,
+  'collab-kith': `${OWN_CDN}/ASICSGel-Kayano12.1KithPeatCream.png?width=160`,
   'collab-palace': `${CDN}/UGGTasmanSlipperPalaceBurntOliveCamo.png?v=1788262586&width=160`,
   'collab-kaws': `${CDN}/2_6fe3ecc4-4c57-47f6-956d-fe3717ec996a.png?v=1788262687&width=160`,
   'collab-clot': `${CDN}/DH2492-100-main.png?v=1788261619&width=161`,
@@ -238,47 +236,42 @@ export const MENU_IMAGES: Record<string, string> = {
   'sp5der-hoodies': `${CDN}/Sp5der_SP5_Mint_Hoodie_Mint.png?v=1788262563&width=160`,
   'sp5der-t-shirts': `${CDN}/Sp5derOGWebV2TeeBlackMulticolor.png?v=1788262372&width=160`,
   'sp5der-pants': `${CDN}/Sp5derArachNYPhobiaSweatpantsAshGrey_6ed2980d-b209-4183-94f0-05d5a6dd2011.png?v=1788262562&width=160`,
-  'travis-scott-t-shirts': `${CDN}/image_-_2026-03-09T232050.055-removebg-preview.png?v=1786131596&width=160`,
-  'travis-scott-hoodies': `${CDN}/Travis_Scott_x_McDonald_s_Apple_Pie_Hoodie_1.png?v=1786123399&width=160`,
+  'travis-scott-t-shirts': `${OWN_CDN}/Screenshot_2025-07-15_133901-removebg-preview.png?width=160`,
+  'travis-scott-hoodies': `${OWN_CDN}/Travis_Scott_x_McDonald_s_Apple_Pie_Hoodie_1.png?width=160`,
   'vale-forever-hoodies': `${CDN}/11451-10004VFTZUG-GREE-main.png?v=1788250454&width=160`,
-  'vale-forever-t-shirts': `${CDN}/vale-forever-chopper-tee-black-main.webp?v=1788250441&width=161`,
   'godspeed-hoodies': `${CDN}/Godspeed_Racer_Goldie_Hoodie_Bone.png?v=1788249931&width=160`,
   'godspeed-t-shirts': `${CDN}/GodspeedMiamiSurfClubTeeBlack.png?v=1788249944&width=161`,
-  'bape-t-shirts': `${CDN}/1K30-110-318-main.webp?v=1788252371&width=160`,
   'vlone-t-shirts': `${CDN}/Juice_Wrld_x_Vlone_Butterfly_T-shirt_White.png?v=1788249967&width=161`,
-  'syna-world-tracksuits': `${CDN}/IMG-3104.webp?v=1786148950&width=160`,
-  'essentials-tees': `${CDN}/FearofGodEssentialsNBABlackWhiteT-shirt_400x_69e1b79e-5760-42e2-a86f-5a7befa1829d.webp?v=1786137003&width=160`,
+  'syna-world-tracksuits': `${OWN_CDN}/IMG-3104.webp?width=160`,
+  'essentials-tees': `${OWN_CDN}/FearofGodEssentialsNBABlackWhiteT-shirt_400x_69e1b79e-5760-42e2-a86f-5a7befa1829d.webp?width=160`,
 
   // Bags & accessories
   bags: `${CDN}/JacquemusLeGrandBambinoLightTurquoise.png?v=1788249809&width=160`,
   'jacquemus-bags': `${CDN}/JacquemusLeGrandBambinoLightTurquoise.png?v=1788249809&width=161`,
   'jacquemus-le-grand-bambino': `${CDN}/JacquemusLeGrandBambinoLightTurquoise.png?v=1788249809&width=162`,
   'jacquemus-le-bambino': `${CDN}/JacquemusLeBambinoDarkBrown.png?v=1788213221&width=160`,
-  'jacquemus-le-long-bambino': `${CDN}/Jacquemus_Le_Long_Bambino_Black.png?v=1786123466&width=160`,
-  'jacquemus-croco': `${CDN}/JacquemusLeGrandBambinoCrocoLightIvory.png?v=1786123470&width=160`,
+  'jacquemus-le-long-bambino': `${OWN_CDN}/Jacquemus_Le_Long_Bambino_Black.png?width=160`,
+  'jacquemus-croco': `${OWN_CDN}/JacquemusLeGrandBambinoCrocoLightIvory.png?width=160`,
   shoelaces: `${CDN}/11822006-main.png?v=1788250992&width=160`,
   'caps-hats': `${CDN}/Supreme_New_Era_Box_Logo_Beanie_FW25_Realtree_AP_Camo.png?v=1788262290&width=161`,
 
   // Silhouettes that were still falling back to a text tile. Each is the
   // collection's own top product, picked for a white or transparent ground
   // so it survives `mix-blend-mode: multiply`.
-  'adidas-campus': `${CDN}/adidas-campus-00s-mesa-wild-brown.png?v=1788262729&width=160`,
   'adidas-gazelle': `${CDN}/GazelleCollegiateGreen.png?v=1788262740&width=160`,
   // Not the collection's first product: that one carries a mis-attached
   // P-6000 photo in the catalogue (see note below).
   'adidas-gazelle-indoor': `${CDN}/adidasGazelleIndoorPrelovedYellow.png?v=1788262565&width=160`,
   'adidas-superstar': `${CDN}/adidasSuperstarCoreBlackCloudWhiteGold.png?v=1788262284&width=160`,
-  'air-jordan-1-high': `${CDN}/air-jordan-1-retro-high-og-hand-crafted-1-1000.png?v=1788262813&width=160`,
-  'air-jordan-1-mid': `${CDN}/air-jordan-1-mid-linen-1-1000.png?v=1788262815&width=160`,
-  'air-jordan-1-low': `${CDN}/air-jordan-1-low-crimson-tint-786306.png?v=1788262731&width=160`,
+  'air-jordan-1-high': `${OWN_CDN}/air-jordan-1-retro-high-travis-scott-cactus-jack-522008.png?width=160`,
+  'air-jordan-1-low': `${OWN_CDN}/AirJordan1RetroLowOGSPTravisScottCanary.png?width=160`,
   'air-jordan-3': `${CDN}/Air_Jordan_3_Retro_Valentine_s_Day_2025.png?v=1788262554&width=160`,
-  'air-jordan-5': `${CDN}/air-jordan-5-jade-horizon-1.png?v=1788262698&width=160`,
+  'air-jordan-5': `${OWN_CDN}/Jordan_5_Retro_Luminous_Green.png?width=160`,
   'nike-air-max-plus': `${CDN}/DM0032-013-main.png?v=1788259891&width=160`,
   'ugg-jasmine': `${CDN}/1166913-JSM-main.png?v=1788252161&width=160`,
   // Both of these avoid the shot already used by ugg-neumel / yeezy — a
   // repeated picture makes two tiles look like the same destination.
   'ugg-platform': `${CDN}/1135092-SDC-main.png?v=1788259786&width=160`,
-  'yeezy-700': `${CDN}/yeezy-700-v3-fade-salt-1-1000.png?v=1788262795&width=160`,
 };
 
 /**
