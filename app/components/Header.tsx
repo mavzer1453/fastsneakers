@@ -1952,15 +1952,12 @@ const WOMEN_MENU_ITEM = fallbackItem('/collections/women', 'Women', [
     fallbackItem('/collections/women-sneakers', 'Sneakers'),
     fallbackItem('/collections/women-boots', 'Boots'),
     fallbackItem('/collections/women-slippers', 'Slippers & Slides'),
+    fallbackItem('/collections/ugg-boots-slippers', 'UGG'),
   ]),
   fallbackGroup('Clothing & bags', [
-    fallbackItem('/collections/women-clothing', 'Clothing'),
-    fallbackItem('/collections/women-bags', 'Bags'),
+    fallbackItem('/collections/nike-skims', 'Nike x SKIMS'),
     fallbackItem('/collections/flare-jeans', 'Flared Denim'),
-  ]),
-  fallbackGroup('More', [
-    fallbackItem('/collections/ugg-boots-slippers', 'UGG'),
-    fallbackItem('/collections/sale-women', 'Sale'),
+    fallbackItem('/collections/women-bags', 'Bags'),
   ]),
 ]);
 
@@ -1990,22 +1987,14 @@ const CLOTHING_MENU_ITEM = fallbackItem('/collections/clothing', 'Clothing', [
     fallbackItem('/collections/essentials-summer', 'Summer Collection'),
   ]),
   fallbackItem('/collections/supreme', 'Supreme', [
-    fallbackItem('/collections/supreme-t-shirts', 'T-Shirts'),
-    fallbackItem('/collections/supreme-hoodies', 'Hoodies'),
-    // No Shirts row: /collections/supreme-shirts holds 0 products.
-    fallbackItem('/collections/supreme-jackets', 'Jackets'),
     fallbackItem('/collections/supreme-pants', 'Pants'),
-    fallbackItem('/collections/supreme-accessories', 'Accessories'),
+    fallbackItem('/collections/nike-supreme', 'Supreme x Nike'),
+    fallbackItem('/collections/timberland-supreme', 'Supreme x Timberland'),
   ]),
   fallbackItem('/collections/stussy', 'Stussy', [
     fallbackItem('/collections/stussy-t-shirts', 'T-Shirts'),
     fallbackItem('/collections/stussy-hoodies', 'Hoodies'),
     // No Shirts row: /collections/stussy-shirts holds 0 products.
-  ]),
-  fallbackItem('/collections/sp5der', 'Sp5der', [
-    fallbackItem('/collections/sp5der-hoodies', 'Hoodies'),
-    fallbackItem('/collections/sp5der-t-shirts', 'T-Shirts'),
-    fallbackItem('/collections/sp5der-pants', 'Pants'),
   ]),
   fallbackItem('/collections/travis-scott', 'Travis Scott', [
     fallbackItem('/collections/travis-scott-t-shirts', 'T-Shirts'),
@@ -2015,26 +2004,23 @@ const CLOTHING_MENU_ITEM = fallbackItem('/collections/clothing', 'Clothing', [
     fallbackItem('/collections/vale-forever-hoodies', 'Hoodies'),
     fallbackItem('/collections/vale-forever-t-shirts', 'T-Shirts'),
   ]),
-  fallbackItem('/collections/godspeed', 'Godspeed', [
-    fallbackItem('/collections/godspeed-hoodies', 'Hoodies'),
-    fallbackItem('/collections/godspeed-t-shirts', 'T-Shirts'),
-  ]),
-  fallbackItem('/collections/bape', 'BAPE', [
-    fallbackItem('/collections/bape-t-shirts', 'T-Shirts'),
-  ]),
-  fallbackItem('/collections/vlone', 'Vlone', [
-    fallbackItem('/collections/vlone-t-shirts', 'T-Shirts'),
-  ]),
   fallbackItem('/collections/syna-world', 'Syna World', [
     fallbackItem('/collections/syna-world-tracksuits', 'Tracksuits'),
+    fallbackItem('/collections/syna-world-hoodies', 'Hoodies'),
+    fallbackItem('/collections/syna-world-jackets', 'Jackets'),
   ]),
-  fallbackItem('/collections/hellstar', 'Hellstar'),
-  fallbackItem('/collections/gallery-dept', 'Gallery Dept'),
-  fallbackItem('/collections/corteiz', 'Corteiz'),
+  fallbackItem('/collections/gallery-dept', 'Gallery Dept', [
+    fallbackItem('/collections/gallery-dept-t-shirts', 'T-Shirts'),
+    fallbackItem('/collections/gallery-dept-pants', 'Pants & Jeans'),
+    fallbackItem('/collections/gallery-dept-sneakers', 'Sneakers & Slippers'),
+  ]),
+  fallbackItem('/collections/corteiz', 'Corteiz', [
+    fallbackItem('/collections/corteiz-tops', 'Tees & Longsleeves'),
+    fallbackItem('/collections/corteiz-knit-jackets', 'Knitwear & Jackets'),
+  ]),
   // Comme des Garçons lives under Sneakers only: all 24 products in that
   // collection are productType "sneakers" (CDG PLAY Converse, CDG Air Force
   // 1, Jordan 1 CDG). Listing it here promised apparel the collection has none of.
-  fallbackItem('/collections/represent', 'Represent'),
   // Apparel only (24 Sep 2026): smart collections that exclude product type
   // "sneakers" — the NOCTA sneakers stay under Sneakers → Nike x NOCTA.
   fallbackItem('/collections/nocta', 'NOCTA', [
@@ -2042,8 +2028,15 @@ const CLOTHING_MENU_ITEM = fallbackItem('/collections/clothing', 'Clothing', [
     fallbackItem('/collections/nocta-puffer', 'Puffer Jackets'),
     fallbackItem('/collections/nocta-t-shirts', 'T-Shirts'),
   ]),
-  fallbackItem('/collections/ami-paris', 'AMI Paris'),
-  fallbackItem('/collections/nike-apparel', 'Nike Apparel'),
+  fallbackItem('/collections/ami-paris', 'AMI Paris', [
+    fallbackItem('/collections/ami-paris-tracksuits', 'Tracksuits & Zippers'),
+    fallbackItem('/collections/ami-paris-shorts', 'Shorts'),
+  ]),
+  fallbackItem('/collections/nike-apparel', 'Nike Apparel', [
+    fallbackItem('/collections/nike-apparel-jackets', 'Jackets'),
+    fallbackItem('/collections/nike-apparel-t-shirts', 'T-Shirts & Jerseys'),
+    fallbackItem('/collections/nike-skims', 'Nike x SKIMS'),
+  ]),
   // Garment categories across every brand, for shoppers who start with the
   // item rather than the label. Pathless group → renders as a strip under the
   // brand grid rather than as brand tiles.
@@ -2090,29 +2083,16 @@ const SNEAKERS_MENU_ITEM = fallbackItem('/collections/sneakers', 'Sneakers', [
   fallbackItem('/collections/jordan', 'Jordan', [
     fallbackItem('/collections/air-jordan-1', 'Air Jordan 1'),
     fallbackItem('/collections/air-jordan-1-high', 'Jordan 1 High'),
-    fallbackItem('/collections/air-jordan-1-mid', 'Jordan 1 Mid'),
     fallbackItem('/collections/air-jordan-1-low', 'Jordan 1 Low'),
-    fallbackItem('/collections/air-jordan-3', 'Air Jordan 3'),
     fallbackItem('/collections/air-jordan-4', 'Air Jordan 4'),
     fallbackItem('/collections/air-jordan-5', 'Air Jordan 5'),
     fallbackItem('/collections/air-jordan-6', 'Air Jordan 6'),
-    fallbackItem('/collections/air-jordan-11', 'Air Jordan 11'),
     fallbackItem('/collections/jumpman-jack', 'Jumpman Jack'),
   ]),
   fallbackItem('/collections/adidas', 'adidas', [
     fallbackItem('/collections/adidas-samba', 'Samba'),
-    fallbackItem('/collections/adidas-gazelle', 'Gazelle'),
-    fallbackItem('/collections/adidas-gazelle-indoor', 'Gazelle Indoor'),
-    fallbackItem('/collections/adidas-gazelle-bold', 'Gazelle Bold'),
-    fallbackItem('/collections/adidas-campus', 'Campus'),
-    fallbackItem('/collections/adidas-campus-00s', 'Campus 00s'),
     fallbackItem('/collections/adidas-spezial', 'Handball Spezial'),
     fallbackItem('/collections/adidas-superstar', 'Superstar'),
-    fallbackItem('/collections/adidas-xlg', 'XLG'),
-    fallbackItem('/collections/adidas-taekwondo', 'Taekwondo'),
-    fallbackItem('/collections/adidas-sl-72', 'SL 72'),
-    fallbackItem('/collections/collab-wales-bonner', 'adidas x Wales Bonner'),
-    fallbackItem('/collections/collab-bad-bunny', 'adidas x Bad Bunny'),
   ]),
   fallbackItem('/collections/new-balance', 'New Balance', [
     fallbackItem('/collections/new-balance-9060', '9060'),
@@ -2122,14 +2102,8 @@ const SNEAKERS_MENU_ITEM = fallbackItem('/collections/sneakers', 'Sneakers', [
     fallbackItem('/collections/new-balance-550', '550'),
     fallbackItem('/collections/new-balance-530', '530'),
     fallbackItem('/collections/new-balance-740', '740'),
-    fallbackItem('/collections/new-balance-1000', '1000'),
     fallbackItem('/collections/new-balance-204l', '204L'),
     fallbackItem('/collections/new-balance-abzorb', 'ABZORB'),
-  ]),
-  fallbackItem('/collections/yeezy', 'Yeezy', [
-    fallbackItem('/collections/yeezy-350', 'Yeezy 350'),
-    fallbackItem('/collections/yeezy-700', 'Yeezy 700'),
-    fallbackItem('/collections/yeezy-slide', 'Yeezy Slides'),
   ]),
   fallbackItem('/collections/asics', 'ASICS', [
     fallbackItem('/collections/asics-gel-nyc', 'Gel-NYC'),
@@ -2151,33 +2125,17 @@ const SNEAKERS_MENU_ITEM = fallbackItem('/collections/sneakers', 'Sneakers', [
     fallbackItem('/collections/ugg-classic-micro', 'Classic Micro'),
     fallbackItem('/collections/ugg-platform', 'Platform'),
   ]),
-  fallbackItem('/collections/puma', 'Puma', [
-    fallbackItem('/collections/puma-speedcat', 'Speedcat'),
-    fallbackItem('/collections/puma-lamelo-ball', 'LaMelo Ball'),
-  ]),
-  fallbackItem('/collections/salomon', 'Salomon', [
-    fallbackItem('/collections/salomon-xt-6', 'XT-6'),
-  ]),
   fallbackItem('/collections/vans', 'Vans', [
     fallbackItem('/collections/vans-old-skool', 'Old Skool'),
     fallbackItem('/collections/vans-knu-skool', 'Knu Skool'),
     fallbackItem('/collections/vans-sk8-hi', 'Sk8-Hi'),
     fallbackItem('/collections/vans-authentic', 'Authentic'),
   ]),
-  fallbackItem('/collections/crocs', 'Crocs', [
-    fallbackItem('/collections/crocs-classic-clog', 'Classic Clog'),
-  ]),
-  fallbackItem('/collections/converse', 'Converse', [
-    fallbackItem('/collections/converse-chuck-taylor', 'Chuck Taylor'),
-  ]),
   fallbackItem('/collections/saucony', 'Saucony', [
     fallbackItem('/collections/saucony-progrid-omni', 'ProGrid Omni'),
     fallbackItem('/collections/saucony-progrid-triumph', 'ProGrid Triumph'),
     fallbackItem('/collections/saucony-progrid-guide', 'ProGrid Guide'),
     fallbackItem('/collections/saucony-progrid-paramount', 'ProGrid Paramount'),
-  ]),
-  fallbackItem('/collections/hoka', 'HOKA', [
-    fallbackItem('/collections/hoka-one-one', 'One One'),
   ]),
   fallbackItem('/collections/birkenstock', 'Birkenstock', [
     fallbackItem('/collections/birkenstock-boston', 'Boston'),
@@ -2199,8 +2157,10 @@ const SNEAKERS_MENU_ITEM = fallbackItem('/collections/sneakers', 'Sneakers', [
     fallbackItem('/collections/maison-mihara-blakey', 'Blakey'),
   ]),
   // No silhouettes deep enough to split — these link straight through.
-  fallbackItem('/collections/comme-des-garcons', 'Comme des Garçons'),
-  fallbackItem('/collections/under-armour', 'Under Armour'),
+  fallbackItem('/collections/comme-des-garcons', 'Comme des Garçons', [
+    fallbackItem('/collections/cdg-nike', 'CDG x Nike'),
+    fallbackItem('/collections/cdg-new-balance', 'CDG x New Balance'),
+  ]),
   // Footwear types across every brand — same strip treatment as Clothing.
   fallbackGroup('Shop all', [
     fallbackItem('/collections/sneakers', 'Sneakers'),
@@ -2225,8 +2185,14 @@ const ACCESSORIES_MENU_ITEM = fallbackItem(
       fallbackItem('/collections/jacquemus-croco', 'Croco'),
       fallbackItem('/collections/women-bags', "Women's Bags"),
     ]),
-    fallbackItem('/collections/shoelaces', 'Shoelaces'),
-    fallbackItem('/collections/caps-hats', 'Caps & Hats'),
+    fallbackItem('/collections/shoelaces', 'Shoelaces', [
+      fallbackItem('/collections/shoelaces-rope', 'Rope Laces'),
+      fallbackItem('/collections/shoelaces-asics', 'ASICS Laces'),
+    ]),
+    fallbackItem('/collections/caps-hats', 'Caps & Hats', [
+      fallbackItem('/collections/caps-beanies', 'Beanies'),
+      fallbackItem('/collections/caps-caps', 'Caps'),
+    ]),
   ],
 );
 

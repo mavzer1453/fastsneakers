@@ -24,6 +24,31 @@ const CDN = 'https://cdn.shopify.com/s/files/1/1024/9466/7139/files';
 const OWN_CDN = 'https://cdn.shopify.com/s/files/1/1081/4613/1276/files';
 
 export const MENU_IMAGES: Record<string, string> = {
+  'maison-mihara-yasuhiro': `${OWN_CDN}/MaisonMiharaYasuhiroPetersonOGSoleCanvasHighBlack.png?width=160`,
+  'vale-forever': `${OWN_CDN}/11451_1SS2604VFBSTB_BLAC-main.webp?width=160`,
+  'vale-forever-t-shirts': `${OWN_CDN}/vale-forever-chopper-tee-black-main.webp?width=160`,
+  nocta: `${OWN_CDN}/Nike_x_NOCTA_Fleece_CS_Hoodie_Grey.png?width=160`,
+  'ami-paris': `${OWN_CDN}/ami-black-zipper-1148923.webp?width=160`,
+  'nike-apparel': `${OWN_CDN}/nike-x-stussy-t-shirt-7909376.png?width=160`,
+  'ugg-neumel': `${OWN_CDN}/ugg-neumel-platform-chelsea-boot-chestnut.png?width=160`,
+  'syna-world-hoodies': `${OWN_CDN}/syna-green-hoodie-5416895.jpg?width=160`,
+  'syna-world-jackets': `${OWN_CDN}/EE54CB22-E2F6-49A1-995B-20511F16DE5C.png?width=161`,
+  'gallery-dept-t-shirts': `${OWN_CDN}/gallery-dept-de-la-galerie-tee-9426951.webp?width=160`,
+  'gallery-dept-pants': `${OWN_CDN}/Ontwerp_zonder_titel_66.png?width=160`,
+  'gallery-dept-sneakers': `${OWN_CDN}/1166950-BLK-main.png?width=160`,
+  'corteiz-tops': `${OWN_CDN}/675E66AB-77FA-4B96-B1E9-030C7FE0795F.png?width=160`,
+  'corteiz-knit-jackets': `${OWN_CDN}/5CF7B6B6-F966-439D-B473-26BA1A9CA926.webp?width=160`,
+  'ami-paris-tracksuits': `${OWN_CDN}/78D9165C-A90F-4177-B0FF-34C5A85F3DED.webp?width=160`,
+  'ami-paris-shorts': `${OWN_CDN}/244.jpg?width=160`,
+  'nike-apparel-jackets': `${OWN_CDN}/Nike_x_NOCTA_Sunset_Puffer_Jacket_Mica_Green_2.png?width=160`,
+  'nike-apparel-t-shirts': `${OWN_CDN}/IB5673-325-main.webp?width=161`,
+  'nike-skims': `${OWN_CDN}/Nike_x_SKIMS_Women_s_Weightless_Layers_Zip_Up_Hoodie_Lead.png?width=160`,
+  'cdg-nike': `${OWN_CDN}/dunk-low-comme-des-garcons-print-721443.png?width=160`,
+  'cdg-new-balance': `${OWN_CDN}/NewBalance_509_Comme_des_Gar_ons_Homme_Grey.png?width=160`,
+  'shoelaces-rope': `${OWN_CDN}/NikeAirForce1LowRopeLacesBeigeCustom.png?width=160`,
+  'shoelaces-asics': `${OWN_CDN}/AsicsVetersDonkerGrijs_1.png?width=160`,
+  'caps-beanies': `${OWN_CDN}/Premium-Y2K-Beanie-2.jpg?width=160`,
+  'caps-caps': `${OWN_CDN}/nike-x-nocta-club-cap-black-white-main.webp?width=160`,
   // Model tiles for brands added from the Mera catalogue (24 Nov 2026).
   'saucony-progrid-omni': `${OWN_CDN}/SauconyProGridOmni9DeepNavy.png?width=160`,
   'saucony-progrid-triumph': `${OWN_CDN}/SauconyProGridTriumph4WestsideGunnSuperFlygod.png?width=160`,
@@ -156,7 +181,7 @@ export const MENU_IMAGES: Record<string, string> = {
   birkenstock: `${CDN}/151211-main.webp?v=1788258922&width=160`,
   timberland: `${CDN}/1183C102-200-main.png?v=1788251774&width=160`,
   'under-armour': `${CDN}/UnderArmourUASolaUltimateBlack.png?v=1788262186&width=160`,
-  'comme-des-garcons': `${CDN}/CN5738-001-main.png?v=1788261007&width=160`,
+  'comme-des-garcons': `${OWN_CDN}/New_Balance_509_Comme_des_Gar_ons_Homme_White.png?width=160`,
 
   // Streetwear brands
   bape: `${CDN}/adidasCampus80sBapeCollegiateNavy.png?v=1788262418&width=160`,
@@ -250,7 +275,7 @@ export const MENU_IMAGES: Record<string, string> = {
   'supreme-t-shirts': `${CDN}/SupremeTylerTheCreatorTeeBlack.png?v=1788262481&width=160`,
   'supreme-hoodies': `${CDN}/Supreme_Box_Logo_Hooded_Sweatshirt_Sweatshirt_FW24_Black.png?v=1788262495&width=161`,
   'supreme-jackets': `${CDN}/NAHMIAS_x_Marty_Supreme_A24_Classic_Warm_Up_Jacket_Pink_1.png?v=1788262162&width=160`,
-  'supreme-pants': `${CDN}/Supreme_MM6_Maison_Margiela_Eagle_Sweatpant_Purple_1.png?v=1788249902&width=160`,
+  'supreme-pants': `${OWN_CDN}/SupremeUmbroCottonRipstopTrackPant_SS26_Black.png?width=160`,
   'supreme-accessories': `${CDN}/Supreme_New_Era_Box_Logo_Beanie_FW25_Realtree_AP_Camo.png?v=1788262290&width=160`,
   'stussy-t-shirts': `${CDN}/Stussy8BallPigmentDyedTeeBlack.png?v=1788262099&width=160`,
   'stussy-hoodies': `${CDN}/StussyBasicThermalWoodlandCamo_1.png?v=1788262107&width=160`,
@@ -273,8 +298,8 @@ export const MENU_IMAGES: Record<string, string> = {
   'jacquemus-le-bambino': `${CDN}/JacquemusLeBambinoDarkBrown.png?v=1788213221&width=160`,
   'jacquemus-le-long-bambino': `${OWN_CDN}/Jacquemus_Le_Long_Bambino_Black.png?width=160`,
   'jacquemus-croco': `${OWN_CDN}/JacquemusLeGrandBambinoCrocoLightIvory.png?width=160`,
-  shoelaces: `${CDN}/11822006-main.png?v=1788250992&width=160`,
-  'caps-hats': `${CDN}/Supreme_New_Era_Box_Logo_Beanie_FW25_Realtree_AP_Camo.png?v=1788262290&width=161`,
+  shoelaces: `${OWN_CDN}/Nike_Air_Force_1_Low_Rope_Laces_White_Custom.png?width=160`,
+  'caps-hats': `${OWN_CDN}/RAGNOFILO_BEANIE.jpg?width=160`,
 
   // Silhouettes that were still falling back to a text tile. Each is the
   // collection's own top product, picked for a white or transparent ground

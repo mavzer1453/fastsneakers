@@ -49,11 +49,9 @@ const JORDAN: CategoryGroup = {
   links: [
     {label: 'All Jordan', handle: 'jordan'},
     {label: 'Air Jordan 1', handle: 'air-jordan-1'},
-    {label: 'Air Jordan 3', handle: 'air-jordan-3'},
     {label: 'Air Jordan 4', handle: 'air-jordan-4'},
     {label: 'Air Jordan 5', handle: 'air-jordan-5'},
     {label: 'Air Jordan 6', handle: 'air-jordan-6'},
-    {label: 'Air Jordan 11', handle: 'air-jordan-11'},
     {label: 'Jumpman Jack', handle: 'jumpman-jack'},
   ],
 };
@@ -97,7 +95,6 @@ const AIR_JORDAN_1: CategoryGroup = {
   links: [
     {label: 'All Jordan 1', handle: 'air-jordan-1'},
     {label: 'Jordan 1 High', handle: 'air-jordan-1-high'},
-    {label: 'Jordan 1 Mid', handle: 'air-jordan-1-mid'},
     {label: 'Jordan 1 Low', handle: 'air-jordan-1-low'},
     {label: 'All Jordan', handle: 'jordan'},
   ],
@@ -135,7 +132,6 @@ const ASICS: CategoryGroup = {
     {label: 'Gel-NYC', handle: 'asics-gel-nyc'},
     {label: 'Gel-Kayano', handle: 'asics-gel-kayano'},
     {label: 'Gel-1130', handle: 'asics-gel-1130'},
-    {label: 'ASICS Sale', handle: 'sale-asics'},
   ],
 };
 
@@ -144,8 +140,6 @@ const ADIDAS: CategoryGroup = {
   links: [
     {label: 'All adidas', handle: 'adidas'},
     {label: 'Samba', handle: 'adidas-samba'},
-    {label: 'Gazelle', handle: 'adidas-gazelle'},
-    {label: 'Campus', handle: 'adidas-campus'},
     {label: 'Handball Spezial', handle: 'adidas-spezial'},
     {label: 'Superstar', handle: 'adidas-superstar'},
   ],
@@ -164,12 +158,7 @@ const SNEAKERS: CategoryGroup = {
     {label: 'ASICS', handle: 'asics'},
     {label: 'adidas', handle: 'adidas'},
     {label: 'On Running', handle: 'on-running'},
-    {label: 'Puma', handle: 'puma'},
-    {label: 'Salomon', handle: 'salomon'},
     {label: 'Vans', handle: 'vans'},
-    {label: 'Converse', handle: 'converse'},
-    {label: 'Crocs', handle: 'crocs'},
-    {label: 'Yeezy', handle: 'yeezy'},
     {label: 'Timberland', handle: 'timberland'},
     {label: 'Birkenstock', handle: 'birkenstock'},
     {label: 'Travis Scott', handle: 'travis-scott-sneakers'},
@@ -186,14 +175,12 @@ const ESSENTIALS: CategoryGroup = {
   links: [
     {label: 'All Essentials', handle: 'essentials'},
     {label: 'Hoodies', handle: 'essentials-hoodies'},
-    {label: 'T-shirts', handle: 'essentials-t-shirts'},
     {label: 'Sets', handle: 'essentials-sets'},
     {label: 'Pants', handle: 'essentials-pants'},
     {label: 'Shorts', handle: 'essentials-shorts'},
     {label: 'Jackets', handle: 'essentials-jackets'},
     {label: 'Summer', handle: 'essentials-summer'},
     {label: 'Winter', handle: 'essentials-winter'},
-    {label: 'Essentials Sale', handle: 'sale-essentials'},
   ],
 };
 
@@ -205,9 +192,7 @@ const MEN: CategoryGroup = {
     {label: 'T-shirts', handle: 'men-t-shirts'},
     {label: 'Hoodies & sweatshirts', handle: 'men-hoodies'},
     {label: 'Jackets & outerwear', handle: 'men-jackets-outerwear'},
-    {label: 'Pants & jeans', handle: 'men-pants-jeans'},
     {label: 'Shorts', handle: 'men-shorts'},
-    {label: 'Tracksuits & sets', handle: 'men-tracksuits-sets'},
     {label: 'Accessories', handle: 'accessories'},
     {label: 'Sale', handle: 'sale'},
   ],
@@ -220,11 +205,9 @@ const WOMEN: CategoryGroup = {
     {label: 'Sneakers', handle: 'women-sneakers'},
     {label: 'Boots', handle: 'women-boots'},
     {label: 'Slippers & slides', handle: 'women-slippers'},
-    {label: 'Clothing', handle: 'women-clothing'},
     {label: 'Bags', handle: 'women-bags'},
     {label: 'Flared denim', handle: 'flare-jeans'},
     {label: 'UGG', handle: 'ugg-boots-slippers'},
-    {label: 'Sale', handle: 'sale-women'},
   ],
 };
 
@@ -248,11 +231,9 @@ const SUPREME: CategoryGroup = {
   heading: 'Supreme',
   links: [
     {label: 'All Supreme', handle: 'supreme'},
-    {label: 'T-Shirts', handle: 'supreme-t-shirts'},
-    {label: 'Hoodies', handle: 'supreme-hoodies'},
-    {label: 'Jackets', handle: 'supreme-jackets'},
     {label: 'Pants', handle: 'supreme-pants'},
-    {label: 'Accessories', handle: 'supreme-accessories'},
+    {label: 'Supreme x Nike', handle: 'nike-supreme'},
+    {label: 'Supreme x Timberland', handle: 'timberland-supreme'},
   ],
 };
 
@@ -270,9 +251,7 @@ const SP5DER: CategoryGroup = {
   heading: 'Sp5der',
   links: [
     {label: 'All Sp5der', handle: 'sp5der'},
-    {label: 'Hoodies', handle: 'sp5der-hoodies'},
-    {label: 'T-Shirts', handle: 'sp5der-t-shirts'},
-    {label: 'Pants', handle: 'sp5der-pants'},
+    {label: 'Travis Scott T-Shirts', handle: 'travis-scott-t-shirts'},
   ],
 };
 
@@ -317,8 +296,6 @@ const BRANDS: CategoryGroup = {
     {label: 'Jacquemus', handle: 'jacquemus'},
     {label: 'Vale Forever', handle: 'vale-forever'},
     {label: 'Hellstar', handle: 'hellstar'},
-    {label: 'Vlone', handle: 'vlone'},
-    {label: 'Godspeed', handle: 'godspeed'},
     {label: 'BAPE', handle: 'bape'},
   ],
 };
@@ -348,9 +325,6 @@ const SALE: CategoryGroup = {
     {label: 'All sale', handle: 'sale'},
     {label: 'Nike', handle: 'sale-nike'},
     {label: 'New Balance', handle: 'sale-new-balance'},
-    {label: 'ASICS', handle: 'sale-asics'},
-    {label: 'Essentials', handle: 'sale-essentials'},
-    {label: 'Women', handle: 'sale-women'},
   ],
 };
 
