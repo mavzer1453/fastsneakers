@@ -24,6 +24,27 @@ const CDN = 'https://cdn.shopify.com/s/files/1/1024/9466/7139/files';
 const OWN_CDN = 'https://cdn.shopify.com/s/files/1/1081/4613/1276/files';
 
 export const MENU_IMAGES: Record<string, string> = {
+  // Model tiles for brands added from the Mera catalogue (24 Nov 2026).
+  'saucony-progrid-omni': `${OWN_CDN}/SauconyProGridOmni9DeepNavy.png?width=160`,
+  'saucony-progrid-triumph': `${OWN_CDN}/SauconyProGridTriumph4WestsideGunnSuperFlygod.png?width=160`,
+  'saucony-progrid-guide': `${OWN_CDN}/S70936-8-main.png?width=160`,
+  'saucony-progrid-paramount': `${OWN_CDN}/S70948-5-main.png?width=160`,
+  'vans-knu-skool': `${OWN_CDN}/VN0009QC6BT-main.png?width=160`,
+  'vans-sk8-hi': `${OWN_CDN}/VN0A4BVH5WW-main.png?width=160`,
+  'vans-authentic': `${OWN_CDN}/VansPremiumLXAuthentic44IbizaPackRed.png?width=160`,
+  'birkenstock-arizona': `${OWN_CDN}/51791-main.webp?width=160`,
+  'timberland-6-inch-premium': `${OWN_CDN}/Timberland6InchPremiumWaterproofBoot_Wheat.png?width=160`,
+  'timberland-supreme': `${OWN_CDN}/timberland-6-premium-waterproof-boot-supreme-diamond-plate-black-2026-main.webp?width=160`,
+  'on-running-cloudtilt': `${OWN_CDN}/3WE10053107-main.png?width=160`,
+  'on-running-k-tech': `${OWN_CDN}/3MG10771043-main.png?width=160`,
+  'on-running-cloudmonster': `${OWN_CDN}/3ME10120664-main.png?width=160`,
+  'on-running-cloudzone': `${OWN_CDN}/3MF11130202-main.png?width=160`,
+  'maison-mihara-peterson': `${OWN_CDN}/MaisonMiharaYasuhiroPeterson23OGSoleCanvasLowBlack.png?width=160`,
+  'maison-mihara-hank': `${OWN_CDN}/MaisonMihara_9.png?width=160`,
+  'maison-mihara-blakey': `${OWN_CDN}/MaisonMiharaYasuhiroBlakeyOGSoleCanvasLowWhite.png?width=160`,
+  'nocta-fleece': `${OWN_CDN}/HM5762-040-main.webp?width=160`,
+  'nocta-puffer': `${OWN_CDN}/NikexNOCTASunsetPufferJacketBaroqueBrown_2.png?width=160`,
+  'nocta-t-shirts': `${OWN_CDN}/IB5673-325-main.webp?width=160`,
   // Departments — apparel for Men/Women, footwear for the shoe categories.
   // Sale and Bestsellers deliberately have none: they use a glyph instead.
   men: `${OWN_CDN}/FearofGodEssentials_25.webp?width=160`,

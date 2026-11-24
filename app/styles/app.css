@@ -6558,10 +6558,22 @@ main:has(> .collection.page-container) + .footer {
 }
 
 @media (min-width: 60em) {
+  /* The rail scrolls on its own. A long brand list (Sneakers lists every
+     model) used to be taller than the window, and a sticky box taller than
+     the viewport never sticks: to reach its last links the shopper had to
+     scroll the whole product grid down with it. Capping it at the window
+     height gives it its own scrollbar while the grid scrolls independently. */
   .category-nav {
     position: sticky;
     top: 6rem;
     margin-bottom: 0;
+    max-height: calc(100vh - 7rem);
+    max-height: calc(100dvh - 7rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #d4d4d8 transparent;
+    padding-right: 0.5rem;
   }
 }
 

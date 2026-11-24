@@ -2037,7 +2037,11 @@ const CLOTHING_MENU_ITEM = fallbackItem('/collections/clothing', 'Clothing', [
   fallbackItem('/collections/represent', 'Represent'),
   // Apparel only (24 Sep 2026): smart collections that exclude product type
   // "sneakers" — the NOCTA sneakers stay under Sneakers → Nike x NOCTA.
-  fallbackItem('/collections/nocta', 'NOCTA'),
+  fallbackItem('/collections/nocta', 'NOCTA', [
+    fallbackItem('/collections/nocta-fleece', 'Fleece'),
+    fallbackItem('/collections/nocta-puffer', 'Puffer Jackets'),
+    fallbackItem('/collections/nocta-t-shirts', 'T-Shirts'),
+  ]),
   fallbackItem('/collections/ami-paris', 'AMI Paris'),
   fallbackItem('/collections/nike-apparel', 'Nike Apparel'),
   // Garment categories across every brand, for shoppers who start with the
@@ -2156,6 +2160,9 @@ const SNEAKERS_MENU_ITEM = fallbackItem('/collections/sneakers', 'Sneakers', [
   ]),
   fallbackItem('/collections/vans', 'Vans', [
     fallbackItem('/collections/vans-old-skool', 'Old Skool'),
+    fallbackItem('/collections/vans-knu-skool', 'Knu Skool'),
+    fallbackItem('/collections/vans-sk8-hi', 'Sk8-Hi'),
+    fallbackItem('/collections/vans-authentic', 'Authentic'),
   ]),
   fallbackItem('/collections/crocs', 'Crocs', [
     fallbackItem('/collections/crocs-classic-clog', 'Classic Clog'),
@@ -2164,18 +2171,34 @@ const SNEAKERS_MENU_ITEM = fallbackItem('/collections/sneakers', 'Sneakers', [
     fallbackItem('/collections/converse-chuck-taylor', 'Chuck Taylor'),
   ]),
   fallbackItem('/collections/saucony', 'Saucony', [
-    fallbackItem('/collections/saucony-progrid', 'ProGrid'),
+    fallbackItem('/collections/saucony-progrid-omni', 'ProGrid Omni'),
+    fallbackItem('/collections/saucony-progrid-triumph', 'ProGrid Triumph'),
+    fallbackItem('/collections/saucony-progrid-guide', 'ProGrid Guide'),
+    fallbackItem('/collections/saucony-progrid-paramount', 'ProGrid Paramount'),
   ]),
   fallbackItem('/collections/hoka', 'HOKA', [
     fallbackItem('/collections/hoka-one-one', 'One One'),
   ]),
   fallbackItem('/collections/birkenstock', 'Birkenstock', [
     fallbackItem('/collections/birkenstock-boston', 'Boston'),
+    fallbackItem('/collections/birkenstock-arizona', 'Arizona'),
+  ]),
+  fallbackItem('/collections/on-running', 'On Running', [
+    fallbackItem('/collections/on-running-cloudtilt', 'Cloudtilt'),
+    fallbackItem('/collections/on-running-k-tech', 'K-Tech x Kith'),
+    fallbackItem('/collections/on-running-cloudmonster', 'Cloudmonster'),
+    fallbackItem('/collections/on-running-cloudzone', 'Cloudzone'),
+  ]),
+  fallbackItem('/collections/timberland', 'Timberland', [
+    fallbackItem('/collections/timberland-6-inch-premium', '6-Inch Premium Boot'),
+    fallbackItem('/collections/timberland-supreme', 'Timberland x Supreme'),
+  ]),
+  fallbackItem('/collections/maison-mihara-yasuhiro', 'Maison Mihara Yasuhiro', [
+    fallbackItem('/collections/maison-mihara-peterson', 'Peterson'),
+    fallbackItem('/collections/maison-mihara-hank', 'Hank'),
+    fallbackItem('/collections/maison-mihara-blakey', 'Blakey'),
   ]),
   // No silhouettes deep enough to split — these link straight through.
-  fallbackItem('/collections/on-running', 'On Running'),
-  fallbackItem('/collections/timberland', 'Timberland'),
-  fallbackItem('/collections/maison-mihara-yasuhiro', 'Maison Mihara Yasuhiro'),
   fallbackItem('/collections/comme-des-garcons', 'Comme des Garçons'),
   fallbackItem('/collections/under-armour', 'Under Armour'),
   // Footwear types across every brand — same strip treatment as Clothing.
