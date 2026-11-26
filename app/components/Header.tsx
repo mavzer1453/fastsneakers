@@ -31,6 +31,8 @@ import {
   PROMO,
   formatPromoTime,
   usePromoCountdown,
+  useBlackFridayCountdown,
+  BLACK_FRIDAY,
   SECOND_PAIR,
 } from '~/lib/promo';
 import {displayOptionName} from '~/components/QuickAdd';
@@ -295,8 +297,17 @@ function AnnouncementBar() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const promo = usePromoCountdown();
+  const blackFriday = useBlackFridayCountdown();
 
   const announcements = [
+    // Black Friday leads while it runs and drops out by itself at the end.
+    ...(blackFriday
+      ? [
+          `🔥 ${t('BLACK FRIDAY · up to {percent}% off · ends in {time}')
+            .replace('{percent}', String(BLACK_FRIDAY.percent))
+            .replace('{time}', formatPromoTime(blackFriday))}`,
+        ]
+      : []),
     // The campaign leads the rotation while it runs, and removes itself the
     // second it expires — `usePromoCountdown` returns null past the end time,
     // so there is no stale "20% off" left advertising a dead code.

@@ -14,7 +14,8 @@ import {listingCache} from '~/lib/cache';
 import {CustomerLove, InstaStrip} from '~/components/SocialProof';
 import {useAside} from '~/components/Aside';
 import {PromoStrip} from '~/components/PromoStrip';
-import {isPromoLive} from '~/lib/promo';
+import {isBlackFridayLive, isPromoLive} from '~/lib/promo';
+import {BlackFridayBar} from '~/components/BlackFridayBar';
 import {HeroCollage, type HeroPrice} from '~/components/HeroCollage';
 import {
   HERO_TILES,
@@ -131,7 +132,10 @@ async function loadCriticalData(_args: Route.LoaderArgs) {
   // homepage needs no blocking storefront query — instant TTFB.
   // `promoLive` lets the offer band reserve the dated slide's height in the
   // server HTML (see PromoStrip) — a boolean, so the response stays cacheable.
-  return {promoLive: isPromoLive(Date.now())};
+  // `blackFriday` is checked per request, so the homepage returns to normal
+  // by itself once the window in lib/promo.ts closes — no deploy needed.
+  const now = Date.now();
+  return {promoLive: isPromoLive(now), blackFriday: isBlackFridayLive(now)};
 }
 
 /**
@@ -653,13 +657,23 @@ export default function Homepage() {
       {/* Sales-first order: banner → category routes → proven bestsellers
           → price urgency (deals) → freshness → budget row → brand story →
           trust layer. Money pages up top, reassurance below. */}
-      <PromoStrip reserveDated={data.promoLive} />
-      <Suspense fallback={<HeroCollage prices={{}} />}>
+      {data.blackFriday ? (
+        <BlackFridayBar />
+      ) : (
+        <PromoStrip reserveDated={data.promoLive} />
+      )}
+      <Suspense
+        fallback={<HeroCollage prices={{}} blackFriday={data.blackFriday} />}
+      >
         <Await
           resolve={data.homeProducts}
-          errorElement={<HeroCollage prices={{}} />}
+          errorElement={
+            <HeroCollage prices={{}} blackFriday={data.blackFriday} />
+          }
         >
-          {({heroPrices}) => <HeroCollage prices={heroPrices} />}
+          {({heroPrices}) => (
+            <HeroCollage prices={heroPrices} blackFriday={data.blackFriday} />
+          )}
         </Await>
       </Suspense>
       <PopularBrands />

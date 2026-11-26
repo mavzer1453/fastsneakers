@@ -100,3 +100,69 @@ export function formatPromoTime(time: PromoTime): string {
   const clock = `${pad(time.hours)}:${pad(time.minutes)}:${pad(time.seconds)}`;
   return time.days > 0 ? `${time.days}d ${clock}` : clock;
 }
+
+/**
+ * Black Friday 2026: a countdown bar replaces the offer band and a Black
+ * Friday photo leads the hero carousel. There is no code — the deal is the
+ * reduced prices already on the products (compare-at prices), gathered in the
+ * smart collection /collections/black-friday.
+ *
+ * Both pieces switch themselves off at `endsAt` with no deploy: the homepage
+ * loader checks the window on every request, and the bar's clock hides itself
+ * the moment it reaches zero for anyone with the page still open.
+ *
+ * UTC, for the same DST reason as PROMO above. Brussels is UTC+1 in winter.
+ */
+export const BLACK_FRIDAY = {
+  percent: 40,
+  /** 26 Nov 2026, 00:00 Brussels. */
+  startsAt: '2026-11-25T23:00:00Z',
+  /** 30 Nov 2026, 23:59 Brussels (CET, UTC+1) — through Cyber Monday. */
+  endsAt: '2026-11-30T22:59:00Z',
+  collection: 'black-friday',
+} as const;
+
+function windowRemaining(
+  startsAt: string,
+  endsAt: string,
+  now: number,
+): PromoTime | null {
+  const start = Date.parse(startsAt);
+  const end = Date.parse(endsAt);
+  if (!Number.isFinite(start) || !Number.isFinite(end)) return null;
+  if (now < start || now >= end) return null;
+  const total = Math.floor((end - now) / 1000);
+  return {
+    days: Math.floor(total / 86400),
+    hours: Math.floor((total % 86400) / 3600),
+    minutes: Math.floor((total % 3600) / 60),
+    seconds: total % 60,
+  };
+}
+
+/** Server-side switch, read once per request by the homepage loader. */
+export function isBlackFridayLive(now: number): boolean {
+  return (
+    windowRemaining(BLACK_FRIDAY.startsAt, BLACK_FRIDAY.endsAt, now) !== null
+  );
+}
+
+/**
+ * Client clock for the bar. Null on the server and first render (the page is
+ * cacheable — see usePromoCountdown), and null again once the sale is over.
+ */
+export function useBlackFridayCountdown(): PromoTime | null {
+  const [time, setTime] = useState<PromoTime | null>(null);
+
+  useEffect(() => {
+    const tick = () =>
+      setTime(
+        windowRemaining(BLACK_FRIDAY.startsAt, BLACK_FRIDAY.endsAt, Date.now()),
+      );
+    tick();
+    const timer = setInterval(tick, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return time;
+}

@@ -9,6 +9,7 @@ import {
   heroSrcSet,
   type HeroTile,
 } from '~/data/heroTiles';
+import {BLACK_FRIDAY} from '~/lib/promo';
 import {useLocalizedHref} from '~/lib/localizedLink';
 import {useTranslate} from '~/lib/useTranslate';
 
@@ -20,7 +21,15 @@ const WHEEL_THRESHOLD = 70;
 /** Width at which the banner becomes the 2 - 1 - 2 stage. */
 const WIDE_QUERY = '(min-width: 64em)';
 
-type Slide = {kind: 'photo'; tile: HeroTile} | {kind: 'video'};
+type Slide =
+  | {kind: 'photo'; tile: HeroTile}
+  | {kind: 'video'}
+  | {kind: 'black-friday'};
+
+/** Lead slide while Black Friday runs (the loader decides; see lib/promo). */
+const BLACK_FRIDAY_SLIDE: Slide = {kind: 'black-friday'};
+/** /public/category-sneakers.jpg — dark city shot, Jordan 1s, 900 x 1200. */
+const BLACK_FRIDAY_IMAGE = '/category-sneakers.jpg';
 
 /** The clip sits at the midpoint, so the run stays balanced as tiles grow. */
 function slidesFor(tiles: HeroTile[], withVideo: boolean): Slide[] {
@@ -90,7 +99,14 @@ function useWideScreen(): boolean {
  * Dragging writes straight onto the same transform, so a swipe and the
  * auto-advance are the same motion rather than two competing ones.
  */
-export function HeroCollage({prices}: {prices: Record<string, HeroPrice>}) {
+export function HeroCollage({
+  prices,
+  blackFriday = false,
+}: {
+  prices: Record<string, HeroPrice>;
+  /** From the homepage loader: true only inside the Black Friday window. */
+  blackFriday?: boolean;
+}) {
   const t = useTranslate();
   const wide = useWideScreen();
   const [index, setIndex] = useState(0);
@@ -102,9 +118,11 @@ export function HeroCollage({prices}: {prices: Record<string, HeroPrice>}) {
     null,
   );
 
-  const slides = wide ? WIDE_SLIDES : NARROW_SLIDES;
+  const baseSlides = wide ? WIDE_SLIDES : NARROW_SLIDES;
+  const slides = blackFriday ? [BLACK_FRIDAY_SLIDE, ...baseSlides] : baseSlides;
   const count = slides.length;
   const isVideo = slides[index]?.kind === 'video';
+  const isLead = slides[index]?.kind === 'black-friday';
 
   /*
    * The two runs are different lengths, so a resize across the breakpoint can
@@ -119,10 +137,10 @@ export function HeroCollage({prices}: {prices: Record<string, HeroPrice>}) {
     if (paused) return;
     // The clip gets a longer beat than a still — roughly one loop, where a
     // still's four and a half seconds would cut it mid-motion.
-    const hold = isVideo ? 6500 : 4500;
+    const hold = isVideo || isLead ? 6500 : 4500;
     const timer = setTimeout(() => setIndex((n) => (n + 1) % count), hold);
     return () => clearTimeout(timer);
-  }, [paused, index, count, isVideo]);
+  }, [paused, index, count, isVideo, isLead]);
 
   const onTouchStart = (event: React.TouchEvent) => {
     const point = event.touches[0];
@@ -252,7 +270,9 @@ export function HeroCollage({prices}: {prices: Record<string, HeroPrice>}) {
               }}
             >
               {slides.map((slide, position) =>
-                slide.kind === 'video' ? (
+                slide.kind === 'black-friday' ? (
+                  <BlackFridaySlide key="black-friday" eager={position === 0} />
+                ) : slide.kind === 'video' ? (
                   <HeroVideo
                     key="video"
                     active={position === index}
@@ -298,11 +318,17 @@ export function HeroCollage({prices}: {prices: Record<string, HeroPrice>}) {
       <div className="hero-show-dots" role="tablist" aria-label={t('Slides')}>
         {slides.map((item, dot) => (
           <button
-            key={item.kind === 'video' ? 'video' : item.tile.id}
+            key={item.kind === 'photo' ? item.tile.id : item.kind}
             type="button"
             role="tab"
             aria-selected={dot === index}
-            aria-label={item.kind === 'video' ? t('Clip') : item.tile.label}
+            aria-label={
+              item.kind === 'photo'
+                ? item.tile.label
+                : item.kind === 'video'
+                  ? t('Clip')
+                  : t('Black Friday')
+            }
             className={`hero-show-dot${dot === index ? ' is-on' : ''}`}
             onClick={() => setIndex(dot)}
           />
@@ -570,6 +596,58 @@ function HeroVideo({
         ) : null}
         <span className="hero-show-cta">
           {t('Shop now')}
+          <span aria-hidden="true">→</span>
+        </span>
+      </span>
+    </Link>
+  );
+}
+
+/**
+ * Black Friday lead slide: the dark street shot with the offer laid over its
+ * left side (bottom on a phone). Links to the smart collection of every
+ * product with a reduced price — the deal needs no code.
+ */
+function BlackFridaySlide({eager}: {eager: boolean}) {
+  const t = useTranslate();
+  const localize = useLocalizedHref();
+  const percent = String(BLACK_FRIDAY.percent);
+
+  return (
+    <Link
+      className="hero-show-cell is-bf"
+      to={localize(`/collections/${BLACK_FRIDAY.collection}`)}
+      prefetch="intent"
+    >
+      <img
+        className="bf-slide-photo"
+        src={BLACK_FRIDAY_IMAGE}
+        width={900}
+        height={1200}
+        alt=""
+        loading={eager ? 'eager' : 'lazy'}
+        fetchPriority={eager ? 'high' : 'auto'}
+        decoding={eager ? 'sync' : 'async'}
+        draggable={false}
+      />
+      <span className="bf-slide-shade" aria-hidden="true" />
+      <span className="bf-slide-badge" aria-hidden="true">
+        <small>{t('UP TO')}</small>
+        <b>-{percent}%</b>
+      </span>
+      <span className="bf-slide-copy">
+        <span className="bf-slide-eyebrow">{t('Black Friday · 26 – 30 Nov')}</span>
+        <span className="bf-slide-title">
+          Black<span>Friday</span>
+        </span>
+        <span className="bf-slide-sub">
+          {t('Save up to')} <em>{percent}%</em>
+        </span>
+        <span className="bf-slide-note">
+          {t('Prices already reduced · no code needed · free shipping')}
+        </span>
+        <span className="hero-show-cta">
+          {t('Shop the deals')}
           <span aria-hidden="true">→</span>
         </span>
       </span>
