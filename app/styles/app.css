@@ -14931,3 +14931,13 @@ button.mobile-menu-crumb-btn:focus-visible {
     font-size: 2.2rem;
   }
 }
+
+/* Deals bar after Black Friday: a CTA takes the clock's place. */
+.bf-bar-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ff8a5c;
+}

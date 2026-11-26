@@ -33,6 +33,7 @@ import {
   usePromoCountdown,
   useBlackFridayCountdown,
   BLACK_FRIDAY,
+  DEALS_LIVE,
 } from '~/lib/promo';
 import {displayOptionName} from '~/components/QuickAdd';
 import {useLocalePrefix, useLocalizedHref} from '~/lib/localizedLink';
@@ -306,7 +307,14 @@ function AnnouncementBar() {
             .replace('{percent}', String(BLACK_FRIDAY.percent))
             .replace('{time}', formatPromoTime(blackFriday))}`,
         ]
-      : []),
+      : DEALS_LIVE
+        ? [
+            `🔥 ${t('SALE · up to {percent}% off · no code needed').replace(
+              '{percent}',
+              String(BLACK_FRIDAY.percent),
+            )}`,
+          ]
+        : []),
     // The campaign leads the rotation while it runs, and removes itself the
     // second it expires — `usePromoCountdown` returns null past the end time,
     // so there is no stale "20% off" left advertising a dead code.

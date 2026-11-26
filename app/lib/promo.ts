@@ -140,6 +140,14 @@ function windowRemaining(
   };
 }
 
+/**
+ * The deals (reduced prices, /collections/black-friday — titled "Deals" in
+ * Shopify) keep running after Black Friday under a plain "SALE" name: the
+ * owner's call, 26 Nov 2026. Set to false to take the deals bar and the lead
+ * hero slide off the site once the promotion ends.
+ */
+export const DEALS_LIVE = true;
+
 /** Server-side switch, read once per request by the homepage loader. */
 export function isBlackFridayLive(now: number): boolean {
   return (

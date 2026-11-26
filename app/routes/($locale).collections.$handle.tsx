@@ -41,6 +41,7 @@ import {
   type PackedProductCard,
 } from '~/lib/productCardFragment';
 import type {ProductCardFragment} from 'storefrontapi.generated';
+import {BLACK_FRIDAY, isBlackFridayLive} from '~/lib/promo';
 import type {
   ProductCollectionSortKeys,
   ProductFilter,
@@ -209,6 +210,13 @@ async function loadCriticalData({context, params, request}: Route.LoaderArgs) {
       nodes: collection.products.nodes.map((card) => packCard(card)),
     },
   };
+
+  // The deals shelf is called "Deals" in Shopify all year; while the Black
+  // Friday window is open (lib/promo.ts) the storefront names it for the
+  // event, and drops the name again by itself when the window closes.
+  if (handle === BLACK_FRIDAY.collection && isBlackFridayLive(Date.now())) {
+    slimCollection.title = 'Black Friday Deals';
+  }
 
   if (!needsUnion) {
     return {collection: slimCollection, union: null, pageBy, pinned};

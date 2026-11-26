@@ -10,10 +10,14 @@ import {
   type HeroTile,
 } from '~/data/heroTiles';
 import {BLACK_FRIDAY} from '~/lib/promo';
+
 import {useLocalizedHref} from '~/lib/localizedLink';
 import {useTranslate} from '~/lib/useTranslate';
 
 export type HeroPrice = {amount: string; currencyCode: string};
+
+/** Which face the lead deals slide wears, or null for no lead slide. */
+export type HeroLead = 'black-friday' | 'sale' | null;
 
 const SWIPE_THRESHOLD = 45;
 /** Trackpad travel, in wheel pixels, that counts as one deliberate swipe. */
@@ -101,11 +105,14 @@ function useWideScreen(): boolean {
  */
 export function HeroCollage({
   prices,
-  blackFriday = false,
+  lead = null,
 }: {
   prices: Record<string, HeroPrice>;
-  /** From the homepage loader: true only inside the Black Friday window. */
-  blackFriday?: boolean;
+  /**
+   * From the homepage: 'black-friday' inside the event window, 'sale' after
+   * it while the deals keep running, null when there are no deals to lead.
+   */
+  lead?: HeroLead;
 }) {
   const t = useTranslate();
   const wide = useWideScreen();
@@ -119,7 +126,7 @@ export function HeroCollage({
   );
 
   const baseSlides = wide ? WIDE_SLIDES : NARROW_SLIDES;
-  const slides = blackFriday ? [BLACK_FRIDAY_SLIDE, ...baseSlides] : baseSlides;
+  const slides = lead ? [BLACK_FRIDAY_SLIDE, ...baseSlides] : baseSlides;
   const count = slides.length;
   const isVideo = slides[index]?.kind === 'video';
   const isLead = slides[index]?.kind === 'black-friday';
@@ -271,7 +278,11 @@ export function HeroCollage({
             >
               {slides.map((slide, position) =>
                 slide.kind === 'black-friday' ? (
-                  <BlackFridaySlide key="black-friday" eager={position === 0} />
+                  <BlackFridaySlide
+                    key="black-friday"
+                    eager={position === 0}
+                    event={lead === 'black-friday'}
+                  />
                 ) : slide.kind === 'video' ? (
                   <HeroVideo
                     key="video"
@@ -327,7 +338,9 @@ export function HeroCollage({
                 ? item.tile.label
                 : item.kind === 'video'
                   ? t('Clip')
-                  : t('Black Friday')
+                  : lead === 'black-friday'
+                    ? t('Black Friday')
+                    : t('Sale')
             }
             className={`hero-show-dot${dot === index ? ' is-on' : ''}`}
             onClick={() => setIndex(dot)}
@@ -608,7 +621,7 @@ function HeroVideo({
  * left side (bottom on a phone). Links to the smart collection of every
  * product with a reduced price — the deal needs no code.
  */
-function BlackFridaySlide({eager}: {eager: boolean}) {
+function BlackFridaySlide({eager, event}: {eager: boolean; event: boolean}) {
   const t = useTranslate();
   const localize = useLocalizedHref();
   const percent = String(BLACK_FRIDAY.percent);
@@ -636,10 +649,20 @@ function BlackFridaySlide({eager}: {eager: boolean}) {
         <b>-{percent}%</b>
       </span>
       <span className="bf-slide-copy">
-        <span className="bf-slide-eyebrow">{t('Black Friday · 26 – 30 Nov')}</span>
-        <span className="bf-slide-title">
-          Black<span>Friday</span>
+        {/* Same deals either way; only the event's name is dated. */}
+        <span className="bf-slide-eyebrow">
+          {event ? t('Black Friday · 26 – 30 Nov') : t('Limited time')}
         </span>
+        {event ? (
+          <span className="bf-slide-title">
+            Black<span>Friday</span>
+          </span>
+        ) : (
+          <span className="bf-slide-title">
+            {t('Sale')}
+            <span>{t('Deals')}</span>
+          </span>
+        )}
         <span className="bf-slide-sub">
           {t('Save up to')} <em>{percent}%</em>
         </span>

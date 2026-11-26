@@ -14,7 +14,7 @@ import {listingCache} from '~/lib/cache';
 import {CustomerLove, InstaStrip} from '~/components/SocialProof';
 import {useAside} from '~/components/Aside';
 import {PromoStrip} from '~/components/PromoStrip';
-import {isBlackFridayLive, isPromoLive} from '~/lib/promo';
+import {DEALS_LIVE, isBlackFridayLive, isPromoLive} from '~/lib/promo';
 import {BlackFridayBar} from '~/components/BlackFridayBar';
 import {HeroCollage, type HeroPrice} from '~/components/HeroCollage';
 import {
@@ -652,27 +652,34 @@ type HomeProducts = ReturnType<typeof loadDeferredData>['homeProducts'];
 
 export default function Homepage() {
   const data = useLoaderData<typeof loader>();
+  const heroLead = data.blackFriday
+    ? ('black-friday' as const)
+    : DEALS_LIVE
+      ? ('sale' as const)
+      : null;
   return (
     <div className="home">
       {/* Sales-first order: banner → category routes → proven bestsellers
           → price urgency (deals) → freshness → budget row → brand story →
           trust layer. Money pages up top, reassurance below. */}
-      {data.blackFriday ? (
-        <BlackFridayBar />
+      {/* Deals bar: "BLACK FRIDAY SALE" + clock during the event, plain
+          "SALE" after it while DEALS_LIVE — see lib/promo.ts. */}
+      {data.blackFriday || DEALS_LIVE ? (
+        <BlackFridayBar blackFriday={data.blackFriday} />
       ) : (
         <PromoStrip reserveDated={data.promoLive} />
       )}
       <Suspense
-        fallback={<HeroCollage prices={{}} blackFriday={data.blackFriday} />}
+        fallback={<HeroCollage prices={{}} lead={heroLead} />}
       >
         <Await
           resolve={data.homeProducts}
           errorElement={
-            <HeroCollage prices={{}} blackFriday={data.blackFriday} />
+            <HeroCollage prices={{}} lead={heroLead} />
           }
         >
           {({heroPrices}) => (
-            <HeroCollage prices={heroPrices} blackFriday={data.blackFriday} />
+            <HeroCollage prices={heroPrices} lead={heroLead} />
           )}
         </Await>
       </Suspense>
