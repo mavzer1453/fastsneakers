@@ -1,12 +1,9 @@
 import {useEffect, useRef, useState} from 'react';
-import {Link} from 'react-router';
 import {
   PROMO,
-  SECOND_PAIR,
   usePromoCountdown,
   type PromoTime,
 } from '~/lib/promo';
-import {useLocalizedHref} from '~/lib/localizedLink';
 import {useTranslate} from '~/lib/useTranslate';
 
 /**
@@ -55,17 +52,18 @@ export function PromoStrip({reserveDated = false}: {reserveDated?: boolean}) {
   /* `time` is null until the campaign's window opens and again once it
      closes, so the dated slide is simply absent from the list rather than
      rendered empty. */
-  const slides: Array<'bts' | 'second'> = [
-    ...(time ? (['bts'] as const) : []),
-    'second',
-  ];
+  // The standing "2nd pair" slide was removed on 26 Nov 2026: no such
+  // discount exists in Shopify, so the band advertised money off that
+  // checkout never gave. With no dated campaign live the band now renders
+  // nothing (see the early return below).
+  const slides: Array<'bts'> = time ? ['bts'] : [];
   const slideCount = slides.length;
   /* When the dated slide drops out mid-session the list shortens under the
      current index; clamp rather than render nothing. */
   const current = Math.min(slide, slideCount - 1);
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || slideCount < 2) return;
     const timer = setInterval(
       () => setSlide((n) => (n + 1) % slideCount),
       6000,
@@ -113,6 +111,8 @@ export function PromoStrip({reserveDated = false}: {reserveDated?: boolean}) {
     go(travelled < 0 ? 1 : -1);
   };
 
+  if (slideCount === 0 && !reserveDated) return null;
+
   return (
     <section
       className="promo-strip"
@@ -148,9 +148,6 @@ export function PromoStrip({reserveDated = false}: {reserveDated?: boolean}) {
                 <CodeSlide time={ZERO_TIME} sizer />
               </div>
             ) : null}
-            <div className="promo-strip-slide is-sizer" aria-hidden="true">
-              <SecondPairSlide sizer />
-            </div>
             <div
               className="promo-strip-slide"
               key={slides[current]}
@@ -160,28 +157,26 @@ export function PromoStrip({reserveDated = false}: {reserveDated?: boolean}) {
                   : undefined
               }
             >
-              {slides[current] === 'bts' && time ? (
-                <CodeSlide time={time} />
-              ) : (
-                <SecondPairSlide />
-              )}
+              {time ? <CodeSlide time={time} /> : null}
             </div>
           </div>
         </div>
 
-        <div className="promo-strip-dots" role="tablist" aria-label="Offers">
-          {slides.map((name, index) => (
-            <button
-              key={name}
-              type="button"
-              role="tab"
-              aria-selected={current === index}
-              aria-label={`Offer ${index + 1}`}
-              className={`promo-strip-dot${current === index ? ' is-on' : ''}`}
-              onClick={() => setSlide(index)}
-            />
-          ))}
-        </div>
+        {slideCount > 1 ? (
+          <div className="promo-strip-dots" role="tablist" aria-label="Offers">
+            {slides.map((name, index) => (
+              <button
+                key={name}
+                type="button"
+                role="tab"
+                aria-selected={current === index}
+                aria-label={`Offer ${index + 1}`}
+                className={`promo-strip-dot${current === index ? ' is-on' : ''}`}
+                onClick={() => setSlide(index)}
+              />
+            ))}
+          </div>
+        ) : null}
       </div>
     </section>
   );
@@ -263,37 +258,6 @@ function CodeSlide({time, sizer = false}: {time: PromoTime; sizer?: boolean}) {
             .replace('{days}', String(time.days))
             .replace('{hours}', String(time.hours))}
         </span>
-      )}
-    </>
-  );
-}
-
-function SecondPairSlide({sizer = false}: {sizer?: boolean}) {
-  const t = useTranslate();
-  const localize = useLocalizedHref();
-  return (
-    <>
-      <p className="promo-strip-title">
-        <span className="promo-strip-figure">{SECOND_PAIR.percent}%</span>
-        <span>{t('off your 2nd pair')}</span>
-      </p>
-      <p className="promo-strip-note">
-        {t('On sneakers · applied automatically, no code needed')}
-      </p>
-      {sizer ? (
-        <span className="promo-strip-cta">
-          {t('Shop sneakers')}
-          <span aria-hidden="true">→</span>
-        </span>
-      ) : (
-        <Link
-          className="promo-strip-cta"
-          to={localize('/collections/sneakers')}
-          prefetch="intent"
-        >
-          {t('Shop sneakers')}
-          <span aria-hidden="true">→</span>
-        </Link>
       )}
     </>
   );

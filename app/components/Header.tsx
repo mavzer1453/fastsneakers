@@ -33,7 +33,6 @@ import {
   usePromoCountdown,
   useBlackFridayCountdown,
   BLACK_FRIDAY,
-  SECOND_PAIR,
 } from '~/lib/promo';
 import {displayOptionName} from '~/components/QuickAdd';
 import {useLocalePrefix, useLocalizedHref} from '~/lib/localizedLink';
@@ -320,10 +319,6 @@ function AnnouncementBar() {
         ]
       : []),
     `⚡ ${t('Free Shipping Worldwide')}`,
-    `👟 ${t('All sneakers: 2nd pair {percent}% off').replace(
-      '{percent}',
-      String(SECOND_PAIR.percent),
-    )}`,
     `✦ ${t('Sourced from partners — every item 100% authentic')}`,
     `↩ ${t('{days}-day returns · secure checkout').replace(
       '{days}',

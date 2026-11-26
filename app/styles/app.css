@@ -1248,7 +1248,10 @@ button.reset:hover:not(:has(> *)) {
 */
 /* Rotating announcement bar — electric blue, single message, arrows */
 .announcement-bar {
-  background: linear-gradient(90deg, #a83208, var(--color-pop) 52%, #a367f5);
+  /* Calm black (26 Nov 2026, owner's choice): matches the logo and the Black
+     Friday bar; the orange-purple gradient fought with everything under it. */
+  background: #0b0b0b;
+  border-bottom: 1px solid #222;
   color: #fff;
   font-size: 0.8rem;
   font-weight: 600;

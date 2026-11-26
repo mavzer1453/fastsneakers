@@ -7,7 +7,6 @@ import {
   BsX,
 } from 'react-icons/bs';
 import {SHOP} from '~/data/shop';
-import {SECOND_PAIR} from '~/lib/promo';
 import {useTranslate} from '~/lib/useTranslate';
 
 /*
@@ -105,8 +104,8 @@ const OFFER_DISMISS_KEY = 'vc:collection-offer-off';
  * The lavender band across the top of every collection page: the two standing
  * promises and the sneaker offer, which is the part in purple.
  *
- * The percentage comes from `SECOND_PAIR` in ~/lib/promo, which has to match
- * the automatic discount configured in Shopify admin — see the note there.
+ * It no longer advertises the "2nd pair" offer (removed 26 Nov 2026): no such
+ * discount exists in Shopify. Only promise what checkout actually gives.
  *
  * It renders on the server and for the first client paint, then hides itself
  * if this visitor already closed it. Reading sessionStorage during render
@@ -141,12 +140,7 @@ export function CollectionOfferBar() {
       <p className="collection-offer-text">
         {t('Free tracked shipping on all orders')} ·{' '}
         {t('Pay later with Klarna')} ·{' '}
-        <strong>
-          {t('All sneakers: 2nd pair {percent}% off').replace(
-            '{percent}',
-            String(SECOND_PAIR.percent),
-          )}
-        </strong>
+        <strong>{t('Every item 100% authentic')}</strong>
       </p>
       <button
         type="button"
