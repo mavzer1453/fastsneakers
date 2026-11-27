@@ -60,18 +60,6 @@ export const meta: Route.MetaFunction = ({matches, location}) => {
           url: origin,
           email: SHOP.email,
           ...(SHOP.phone ? {telephone: SHOP.phone.href.replace('tel:', '')} : {}),
-          ...(SHOP.vatId ? {vatID: SHOP.vatId.replace(/[\s.]/g, '')} : {}),
-          ...(SHOP.address
-            ? {
-                address: {
-                  '@type': 'PostalAddress' as const,
-                  streetAddress: SHOP.address[0],
-                  postalCode: '8531',
-                  addressLocality: 'Harelbeke',
-                  addressCountry: 'BE',
-                },
-              }
-            : {}),
           hasMerchantReturnPolicy: {
             '@type': 'MerchantReturnPolicy' as const,
             applicableCountry: 'BE',

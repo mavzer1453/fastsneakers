@@ -548,8 +548,12 @@ export function Footer({selectedLocale}: FooterProps) {
       <div className="footer-bottom">
         <div className="footer-bottom-inner">
           <div className="footer-legal">
-            {/* Company details (legal name, address, KBO/VAT) live on the Legal
-                notice page only — linked in BOTTOM_LINKS below. */}
+            {/* Legal name, address and KBO/VAT live on the Legal notice page
+                only (linked in BOTTOM_LINKS below); the e-mail stays visible. */}
+            <p>
+              {SHOP.name} ·{' '}
+              <a href={`mailto:${SHOP.email}`}>{SHOP.email}</a>
+            </p>
             <p>
               {t(
                 '{name} is an independent reseller and is not affiliated with, sponsored by or authorised by the brands offered on this website.',
