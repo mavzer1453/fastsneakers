@@ -72,6 +72,8 @@ export default async function handleRequest(
     // the sheet opens but every request inside it is blocked.
     connectSrc: [
       "'self'",
+      // Order tracking backend (Cloudflare Worker) used by /pages/track-order.
+      'https://fastsneaker-track.mmavzer1453.workers.dev',
       'https://shopify.com',
       'https://cdn.shopify.com',
       'https://analytics.tiktok.com',

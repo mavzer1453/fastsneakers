@@ -17,7 +17,7 @@ import type {
 /**
  * "Track your order" — a component-for-component port of the page that runs
  * at mera-fashion.com/pages/track (same rules, same warm copy, same layout),
- * in Fast Sneakers' colours, talking to our own /api/track instead of a worker.
+ * in Fast Sneakers' colours, talking to the shared fastsneaker-track Cloudflare Worker.
  *
  * States:  A) the form (hero + card + trust row)
  *          B) the result (hello card → notice → per-parcel summary, estimated
@@ -27,7 +27,11 @@ import type {
  * is rendered through React (never innerHTML), so nothing needs escaping.
  */
 
-const API = '/api/track';
+// Same Cloudflare Worker as checkout.fastsneaker.com/pages/track, so both pages
+// show identical, sanitised results (and the signed e-mail links work on both).
+// The Worker allows this origin via ALLOWED_ORIGINS; the URL is also in the CSP
+// connect-src list in entry.server.tsx.
+const API = 'https://fastsneaker-track.mmavzer1453.workers.dev/api/track';
 const FAMILY = SHOP.name;
 
 export const links: Route.LinksFunction = () => [
@@ -341,7 +345,7 @@ function Parcel({p, orderName}: {p: TrackParcel; orderName: string}) {
         <ol className="VtStepper">
           {v.steps.map((s, i) => (
             <li
-              key={s.key}
+              key={s.key ?? i}
               className={
                 'VtStepper__Step' +
                 (s.done ? ' is-done' : '') +
