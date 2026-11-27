@@ -656,6 +656,7 @@ export const SV: Record<string, string> = {
   "{name} is an independent retailer. We are not affiliated with, sponsored by or authorised by the brands we sell; brand names and trademarks belong to their owners.": "{name} är en oberoende återförsäljare. Vi är inte anslutna till, sponsrade eller auktoriserade av de märken vi säljer; varumärken tillhör sina ägare.",
   "Who we are": "Vilka vi är",
   "{name} is run by {legal}, a registered Belgian business.": "{name} drivs av {legal}, ett registrerat belgiskt företag.",
+  "{name} is a registered Belgian business.": "{name} är ett registrerat belgiskt företag.",
   "VAT number": "Momsregistreringsnummer",
   "Staff pick": "Personalens val",
   "Staff picks": "Personalens val",

@@ -242,30 +242,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {SHOP.address && (
-            <div className="contact-card">
-              <h3>{t('Address details')}</h3>
-              <address className="contact-address">
-                <span>
-                  <strong>{SHOP.legalName}</strong>
-                </span>
-                {SHOP.address.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-                {SHOP.vatId ? (
-                  <span className="contact-address-vat">
-                    {t('VAT:')} {SHOP.vatId}
-                  </span>
-                ) : null}
-                {SHOP.registrationId ? (
-                  <span className="contact-address-vat">
-                    {SHOP.registrationId}
-                  </span>
-                ) : null}
-              </address>
-            </div>
-          )}
-
           <div className="contact-card contact-card--soft">
             <h3 className="contact-card-heading">
               <span className="contact-detail-icon" aria-hidden="true">

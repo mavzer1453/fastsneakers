@@ -57,7 +57,6 @@ export const meta: Route.MetaFunction = ({matches, location}) => {
           '@context': 'https://schema.org' as const,
           '@type': 'OnlineStore' as const,
           name: SHOP.name,
-          legalName: SHOP.legalName,
           url: origin,
           email: SHOP.email,
           ...(SHOP.phone ? {telephone: SHOP.phone.href.replace('tel:', '')} : {}),

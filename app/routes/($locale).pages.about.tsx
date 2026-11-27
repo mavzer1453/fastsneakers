@@ -119,19 +119,17 @@ export default function AboutPage() {
         <h2>{t('Who we are')}</h2>
         <div className="prose">
           <p>
-            {t('{name} is run by {legal}, a registered Belgian business.')
-              .replace('{name}', SHOP.name)
-              .replace('{legal}', SHOP.legalName)}
+            {t('{name} is a registered Belgian business.').replace(
+              '{name}',
+              SHOP.name,
+            )}
           </p>
           <ul>
-            {SHOP.address ? <li>{SHOP.address.join(', ')}</li> : null}
-            {SHOP.vatId ? (
-              <li>
-                {t('VAT number')}: {SHOP.vatId}
-              </li>
-            ) : null}
             <li>
               <a href={`mailto:${SHOP.email}`}>{SHOP.email}</a>
+            </li>
+            <li>
+              <a href="/policies/legal-notice">{t('Legal notice')}</a>
             </li>
             {SHOP.phone ? (
               <li>

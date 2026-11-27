@@ -656,6 +656,7 @@ export const ES: Record<string, string> = {
   "{name} is an independent retailer. We are not affiliated with, sponsored by or authorised by the brands we sell; brand names and trademarks belong to their owners.": "{name} es un minorista independiente. No estamos afiliados, patrocinados ni autorizados por las marcas que vendemos; los nombres de marca pertenecen a sus propietarios.",
   "Who we are": "Quiénes somos",
   "{name} is run by {legal}, a registered Belgian business.": "{name} está gestionado por {legal}, una empresa belga registrada.",
+  "{name} is a registered Belgian business.": "{name} es una empresa belga registrada.",
   "VAT number": "Número de IVA",
   "Staff pick": "Selección del equipo",
   "Staff picks": "Selección del equipo",

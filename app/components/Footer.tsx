@@ -548,22 +548,12 @@ export function Footer({selectedLocale}: FooterProps) {
       <div className="footer-bottom">
         <div className="footer-bottom-inner">
           <div className="footer-legal">
-            {SHOP.address ? (
-              <p>
-                {SHOP.legalName} ({t('trading as')} {SHOP.name}),{' '}
-                {SHOP.address.join(', ')} · {SHOP.email}
-                {SHOP.vatId ? (
-                  <>
-                    {' · '}
-                    {t('Company registration / VAT')}: {SHOP.vatId}
-                  </>
-                ) : null}
-              </p>
-            ) : null}
+            {/* Company details (legal name, address, KBO/VAT) live on the Legal
+                notice page only — linked in BOTTOM_LINKS below. */}
             <p>
               {t(
                 '{name} is an independent reseller and is not affiliated with, sponsored by or authorised by the brands offered on this website.',
-              ).replace('{name}', SHOP.legalName)}
+              ).replace('{name}', SHOP.name)}
             </p>
           </div>
           <div className="footer-bottom-row">

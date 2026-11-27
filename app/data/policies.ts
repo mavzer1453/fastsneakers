@@ -429,11 +429,9 @@ export const POLICIES: PolicyEntry[] = [
 
       <h2>Get in touch</h2>
       <ul>
-        <li><strong>Business name:</strong> ${SHOP.legalName}, trading as ${SHOP.name}</li>
-        ${SHOP.address ? `<li><strong>Address:</strong> ${SHOP.address.join(', ')}</li>` : ''}
+        <li><strong>Business name:</strong> ${SHOP.name}</li>
         <li><strong>Email:</strong> ${mail()}</li>
         ${SHOP.phone ? `<li><strong>Phone:</strong> <a href="${SHOP.phone.href}">${SHOP.phone.display}</a></li>` : ''}
-        ${SHOP.vatId ? `<li><strong>VAT number:</strong> ${SHOP.vatId}</li>` : ''}
       </ul>
 
       <h2>Response times</h2>
