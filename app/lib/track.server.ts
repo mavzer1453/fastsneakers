@@ -65,6 +65,8 @@ export interface TrackEta {
   peak: number | null;
   /** What the window was based on. */
   basis: string;
+  /** Short line under the dates, e.g. "Your exact delivery date will follow…". */
+  note?: string;
 }
 
 export interface TrackView {
@@ -76,6 +78,8 @@ export interface TrackView {
   message: string;
   steps: TrackStep[];
   localCarrier: string | null;
+  /** The local courier is bringing it to the door right now. */
+  outForDelivery?: boolean;
   /** The latest event is a failed delivery attempt (not delivered yet). */
   attempt: boolean;
   details: Array<{text: string; at: number}>;

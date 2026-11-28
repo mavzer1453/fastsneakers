@@ -289,11 +289,7 @@ function Eta({eta}: {eta: TrackEta}) {
               </>
             )}
           </span>
-          {mode === 'range' ? (
-            <span className="VtEta__Note">We’ll show you a more exact day as soon as your parcel arrives in your country.</span>
-          ) : mode === 'today' ? (
-            <span className="VtEta__Note">Your parcel is out for delivery.</span>
-          ) : null}
+          {eta.note ? <span className="VtEta__Note">{eta.note}</span> : null}
         </div>
       </div>
       {showTiles ? (
@@ -345,7 +341,14 @@ function Timeline({details}: {details: TrackView['details']}) {
 
 function Parcel({p, orderName}: {p: TrackParcel; orderName: string}) {
   const v = p.view;
-  const pill = v.stage === 4 ? 'Delivered' : v.stage === 3 && !v.special ? 'Out for delivery' : PILL[v.tone] || 'In progress';
+  const pill =
+    v.stage === 4
+      ? 'Delivered'
+      : v.stage === 3 && !v.special
+        ? v.outForDelivery
+          ? 'Out for delivery'
+          : 'In your country'
+        : PILL[v.tone] || 'In progress';
   return (
     <>
       <div className={`VtSum VtSum--${v.tone || 'calm'}`}>

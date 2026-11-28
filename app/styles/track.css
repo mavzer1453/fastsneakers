@@ -195,3 +195,10 @@
 @media (prefers-reduced-motion: reduce) {
   .VtMascot, .VtWave, .VtTrack__Spinner, .VtTrack__Eyebrow i, .VtResult { animation: none; }
 }
+
+/* 6 steps on small screens */
+@media (max-width: 520px) {
+  .VtStepper__Dot { width: 30px; height: 30px; }
+  .VtStepper__Step:not(:last-child)::after { top: 14px; left: calc(50% + 15px); right: calc(-50% + 15px); }
+  .VtStepper__Label { font-size: 10.5px; line-height: 1.25; padding: 0 1px; }
+}
