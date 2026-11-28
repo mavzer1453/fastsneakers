@@ -162,6 +162,7 @@
 .VtEta__Kicker { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--vt-deep); }
 .VtEta__Range { display: block; margin-top: 3px; font-size: 21px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; color: var(--vt-ink); }
 .VtEta__Range em { font-style: normal; color: var(--vt-deep); }
+.VtEta__Note { display: block; margin-top: 5px; font-size: 13px; line-height: 1.45; color: var(--vt-muted, #80706b); }
 .VtEta__Days { position: relative; display: flex; gap: 7px; margin: 16px 0 0; }
 .VtEta__Day { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 4px 9px; border-radius: 15px; background: #fff; border: 1px solid #fbe8e2; color: var(--vt-grey); font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
 .VtEta__Day b { font-size: 19px; line-height: 1; letter-spacing: -.02em; color: var(--vt-ink); font-weight: 700; }

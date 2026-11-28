@@ -98,13 +98,15 @@ export function windowFor(order: Pick<AdminOrder, 'createdAt' | 'fulfillments' |
     placedAt: Date.parse(order.createdAt),
     now: 0,
   })!;
-  return {days: eta.days, start: eta.days[0], end: eta.days[4], peak: eta.peak};
+  const d = eta.days ?? [];
+  return {days: d, start: d[0], end: d[4], peak: eta.peak ?? d[2]};
 }
 
 /** The next 5 delivery days — what a late customer is told. */
 export function fallbackWindow(now = Date.now()): Window {
   const eta = buildEta({country: null, landedAt: null, shippedAt: null, placedAt: utcDay(now) - 30 * DAY, now})!;
-  return {days: eta.days, start: eta.days[0], end: eta.days[4], peak: eta.peak};
+  const d = eta.days ?? [];
+  return {days: d, start: d[0], end: d[4], peak: eta.peak ?? d[2]};
 }
 
 // -------------------------------------------------------------- emails ---

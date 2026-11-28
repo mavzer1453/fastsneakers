@@ -243,12 +243,20 @@ function HeroCard({tone, kicker, headline, message}: {tone: TrackView['tone']; k
   );
 }
 
-/** Estimated arrival: 5 delivery-day tiles, peak day highlighted, today outlined. */
+/**
+ * Estimated arrival. Before the parcel is in the customer's country only a
+ * from–to range is shown; once it has landed, 5 delivery-day tiles with the
+ * most likely day highlighted; "Today" when it is out for delivery.
+ */
 function Eta({eta}: {eta: TrackEta}) {
   const today = todayUtc();
-  const start = eta.days[0];
-  const end = eta.days[eta.days.length - 1];
-  const sameMonth = monName(start) === monName(end);
+  const days = eta.days ?? [];
+  const from = eta.from ?? days[0];
+  const to = eta.to ?? days[days.length - 1];
+  if (from == null || to == null) return null;
+  const mode = eta.mode ?? 'days';
+  const sameMonth = monName(from) === monName(to);
+  const showTiles = mode === 'days' && days.length > 1;
   return (
     <div className="VtEta">
       <div className="VtEta__Top">
@@ -262,31 +270,48 @@ function Eta({eta}: {eta: TrackEta}) {
         <div>
           <span className="VtEta__Kicker">Estimated arrival</span>
           <span className="VtEta__Range">
-            <em>
-              {dayName(start)} {dayNo(start)}
-              {sameMonth ? '' : ` ${monName(start)}`}
-            </em>
-            {' – '}
-            <em>
-              {dayName(end)} {dayNo(end)} {monName(end)}
-            </em>
+            {mode === 'today' ? (
+              <em>Today</em>
+            ) : from === to ? (
+              <em>
+                {dayName(from)} {dayNo(from)} {monName(from)}
+              </em>
+            ) : (
+              <>
+                <em>
+                  {dayName(from)} {dayNo(from)}
+                  {sameMonth ? '' : ` ${monName(from)}`}
+                </em>
+                {' – '}
+                <em>
+                  {dayName(to)} {dayNo(to)} {monName(to)}
+                </em>
+              </>
+            )}
           </span>
+          {mode === 'range' ? (
+            <span className="VtEta__Note">We’ll show you a more exact day as soon as your parcel arrives in your country.</span>
+          ) : mode === 'today' ? (
+            <span className="VtEta__Note">Your parcel is out for delivery.</span>
+          ) : null}
         </div>
       </div>
-      <div className="VtEta__Days" aria-hidden="true">
-        {eta.days.map((t) => (
-          <div
-            key={t}
-            className={
-              'VtEta__Day' + (t === today ? ' is-today' : '') + (t < today ? ' is-past' : '') + (t === eta.peak ? ' is-peak' : '')
-            }
-          >
-            <span>{dayName(t)}</span>
-            <b>{dayNo(t)}</b>
-            <small>{t === today ? 'Today' : monName(t)}</small>
-          </div>
-        ))}
-      </div>
+      {showTiles ? (
+        <div className="VtEta__Days" aria-hidden="true">
+          {days.map((t) => (
+            <div
+              key={t}
+              className={
+                'VtEta__Day' + (t === today ? ' is-today' : '') + (t < today ? ' is-past' : '') + (t === eta.peak ? ' is-peak' : '')
+              }
+            >
+              <span>{dayName(t)}</span>
+              <b>{dayNo(t)}</b>
+              <small>{t === eta.peak ? 'Likely' : t === today ? 'Today' : monName(t)}</small>
+            </div>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }

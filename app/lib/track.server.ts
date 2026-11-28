@@ -54,12 +54,17 @@ export interface TrackStep {
 }
 
 export interface TrackEta {
-  /** The 5 delivery days (UTC midnight, ms), Sundays skipped. */
-  days: number[];
-  /** Most likely day (one of `days`). */
-  peak: number;
+  /** 'range' = only from–to (not in the destination country yet); 'days' = day tiles; 'today' = out for delivery. */
+  mode?: 'range' | 'days' | 'today';
+  /** First and last possible day (UTC midnight, ms). */
+  from?: number;
+  to?: number;
+  /** The delivery days (UTC midnight, ms), Sundays skipped. Null in range mode before shipping. */
+  days: number[] | null;
+  /** Most likely day (one of `days`), or null when not known yet. */
+  peak: number | null;
   /** What the window was based on. */
-  basis: 'landed' | 'shipped' | 'placed' | 'fallback';
+  basis: string;
 }
 
 export interface TrackView {
